@@ -10,6 +10,7 @@
 	if (!isset($_GET['action'])){
 		$affiche = "presentation.php";
 	} 
+	
 	else {
 		switch ($_GET['action']) {
 			case (""):
