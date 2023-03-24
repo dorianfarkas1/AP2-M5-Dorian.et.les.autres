@@ -42,11 +42,11 @@
 </head>
 
 	<header>
-		<?php include "$racine/Vue/bandeau.php"; ?>
+		<?php include "Vue/bandeau.php"; ?>
 	</header>
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<?php include "$racine/Vue/menu.php"; ?>
+		<?php include "Vue/menu.php"; ?>
 	</nav>
     <?php
     include "getRacine.php";    
