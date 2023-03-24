@@ -40,7 +40,6 @@
 
 
 </head>
-<body>
 
 	<header>
 		<?php include "$racine/Vue/bandeau.php"; ?>
@@ -69,7 +68,7 @@
 		<?php include "$racine/Vue/pied_page.php"; ?>
 	</footer>
 	<!-- Footer -->
-</body>
+
 </html>
 
 
