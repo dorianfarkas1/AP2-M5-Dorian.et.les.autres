@@ -2,17 +2,19 @@
 
 function controleurPrincipal(string $action) : string {
     $lesActions = array();
-    $lesActions["defaut"] = "presentation.php";
-    $lesActions["afficheBateau"] = "visuBateaux.php";
-    $lesActions["affichePort"] = "visuPorts.php";
-    $lesActions["afficheSecteur"] = "visuSecteurs.php";
-    $lesActions["afficheLiaison"] = "liaison.php";
-    $lesActions["afficheTraversee"] = "trave.php";
-    $lesActions["afficheTarif"] = "tarifs.php";
-    $lesActions["modifieBateau"] = "crudBateau.php";
-    $lesActions["bateauTraitement"] = "crudBateau/crudBateauTraitement.php";
-    $lesActions["modifiePort"] = "crudPort.php";
-    $lesActions["portTraitement"] = "crudPort/crudPortTraitement.php";
+    $lesActions["defaut"] = "CTRpresentation.php";
+    $lesActions["afficheBateau"] = "CTRvisuBateaux.php";
+    $lesActions["affichePort"] = "CTRvisuPorts.php";
+    $lesActions["afficheSecteur"] = "CTRvisuSecteurs.php";
+    $lesActions["afficheLiaison"] = "CTRliaison.php";
+    $lesActions["afficheTraversee"] = "CTRtrave.php";
+    $lesActions["afficheTarif"] = "CTRtarifs.php";
+    $lesActions["modifieBateau"] = "CTRcrudBateau.php";
+    $lesActions["bateauTraitement"] = "CTRcrudBateau/crudBateauTraitement.php";
+    $lesActions["modifiePort"] = "CTRcrudPort.php";
+    $lesActions["portTraitement"] = "CTRcrudPort/crudPortTraitement.php";
+    $lesActions["connexion"] = "connexion.php";
+    $lesActions["déconnexion"] = "déconnexion.php";
 
 
     if (array_key_exists ( $action , $lesActions )){

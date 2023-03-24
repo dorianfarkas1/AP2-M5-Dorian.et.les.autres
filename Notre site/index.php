@@ -41,9 +41,6 @@
 
 </head>
 
-	<header>
-		<?php include "Vue/bandeau.php"; ?>
-	</header>
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<?php include "Vue/menu.php"; ?>
@@ -64,9 +61,6 @@
     $fichier = controleurPrincipal($action);
     include "$racine/Controleur/$fichier"; ?>
 
-    <footer class="page-footer font-small blue pt-4">
-		<?php include "$racine/Vue/pied_page.php"; ?>
-	</footer>
 	<!-- Footer -->
 
 </html>
