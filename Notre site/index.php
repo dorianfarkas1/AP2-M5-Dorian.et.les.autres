@@ -3,12 +3,7 @@
 ?>
 <!doctype html>
 <html lang="fr">
-<?php
-	include('routes.php');
-?>
-
-
-
+    
 <head>
  	<meta charset="utf-8" />
 	<link rel="shortcut icon" href="skin/favicon.ico" />
