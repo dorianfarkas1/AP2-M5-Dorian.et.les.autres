@@ -4,10 +4,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
         <title><?php echo $titre ?></title>
         <style type="text/css">
-            @import url("css/base.css");
-            @import url("css/form.css");
-            @import url("css/cgu.css");
-            @import url("css/corps.css");
+            @import url("css/style.css");
+           
         </style>
         <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     </head>
@@ -19,11 +17,10 @@
             <li><a href="./?action=recherche"><img src="images/rechercher.png" alt="loupe" />Recherche</a></li>
             <li></li> 
 
-            <li id="logo"><a href="./?action=accueil"><img src="images/logoBarre.png" alt="logo" /></a></li>
-
             <li></li>
-            <li><a href="./?action=deconnexion"><img src="images/profil.png" alt="loupe" />deconnexion</a></li>
+            <li><a href="./?action=recherche"><img src="images/rechercher.png" alt="loupe" />Recherche</a></li>
 
+            <li><a href="./?action=deconnexion"><img src="images/profil.png" alt="loupe" />deconnexion</a></li>
 
             <li><a href="./?action=connexion"><img src="images/profil.png" alt="loupe" />Connexion</a></li>
 
