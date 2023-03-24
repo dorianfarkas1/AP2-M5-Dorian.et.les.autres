@@ -8,6 +8,7 @@ function controleurPrincipal(string $action) : string {
     $lesActions["afficheSecteur"] = "visuSecteurs.php";
     $lesActions["afficheLiaison"] = "liaison.php";
     $lesActions["afficheTraversee"] = "trave.php";
+    $lesActions["afficheTarif"] = "tarifs.php";
     $lesActions["modifieBateau"] = "crudBateau.php";
     $lesActions["bateauTraitement"] = "crudBateau/crudBateauTraitement.php";
     $lesActions["modifiePort"] = "crudPort.php";
