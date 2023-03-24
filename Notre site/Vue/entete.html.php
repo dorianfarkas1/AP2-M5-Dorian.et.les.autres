@@ -14,7 +14,6 @@
 
         <ul id="menuGeneral">
             <li><a href="./?action=accueil">Accueil</a></li> 
-            <li><a href="./?action=recherche"><img src="images/rechercher.png" alt="loupe" />Recherche</a></li>
             <li></li> 
 
             <li></li>
