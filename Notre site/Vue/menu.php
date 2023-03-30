@@ -20,6 +20,9 @@
 		<li class="nav-item">
 			<a class="nav-link" href="index.php?action=traversée">Traversées</a>
 		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="index.php?action=tarif">Les tarifs</a>
+		</li>
 
 
 		<li class="nav-item dropdown">
@@ -41,9 +44,7 @@
 		<li class="nav-item">
 			<a class="nav-link disabled" href="index.php?action=deconnexion" tabindex="-1" aria-disabled="true">deconnexion</a>
 		</li>
-		<li class="nav-item">
-			<a class="nav-link" href="index.php?action=tarif">Les tarifs</a>
-		</li>
+		
 	</ul>
 	</div>
 </div>

@@ -1,6 +1,4 @@
-﻿<?php
-	include_once('BDD/connectBdd.php'); // cette page a besoin d'inclure le code qui crée l'objet PDO $connexion qui permet d'interroger la BDD
-?>
+﻿
 	
 <h1 class="page-header text-center">Liste des gares maritimes</h1>
 
