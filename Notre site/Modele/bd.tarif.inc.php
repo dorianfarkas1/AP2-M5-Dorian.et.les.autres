@@ -21,6 +21,26 @@ function getPeriode() : array {
     return $resultat;
 }
 
+function getTarifs() : array {
+    $resultat = array();
+
+    try {
+        $cnx = connexionPDO();
+        $req = $cnx->prepare("SELECT * from tarification");
+        $req->execute();
+
+        $ligne = $req->fetch(PDO::FETCH_ASSOC);
+        while ($ligne) {
+            $resultat[] = $ligne;
+            $ligne = $req->fetch(PDO::FETCH_ASSOC);
+        }
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return $resultat;
+}
+
 function getTarifsByPeriode(string $idPeriode) : array {
     $resultat = array(); 
 
@@ -50,6 +70,9 @@ if ($includes[0] == __FILE__ ) {
 
     echo "getPeriode() : \n";
     print_r(getPeriode());
+
+    echo "getTarifs() : \n";
+    print_r(getTarifs());
 
     echo "getTarifsByPeriode(idPeriode) : \n";
     print_r(getTarifsByPeriode("HF"));

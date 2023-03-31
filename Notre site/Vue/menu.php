@@ -15,13 +15,13 @@
 			<a class="nav-link" href="index.php?action=afficheSecteur">Destinations</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="index.php?action=liaison">Liaisons</a>
+			<a class="nav-link" href="index.php?action=afficheLiaison">Liaisons</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="index.php?action=traversée">Traversées</a>
+			<a class="nav-link" href="index.php?action=afficheTraversee">Traversees</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="index.php?action=afficheTarif">Les tarifs</a>
+			<a class="nav-link" href="index.php?action=afficheTarif">Tarifs</a>
 		</li>
 
 

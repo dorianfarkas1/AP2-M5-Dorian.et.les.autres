@@ -46,7 +46,6 @@
 						<td><?= $unBateau['description'] ?></td>
 						<td><?= $unBateau['longueur'] ?></td>
 						<td><?= $unBateau['largeur'] ?></td>
-
 					</tr>
 				<?php
 				}

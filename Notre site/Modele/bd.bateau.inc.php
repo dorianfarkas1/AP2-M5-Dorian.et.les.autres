@@ -83,7 +83,7 @@ function getBateauByNiveauPMR(string $niveauPMR) : array {
 
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("select * from bateau b join niveau_accessibilite n on b.niveauPMR = n.idNiveau where niveauPMR = :niveauPMR ORDER BY b.nom");
+        $req = $cnx->prepare("SELECT * from bateau b join niveau_accessibilite n on b.niveauPMR = n.idNiveau where niveauPMR = :niveauPMR ORDER BY b.nom");
         $req->bindValue(':niveauPMR', "%".$niveauPMR."%", PDO::PARAM_STR);
         $req->execute();
 

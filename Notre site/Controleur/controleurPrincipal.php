@@ -7,7 +7,7 @@ function controleurPrincipal(string $action) : string {
     $lesActions["affichePort"] = "CTRvisuPorts.php";
     $lesActions["afficheSecteur"] = "CTRvisuSecteurs.php";
     $lesActions["afficheLiaison"] = "CTRliaison.php";
-    $lesActions["afficheTraversee"] = "CTRtrave.php";
+    $lesActions["afficheTraversee"] = "CTRtraversee.php";
     $lesActions["afficheTarif"] = "CTRtarifs.php";
     $lesActions["modifieBateau"] = "CTRcrudBateau.php";
     $lesActions["bateauTraitement"] = "CTRcrudBateau/crudBateauTraitement.php";
