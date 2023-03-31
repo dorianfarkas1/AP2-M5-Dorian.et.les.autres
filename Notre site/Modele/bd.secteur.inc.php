@@ -1,12 +1,27 @@
 <?php
 include_once "bd.inc.php";
 
-function getPorts() : array {
+function getSecteurById(int $id) : array {
+    try {
+        $cnx = connexionPDO();
+        $req = $cnx->prepare("select * from secteur where id=:id");
+        $req->bindValue(':id', $id, PDO::PARAM_INT);
+
+        $req->execute();
+
+        $resultat = $req->fetch(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return $resultat;
+}
+function getSecteurs() : array {
     $resultat = array();
 
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("select * from port");
+        $req = $cnx->prepare("select * from secteur");
         $req->execute();
 
         $ligne = $req->fetch(PDO::FETCH_ASSOC);
@@ -21,34 +36,13 @@ function getPorts() : array {
     return $resultat;
 }
 
-function getPortsByNomC(string $nomC) : array {
+function getSecteurByNomS(string $nomS) : array {
     $resultat = array();
 
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("select * from port where nom_court like :nom_court");
-        $req->bindValue(':nom_court', "%".$nomC."%", PDO::PARAM_STR);
-        $req->execute();
-
-        $ligne = $req->fetch(PDO::FETCH_ASSOC);
-        while ($ligne) {
-            $resultat[] = $ligne;
-            $ligne = $req->fetch(PDO::FETCH_ASSOC);
-        }
-    } catch (PDOException $e) {
-        print "Erreur !: " . $e->getMessage();
-        die();
-    }
-    return $resultat;
-}
-
-function getRestosByAdresse(string $adresse) : array {
-    $resultat = array();
-
-    try {
-        $cnx = connexionPDO();
-        $req = $cnx->prepare("select * from resto where adresse like :adresse");
-        $req->bindValue(':adresse', "%".$adresse."%", PDO::PARAM_STR);
+        $req = $cnx->prepare("select * from secteur where nom like :nom");
+        $req->bindValue(':nom', "%".$nomS."%", PDO::PARAM_STR);
         $req->execute();
 
         $ligne = $req->fetch(PDO::FETCH_ASSOC);
@@ -70,13 +64,14 @@ if ($includes[0] == __FILE__ ) {
     header('Content-Type:text/plain');
 
 
-    echo "getPorts() : \n";
-    print_r(getPorts());
+    echo "getSecteurs() : \n";
+    print_r(getSecteurs());
 
-    echo "getPortsByNomC(nomC) : \n";
-    print_r(getPortsByNomC("Le Palais"));
+    echo "getSecteurById(id) : \n";
+    print_r(getSecteurById(1));
 
-    echo "getRestosByAdresse(adresse) : \n";
-    print_r(getRestosByAdresse("Quai Bonnelle 56360 Le Palais"));
+    echo "getSecteurByNomS(nomS) : \n";
+    print_r(getSecteurByNomS("Le Palais"));
+
 }
 ?>
