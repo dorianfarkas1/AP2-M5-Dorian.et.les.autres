@@ -1,3 +1,4 @@
+
 <?php
 	include_once('BDD/connectBdd.php'); // cette page a besoin d'inclure le code qui crée l'objet PDO $connexion qui permet d'interroger la BDD
 ?>
@@ -38,42 +39,42 @@
 		<table id="myTable" class="table table-bordered table-striped">
 			<thead>
 				<th>Nom</th>
-				<th>Photo</th>
 				<th>Description</th>
+				<th>Photo</th>
 				<th></th>
 			</thead>
 			<tbody>
 				<?php
 					
 					include_once('BDD/connectBdd.php');
-					$SQL = "SELECT * FROM bateau";
+					$SQL = "SELECT * FROM port";
 					$stmt = $connexion->prepare($SQL);
 					$stmt->execute(array()); // on passe dans le tableaux les paramètres si il y en a à fournir (aucun ici)
-					$lesBateaux = $stmt->fetchAll();
-					foreach ($lesBateaux as $row){
+					$lesPorts = $stmt->fetchAll();
+					foreach ($lesPorts as $row){
 						?>
 						<tr>
-							<td><?= $row['id'] ?></td>
 							<td><?= $row['nom'] ?></td>
-							<td><img height='100px' src='images/bateaux/<?= $row['photo'] ?>'></td>
+							<td><?= substr($row['description'], 0, 50)."..." ?></td>
+							<td><img height='100px' src='images/ports/<?= $row['photo'] ?>'></td>
 							<td>
-								<button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#edit_<?= $row['id'] ?>">
+								<button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#edit_<?= str_replace(" ", "_", $row['nom_court']); ?>">
 									<i class="bi bi-pencil-square"></i> Modifier
 								</button>
-								<button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#delete_<?= $row['id'] ?>">
+								<button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#delete_<?= str_replace(" ", "_", $row['nom_court']); ?>">
 									<i class="bi bi-trash3"></i> Supprimer
 								</button>
 							</td>
 						</tr>
 						<?php
-						include('crudBateau/edit_delete_modal.php');
+						include('crudPort/edit_delete_modal.php');
 					}
 				?>
 			</tbody>
 		</table>
 	</div>
 
-<?php include('crudBateau/add_modal.php') ?>
+<?php include('crudPort/add_modal.php') ?>
 
 
 <!-- generate datatable on our table -->
@@ -83,3 +84,4 @@ $(document).ready(function(){
     $('#myTable').DataTable();
 });
 </script>
+

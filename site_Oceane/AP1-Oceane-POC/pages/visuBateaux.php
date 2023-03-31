@@ -57,7 +57,6 @@ if ((isset($_POST['niveauPMR'])) && ($_POST['niveauPMR'] != "")){
 			<th>Description</th>
 			<th>Longueur</th>
 			<th>Largeur</th>
-
 		</thead>
 		<tbody>
 			<?php
@@ -70,7 +69,6 @@ if ((isset($_POST['niveauPMR'])) && ($_POST['niveauPMR'] != "")){
 						<td><?= $unBateau['description'] ?></td>
 						<td><?= $unBateau['longueur'] ?></td>
 						<td><?= $unBateau['largeur'] ?></td>
-
 					</tr>
 				<?php
 				}
@@ -78,3 +76,16 @@ if ((isset($_POST['niveauPMR'])) && ($_POST['niveauPMR'] != "")){
 		</tbody>
 	</table>
 </div>
+
+
+if(($_FILES['photo'])){
+			$tmpName = $_FILES['photo']['tmp_name'];
+			$photoName = $_FILES['photo']['name'];
+
+			move_uploaded_file ($tmpName, './images/bateaux/'.$photoName);
+		}
+
+		$req = $connexion->prepare('INSERT INTO bateau (id, nom) VALUES (:id, :nom)');
+		$req->bindParam(':id', $newId, PDO::PARAM_INT);
+		$req->bindParam(':nom', $nom, PDO::PARAM_STR);
+		$resultat = $req->execute();

@@ -23,11 +23,18 @@
 					<h5 class="card-title"><?= $unPort['nom'] ?></h5>
 					<p class="card-text"><?= $unPort['description'] ?>
 					<p class="card-text"><small class="text-muted">Adresse : <?= $unPort['adresse'] ?></small></p>
-					<?php if ($unPort['camera'] != NULL) {?>
-							<p class="card-text"><small class="text-muted"><a href="<?= $unPort['camera'] ?>" target="_blank">Voir la caméra</a> </small></p>
-					<?php } ?>
-					</div>
+					
+				</div>
+				<?php
+				if ( $unPort['camera'] != NULL) {
+					?>
+				   <p class="card-text"><small class="text-muted"><a href="<?= $unPort['camera'] ?>" target="_blank">Voir la caméra</a> </small></p>
+				   <?php
+				}
+				?>
 			</div>
 		</div>
-	<?php } ?>
+	<?php
+	}
+?>
 </div>

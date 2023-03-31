@@ -8,7 +8,6 @@
 ?>
 
 
-
 <head>
  	<meta charset="utf-8" />
 	<link rel="shortcut icon" href="skin/favicon.ico" />
@@ -56,7 +55,7 @@
 	</div>	
 
 	<!-- Footer -->
-	<footer class="page-footer font-small blue pt-4"">
+	<footer class="page-footer font-small blue pt-4">
 		<?php include('pied_page.php'); ?>
 	</footer>
 	<!-- Footer -->
