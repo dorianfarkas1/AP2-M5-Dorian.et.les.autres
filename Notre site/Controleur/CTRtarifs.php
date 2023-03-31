@@ -5,12 +5,13 @@ if ( $_SERVER["SCRIPT_FILENAME"] == __FILE__ ){
 include_once "$racine/Modele/bd.tarif.inc.php";
 
 // appel des fonctions permettant de recuperer les donnees utiles a l'affichage 
-$lesPrix = getPeriode();
+$lesPeriodes = getPeriode();
 
 if ((isset($_POST['id'])) && ($_POST['id'] != "")){
      
     $idPeriode = $_POST['id'];
     $lesTarifs = getTarifsByPeriode($idPeriode);
+    var_dump($lesTarifs);
 }
 else
 {
