@@ -1,6 +1,26 @@
 <?php
 include_once "bd.inc.php";
 
+function getNiveauPMR() : array {
+    $resultat = array();
+
+    try {
+        $cnx = connexionPDO();
+        $req = $cnx->prepare("select * from niveau_accessibilite");
+        $req->execute();
+
+        $ligne = $req->fetch(PDO::FETCH_ASSOC);
+        while ($ligne) {
+            $resultat[] = $ligne;
+            $ligne = $req->fetch(PDO::FETCH_ASSOC);
+        }
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return $resultat;
+}
+
 function getBateauById(int $id) : array {
     try {
         $cnx = connexionPDO();
@@ -63,7 +83,7 @@ function getBateauByNiveauPMR(string $niveauPMR) : array {
 
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("select * from bateau b join niveau_accessibilite n on b.niveauPMR = n.idNiveau where niveauPMR = :niveauPMR");
+        $req = $cnx->prepare("select * from bateau b join niveau_accessibilite n on b.niveauPMR = n.idNiveau where niveauPMR = :niveauPMR ORDER BY b.nom");
         $req->bindValue(':niveauPMR', "%".$niveauPMR."%", PDO::PARAM_STR);
         $req->execute();
 
