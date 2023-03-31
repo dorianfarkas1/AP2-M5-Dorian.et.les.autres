@@ -1,13 +1,4 @@
-﻿<?php
-	include_once('BDD/connectBdd.php'); // cette page a besoin d'inclure le code qui crée l'objet PDO $connexion qui permet d'interroger la BDD
-
-	
-    $SQL = 'SELECT * FROM niveau_accessibilite'; 
-    $stmt = $connexion->prepare($SQL);
-    $stmt->execute(array()); // on passe dans le tableaux les paramètres si il y en a à fournir (aucun ici)
-    $lesNiveauxPMR = $stmt->fetchAll(PDO::FETCH_ASSOC); // on met le resultat de la requete dans un tableau
-    $stmt->closeCursor(); // on ferme le curseur des résultats
-?>	
+﻿
 	
 <h1 class="page-header text-center">Nos Navires</h1>
 <p>Bienvenue à bord ! Découvrez notre flotte et les caractéristiques de nos différents ferries.</p><br>
@@ -32,21 +23,6 @@
 </form>
 
 <br>
-
-<?php
-if ((isset($_POST['niveauPMR'])) && ($_POST['niveauPMR'] != "")){
-	$niveauPMR = $_POST['niveauPMR'];
-	$SQL = "SELECT * FROM bateau b JOIN niveau_accessibilite n ON b.niveauPMR=n.idNiveau WHERE b.niveauPMR = ? ORDER BY b.nom";
-	$stmt = $connexion->prepare($SQL);
-	$stmt->execute(array($niveauPMR)); // on passe dans le tableaux les paramètres si il y en a à fournir
-	$lesBateaux = $stmt->fetchAll();
-} else {
-	$SQL = "SELECT * FROM bateau b JOIN niveau_accessibilite n ON b.niveauPMR=n.idNiveau  ORDER BY b.nom";
-	$stmt = $connexion->prepare($SQL);
-	$stmt->execute(array()); // on passe dans le tableaux les paramètres si il y en a à fournir (aucun ici)
-	$lesBateaux = $stmt->fetchAll();
-}?>
-
 
 <div class="row">
 	<table id="myTable" class="table table-bordered table-striped">
