@@ -21,7 +21,7 @@
 			<a class="nav-link" href="index.php?action=traversée">Traversées</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="index.php?action=tarif">Les tarifs</a>
+			<a class="nav-link" href="index.php?action=afficheTarif">Les tarifs</a>
 		</li>
 
 
