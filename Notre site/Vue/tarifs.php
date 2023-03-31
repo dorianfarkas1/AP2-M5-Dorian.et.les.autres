@@ -1,17 +1,17 @@
 <h1 class="page-header text-center">Les tarifs</h1>
 
-<form method="post" action="index.php?action=tarif">
+<form method="post" action="index.php?action=afficheTarif">
     <div>
         <label for="id">Choix d'une période :</label>
         <select name="id">
 		    <option value="">--sélectionner une période--</option>
 			<?php
-			foreach ($lesPrix as $unPrix) {
+			foreach ($lesPeriodes as $unePeriode) {
 				$selected = "";
-				if ((isset($_POST['idPeriode'])) && ($_POST['idPeriode']==$unPrix['idPeriode'])) {
+				if ((isset($_POST['idPeriode'])) && ($_POST['idPeriode']==$unePeriode['idPeriode'])) {
 					$selected = "selected";
 				}
-				echo '<option value="'.$unPrix['idPeriode'].'" '.$selected.'>'.$unPrix['libellePeriode'].'</option>';
+				echo '<option value="'.$unePeriode['idPeriode'].'" '.$selected.'>'.$unePeriode['libellePeriode'].'</option>';
 			}
 			?>
 	    </select>
