@@ -3,7 +3,7 @@
 function controleurPrincipal(string $action) : string {
     $lesActions = array();
     $lesActions["defaut"] = "CTRpresentation.php";
-    $lesActions["afficheBateau"] = "CTRvisuBateaux.php";
+    $lesActions["afficheBateau"] = "CTRvisuBateau.php";
     $lesActions["affichePort"] = "CTRvisuPorts.php";
     $lesActions["afficheSecteur"] = "CTRvisuSecteurs.php";
     $lesActions["afficheLiaison"] = "CTRliaison.php";
