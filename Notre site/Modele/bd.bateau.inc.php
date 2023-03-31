@@ -6,7 +6,7 @@ function getNiveauPMR() : array {
 
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("select * from niveau_accessibilite");
+        $req = $cnx->prepare("SELECT * from niveau_accessibilite");
         $req->execute();
 
         $ligne = $req->fetch(PDO::FETCH_ASSOC);
@@ -24,7 +24,7 @@ function getNiveauPMR() : array {
 function getBateauById(int $id) : array {
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("select * from bateau where id=:id");
+        $req = $cnx->prepare("SELECT * from bateau where id=:id");
         $req->bindValue(':id', $id, PDO::PARAM_INT);
 
         $req->execute();
@@ -42,7 +42,7 @@ function getBateau() : array {
 
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("select * from bateau");
+        $req = $cnx->prepare("SELECT * from bateau");
         $req->execute();
 
         $ligne = $req->fetch(PDO::FETCH_ASSOC);
@@ -62,7 +62,7 @@ function getBateauByNom(string $nom) : array {
 
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("select * from bateau where nom like :nom");
+        $req = $cnx->prepare("SELECT * from bateau where nom like :nom");
         $req->bindValue(':nom', "%".$nom."%", PDO::PARAM_STR);
         $req->execute();
 
@@ -105,7 +105,9 @@ if ($includes[0] == __FILE__ ) {
     // prog principal de test
     header('Content-Type:text/plain');
 
-
+    echo "getNiveauPMR() : \n";
+    print_r(getNiveauPMR());
+    
     echo "getBateau() : \n";
     print_r(getBateau());
 

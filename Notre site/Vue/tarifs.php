@@ -43,8 +43,8 @@
 			</tbody>
 		</table>
 	</div>
-<?php else {?>
+
 	<h1> Veuillez sélectionner une période ! </h1>
-<?php }?>
+
 
 

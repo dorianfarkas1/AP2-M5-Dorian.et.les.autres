@@ -5,7 +5,7 @@ if ( $_SERVER["SCRIPT_FILENAME"] == __FILE__ ){
 include_once "$racine/Modele/bd.bateau.inc.php";
 
 // appel des fonctions permettant de recuperer les donnees utiles a l'affichage 
-$lesNiveauPMR = getNiveauPMR();
+$lesNiveauxPMR = getNiveauPMR();
 
 if ((isset($_POST['niveauPMR'])) && ($_POST['niveauPMR'] != "")) {
     $niveauPMR = $_POST['niveauPMR'];

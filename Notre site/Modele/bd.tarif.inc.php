@@ -21,12 +21,12 @@ function getPeriode() : array {
     return $resultat;
 }
 
-function getTarifsByPeriode(string $lesPeriodes) : array {
+function getTarifsByPeriode(string $idPeriode) : array {
     $resultat = array();
 
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("SELECT * FROM tarification JOIN type_billet NATURAL JOIN categorie NATURAL JOIN periode WHERE idPeriode = ? ORDER BY tarif");
+        $req = $cnx->prepare("SELECT * FROM tarification JOIN type_billet NATURAL JOIN categorie NATURAL JOIN periode WHERE periode.idPeriode = ? ORDER BY tarif");
         $req->bindValue(':idPeriode', "%".$idPeriode."%", PDO::PARAM_STR);
         $req->execute();
 
@@ -51,7 +51,7 @@ if ($includes[0] == __FILE__ ) {
     echo "getPeriode() : \n";
     print_r(getPeriode());
 
-    echo "getTarifsByPeriode(lesPeriodes) : \n";
-    print_r(getTarifsByPeriode());
+    echo "getTarifsByPeriode(idPeriode) : \n";
+    print_r(getTarifsByPeriode("HF"));
 }
 ?>

@@ -5,11 +5,17 @@ if ( $_SERVER["SCRIPT_FILENAME"] == __FILE__ ){
 include_once "$racine/Modele/bd.tarif.inc.php";
 
 // appel des fonctions permettant de recuperer les donnees utiles a l'affichage 
-$lesPeriodes = getPeriode();
-$lesTarifs = getTarifsByPeriode();
+$lesPrix = getPeriode();
+
+if ((isset($_POST['id'])) && ($_POST['id'] != "")){
+     
+    $idPeriode = $_POST['id'];
+    $lesTarifs = getTarifsByPeriode($idPeriode);
+}
+
 
 
 // appel du script de vue qui permet de gerer l'affichage des donnees
-$titre = "Affichage des Ports";
-include "$racine/vue/visuPorts.php";
+$titre = "Affichage des Tarifs";
+include "$racine/vue/tarifs.php";
 ?>
