@@ -4,8 +4,8 @@ include_once "bd.inc.php";
 function getLiaisonBySecteur(int $idSecteur) : array {
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("SELECT * FROM liaison JOIN secteur ON liaison.codeSecteur = secteur.id  WHERE secteur.id = :idSecteur ORDER BY secteur.nom");
-        $req->bindValue(':idSecteur', $idSecteur, PDO::PARAM_INT);
+        $req = $cnx->prepare("SELECT * FROM liaison JOIN secteur ON liaison.codeSecteur = secteur.id  WHERE secteur.id = :id ORDER BY secteur.nom");
+        $req->bindValue(':id', $idSecteur, PDO::PARAM_INT);
 
         $req->execute();
 
@@ -41,4 +41,16 @@ function getLiaison() : array {
 
 
 $includes = get_included_files();
+// test si le premier include est la page appelée, permet dexecuter le fichier en local pour tester les fonctions
+if ($includes[0] == __FILE__ ) {
+    // prog principal de test
+    header('Content-Type:text/plain');
+
+
+    echo "getLiaison() : \n";
+    print_r(getLiaison());
+
+    echo "getLiaisonBySecteur(id) : \n";
+    print_r(getLiaisonBySecteur(1));
+}
 ?>
