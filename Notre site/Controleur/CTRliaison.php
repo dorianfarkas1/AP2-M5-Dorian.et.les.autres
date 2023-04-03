@@ -14,6 +14,8 @@ else {
 }
 	
 $titre = "Affichage des Liaisons";
+$keywords ="";
+$description="";
 
 include "$racine/Vue/haut_page.php";
 include "$racine/Vue/menu.php";
