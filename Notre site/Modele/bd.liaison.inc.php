@@ -9,7 +9,11 @@ function getLiaisonBySecteur(int $idSecteur) : array {
 
         $req->execute();
 
-        $resultat = $req->fetch(PDO::FETCH_ASSOC);
+        $ligne = $req->fetch(PDO::FETCH_ASSOC);
+            while ($ligne) {
+                $resultat[] = $ligne;
+                $ligne = $req->fetch(PDO::FETCH_ASSOC);
+            }
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage();
         die();

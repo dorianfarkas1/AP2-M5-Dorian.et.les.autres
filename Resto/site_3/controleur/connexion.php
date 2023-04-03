@@ -35,7 +35,4 @@ else
         include "$racine/vue/pied.html.php";
     }
 }
-    
-
-
 ?>

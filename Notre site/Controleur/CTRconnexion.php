@@ -8,12 +8,35 @@ include_once "$racine/Modele/authentification.inc.php";
 if (!isset($_POST["mailU"]) || !isset($_POST["mdpU"])){
     // on affiche le formulaire de connexion
     $titre = "Authentification";
-    include "$racine/vue/entete.html.php";
-    include "$racine/vue/vueAuthentification.php";
-    include "$racine/vue/pied.html.php";
+    $keywords ="";
+    $description="";
+    include "$racine/vue/haut_page.php";
+    include "$racine/Vue/menu.php";
+    include "$racine/vue/Authentification.php";
+    include "$racine/vue/pied_page.php";
+}
+else
+{
+    $mailU=$_POST["mailU"];
+    $mdpU=$_POST["mdpU"];
+    login($mailU,$mdpU);
+    
+    if (isLoggedOn()){ // si l'utilisateur est connecté on redirige vers le controleur monProfil
+        include "$racine/vue/haut_page.html.php";
+        echo "logged\n";
+        include "$racine/vue/pied_page.php";
+    } else {
+        // on affiche le formulaire de connexion
+        $titre = "Authentification";
+        $keywords ="";
+        $description="";
+        include "$racine/vue/haut_page.html.php";
+        include "$racine/Vue/menu.php";
+        include "$racine/vue/Authentification.php";
+        include "$racine/vue/pied_page.php";
+    }
 }
 
 // appel du script de vue qui permet de gerer l'affichage des donnees
-$titre = "Authentification";
-include "$racine/vue/connexion.php";
+
 ?>

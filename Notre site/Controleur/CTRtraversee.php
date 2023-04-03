@@ -8,7 +8,7 @@ include_once "$racine/Modele/bd.traversee.inc.php";
 $lesLiaisons = getLiaison();
 
 
-if ((isset($_POST['route'])) && ($_POST['route'] != "") && (isset($POST['date']) && ($POST['date'] != ""))){
+if ((isset($_POST['route'])) && ($_POST['route'] != "")){
 	$code = $_POST['route'];
     $date = $_POST['date'];
     $lesTraversees = getTraverseeByIdANDByDate($code, $date);

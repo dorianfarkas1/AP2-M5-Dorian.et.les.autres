@@ -13,7 +13,7 @@ function controleurPrincipal(string $action) : string {
     $lesActions["bateauTraitement"] = "CTRcrudBateau/crudBateauTraitement.php";
     $lesActions["modifiePort"] = "CTRcrudPort.php";
     $lesActions["portTraitement"] = "CTRcrudPort/crudPortTraitement.php";
-    $lesActions["connexion"] = "connexion.php";
+    $lesActions["connexion"] = "CTRconnexion.php";
     $lesActions["deconnexion"] = "CTRdeconnexion.php";
 
     if (array_key_exists ( $action , $lesActions )){
