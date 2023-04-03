@@ -8,12 +8,10 @@ include_once "$racine/Modele/bd.bateau.inc.php";
 $lesNiveauxPMR = getNiveauPMR();
 
 if ((isset($_POST['niveauPMR'])) && ($_POST['niveauPMR'] != "")) {
-    $niveauPMR = $_POST['niveauPMR'];
-    $lesBateaux = getBateauByNiveauPMR($niveauPMR);
+    $lesBateaux = getBateauByNiveauPMR($_POST['niveauPMR']);
 }
 else{
     $lesBateaux = getBateau();
-    
 }
 
 

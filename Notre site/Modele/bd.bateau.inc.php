@@ -42,7 +42,7 @@ function getBateau() : array {
 
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("SELECT * from bateau");
+        $req = $cnx->prepare("SELECT * from bateau JOIN niveau_accessibilite ON niveauPMR = idNiveau ");
         $req->execute();
 
         $ligne = $req->fetch(PDO::FETCH_ASSOC);
@@ -62,7 +62,7 @@ function getBateauByNom(string $nom) : array {
 
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("SELECT * from bateau where nom like :nom");
+        $req = $cnx->prepare("SELECT * from bateau where nom like $nom");
         $req->bindValue(':nom', "%".$nom."%", PDO::PARAM_STR);
         $req->execute();
 
@@ -83,7 +83,7 @@ function getBateauByNiveauPMR(string $niveauPMR) : array {
 
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("SELECT * from bateau b join niveau_accessibilite n on b.niveauPMR = n.idNiveau where niveauPMR = :niveauPMR ORDER BY b.nom");
+        $req = $cnx->prepare("SELECT * from bateau b join niveau_accessibilite n on b.niveauPMR = n.idNiveau where niveauPMR = $niveauPMR ORDER BY b.nom");
         $req->bindValue(':niveauPMR', "%".$niveauPMR."%", PDO::PARAM_STR);
         $req->execute();
 
