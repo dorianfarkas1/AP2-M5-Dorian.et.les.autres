@@ -10,6 +10,8 @@
 	<link rel="icon" href="skin/favicon_anime.gif" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="keywords" content="<?php echo $keywords; ?>" />
+	<meta name="description" content="<?php echo $description; ?>" />
 	<meta name="robots" content="index,follow,all" />
 	<title><?php echo $title; ?></title>
 	
@@ -46,23 +48,16 @@
     include "$racine/Controleur/controleurPrincipal.php";
     include_once "$racine/Modele/authentification.inc.php"; // pour pouvoir utiliser isLoggedOn()
 
-    if (isset($_GET["action"])){
-        $action = $_GET["action"];
-    }
-    else{
-    
-        $action = "defaut";
-    }
+	if (isset($_GET["action"])){
+		$action = $_GET["action"];
+	}
+	else{
 
-    $fichier = controleurPrincipal($action);
-    include "$racine/Controleur/$fichier"; ?>
+		$action = "defaut";
+	}
 
-    <footer class="page-footer font-small blue pt-4">
-		<?php include "$racine/Vue/pied_page.php"; ?>
-	</footer>
-	<!-- Footer -->
-
-</html>
-
+	$fichier = controleurPrincipal($action);
+	include "$racine/Controleur/$fichier"; 
+?>
 
 
