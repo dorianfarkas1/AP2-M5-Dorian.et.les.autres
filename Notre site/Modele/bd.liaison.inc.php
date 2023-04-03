@@ -6,7 +6,7 @@ function getLiaisonBySecteur($idSecteur) : array {
 
     try {
     $cnx = connexionPDO();
-    $req = $cnx->prepare("SELECT * from liaison join secteur on codeSecteur = id where codeSecteur = ?");
+    $req = $cnx->prepare("SELECT * FROM liaison JOIN secteur ON liaison.codeSecteur = secteur.id  WHERE secteur.id = ? ORDER BY secteur.nom ");
     $req->execute(array($idSecteur));
     $ligne = $req->fetch(PDO::FETCH_ASSOC);
         while ($ligne) {
@@ -26,7 +26,7 @@ function getLiaison() : array {
 
     try {
     $cnx = connexionPDO();
-    $req = $cnx->prepare("SELECT * from liaison join secteur on codeSecteur = id");
+    $req = $cnx->prepare("SELECT * FROM liaison JOIN secteur ON liaison.codeSecteur = secteur.id   ORDER BY secteur.nom");
     $req->execute();
 
     $ligne = $req->fetch(PDO::FETCH_ASSOC);
