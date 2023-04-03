@@ -39,9 +39,7 @@
 					<a class="dropdown-item" href="index.php?action=modifiePort" >Modifier les ports</a>
 				</li>
 			</ul>
-			</li>
-			<li>
-				<a class="dropdown-item" href="index.php?action=modifiePort">Modifier les ports</a>
+
 			<li class="nav-item">
 				<a class="nav-link " href="index.php?action=connexion" tabindex="-1" >connexion</a>
 			</li>
