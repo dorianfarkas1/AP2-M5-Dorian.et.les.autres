@@ -36,7 +36,7 @@
 	    <input type="submit" value="Afficher les traversées" title="Afficher les traversées" />
 </form>
 <?php
-if ((isset($_POST['route'])) && ($_POST['route'] != "")){ ?>
+if (isset($lesTraversees)){ ?>
 	<div class="row">
 		<table id="myTable" class="table table-bordered table-striped">
 			<thead>

@@ -14,5 +14,9 @@ else {
 }
 	
 $titre = "Affichage des Liaisons";
+
+include "$racine/Vue/haut_page.php";
+include "$racine/Vue/menu.php";
 include "$racine/Vue/liaison.php";
+include "$racine/Vue/pied_page.php";
 ?>
