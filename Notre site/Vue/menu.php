@@ -15,7 +15,7 @@
 			<a class="nav-link" href="index.php?action=afficheSecteur">Destinations</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="index.php?action=afficheLiaison">Liaisons</a>
+			<a class="nav-link" href="index.php?action=liaison">Liaisons</a>
 		</li>
 		<li class="nav-item">
 			<a class="nav-link" href="index.php?action=afficheTraversee">Traversees</a>
