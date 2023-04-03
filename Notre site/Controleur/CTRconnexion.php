@@ -20,11 +20,9 @@ else
     $mailU=$_POST["mailU"];
     $mdpU=$_POST["mdpU"];
     login($mailU,$mdpU);
-    
+    include "$racine/Vue/haut_page.php";
     if (isLoggedOn()){ // si l'utilisateur est connecté on redirige vers le controleur monProfil
-        include "$racine/vue/haut_page.html.php";
-        echo "logged\n";
-        include "$racine/vue/pied_page.php";
+        include "$racine/Controleur/CTRprofil.php";
     } else {
         // on affiche le formulaire de connexion
         $titre = "Authentification";
