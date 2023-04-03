@@ -13,9 +13,14 @@ logout();
 
 // appel du script de vue qui permet de gerer l'affichage des donnees
 $titre = "Deconnexion";
-include "$racine/vue/entete.html.php";
-include "$racine/vue/deconnexion.php";
-include "$racine/vue/pied_page.php";
+$titre = "Affichage des Liaisons";
+$keywords ="";
+$description="";
+
+include "$racine/Vue/haut_page.php";
+include "$racine/Vue/menu.php";
+include "$racine/Vue/deconnexion.php";
+include "$racine/Vue/pied_page.php";
 
 
 ?>
