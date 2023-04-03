@@ -2,13 +2,13 @@
 
 <form method="post" action="index.php?action=liaison">
     <div>
-        <label for="codeSecteur">Choix d'une destinations :</label>
-        <select name="codeSecteur">
+        <label for="id">Choix d'une destinations :</label>
+        <select name="id">
 		    <option value="">--sélectionner une destination--</option>
 			<?php
 			foreach ($lesSecteurs as $unSecteur) {
 				$selected = "";
-				if ((isset($_POST['codeSecteur'])) && ($_POST['codeSecteur']==$unSecteur['id'])) {
+				if ((isset($_POST['id'])) && ($_POST['id']==$unSecteur['codeSecteur'])) {
 					$selected = "selected";
 				}
 				echo '<option value="'.$unSecteur['id'].'" '.$selected.'>'.$unSecteur['nom'].'</option>';

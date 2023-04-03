@@ -7,9 +7,9 @@ include_once "$racine/Modele/bd.liaison.inc.php";
 
 $lesSecteur = getSecteurs();
 
-if ((isset($_POST['codeSecteur'])) && ($_POST['codeSecteur'] != "")){
-    
-    $lesLiaisons = getLiaisonBySecteur($_POST['codeSecteur']);
+if ((isset($_POST['id'])) && ($_POST['id'] != "")){
+
+    $lesLiaisons = getLiaisonBySecteur($_POST['id']);
 }
 else {
     $lesLiaisons = getLiaison();
