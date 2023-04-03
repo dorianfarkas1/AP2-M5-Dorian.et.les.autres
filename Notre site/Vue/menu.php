@@ -23,6 +23,12 @@
 		<li class="nav-item">
 			<a class="nav-link" href="index.php?action=afficheTarif">Tarifs</a>
 		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="index.php?action=connexion">Connexion</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="index.php?action=déconnexion">Déconnexion</a>
+		</li>	
 
 
 		<li class="nav-item dropdown">
