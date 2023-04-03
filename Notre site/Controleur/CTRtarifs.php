@@ -15,7 +15,7 @@ if ((isset($_POST['id'])) && ($_POST['id'] != "")){
 }
 else
 {
-    print "bonjour";
+
 }
 
 // appel du script de vue qui permet de gerer l'affichage des donnees

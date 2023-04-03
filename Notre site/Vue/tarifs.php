@@ -19,6 +19,7 @@
 	<input type="submit" value="Afficher les tarifs" title="Afficher les tarifs" />
 </form>
 
+<?php if ((isset($_POST['id'])) && ($_POST['id'] != "")){ ?>
 	<div class="row">
 		<table id="myTable" class="table table-bordered table-striped">
 			<thead>
@@ -43,8 +44,12 @@
 			</tbody>
 		</table>
 	</div>
+<?php } 
+else { ?>
+	<h1> Veuillez selectionner la période ! </h1>
+<?php }?>
 
-	<h1> Veuillez sélectionner une période ! </h1>
+
 
 
 
