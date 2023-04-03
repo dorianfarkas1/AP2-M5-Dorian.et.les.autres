@@ -34,15 +34,15 @@
 				<a class="dropdown-item" href="index.php?action=modifieBateau">Modifier les bateaux</a>
 			</li>
 			<li>
-				<a class="dropdown-item" href="index.php?action=modifiePort" >Modifier les ports</a>
+				<a class="dropdown-item" href="index.php?action=modifiePort">Modifier les ports</a>
 			</li>
 		</ul>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link disabled" href="index.php?action=connexion" tabindex="-1" aria-disabled="true">connexion</a>
+			<a class="nav-link" href="index.php?action=connexion" tabindex="-1">connexion</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link disabled" href="index.php?action=deconnexion" tabindex="-1" aria-disabled="true">deconnexion</a>
+			<a class="nav-link" href="index.php?action=deconnexion" tabindex="-1">deconnexion</a>
 		</li>
 		
 	</ul>
