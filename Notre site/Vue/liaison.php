@@ -6,12 +6,12 @@
         <select name="codeSecteur">
 		    <option value="">--sélectionner une destination--</option>
 			<?php
-			foreach ($lesVoyages as $unVoyage) {
+			foreach ($lesSecteurs as $unSecteur) {
 				$selected = "";
-				if ((isset($_POST['codeSecteur'])) && ($_POST['codeSecteur']==$unVoyage['id'])) {
+				if ((isset($_POST['codeSecteur'])) && ($_POST['codeSecteur']==$unSecteur['id'])) {
 					$selected = "selected";
 				}
-				echo '<option value="'.$unVoyage['id'].'" '.$selected.'>'.$unVoyage['nom'].'</option>';
+				echo '<option value="'.$unSecteur['id'].'" '.$selected.'>'.$unSecteur['nom'].'</option>';
 			}
 			?>
 	    </select>
