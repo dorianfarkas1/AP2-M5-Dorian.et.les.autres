@@ -5,11 +5,12 @@ if ( $_SERVER["SCRIPT_FILENAME"] == __FILE__ ){
 include_once "$racine/Modele/bd.secteur.inc.php";
 include_once "$racine/Modele/bd.liaison.inc.php";
 
-$lesSecteur = getSecteurs();
+$lesSecteurs = getSecteurs();
 
 if ((isset($_POST['id'])) && ($_POST['id'] != "")){
     
     $idSecteur = $_POST['id'];
+
     $lesLiaisons = getLiaisonBySecteur($idSecteur);
 }
 else {

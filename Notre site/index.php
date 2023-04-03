@@ -1,19 +1,19 @@
 
-    <?php
-    include "getRacine.php";    
-    include "$racine/Controleur/controleurPrincipal.php";
-    include_once "$racine/Modele/authentification.inc.php"; // pour pouvoir utiliser isLoggedOn()
+<?php
+	include "getRacine.php";
+	include "$racine/controleur/controleurPrincipal.php";
+	include_once "$racine/modele/authentification.inc.php"; // pour pouvoir utiliser isLoggedOn()
 
 	if (isset($_GET["action"])){
 		$action = $_GET["action"];
 	}
 	else{
-
+		
 		$action = "defaut";
 	}
 
 	$fichier = controleurPrincipal($action);
-	include "$racine/Controleur/$fichier"; 
-?>
+	include "$racine/Controleur/$fichier";
 
+?>
 
