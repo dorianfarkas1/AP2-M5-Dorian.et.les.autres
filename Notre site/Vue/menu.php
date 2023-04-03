@@ -40,32 +40,19 @@
 				</li>
 			</ul>
 			</li>
-<<<<<<< HEAD
 			<li>
 				<a class="dropdown-item" href="index.php?action=modifiePort">Modifier les ports</a>
-=======
 			<li class="nav-item">
-				<a class="nav-link disabled" href="index.php?action=connexion" tabindex="-1" aria-disabled="true">connexion</a>
->>>>>>> e0fe28cb89b7518d8ea1499e3c9e274f3c6ebdd8
+				<a class="nav-link " href="index.php?action=connexion" tabindex="-1" >connexion</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link disabled" href="index.php?action=deconnexion" tabindex="-1" aria-disabled="true">deconnexion</a>
+				<a class="nav-link " href="index.php?action=deconnexion" tabindex="-1" >deconnexion</a>
 			</li>
 			
 		</ul>
-<<<<<<< HEAD
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" href="index.php?action=connexion" tabindex="-1">connexion</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" href="index.php?action=deconnexion" tabindex="-1">deconnexion</a>
-		</li>
-		
+		</li>		
 	</ul>
-=======
 		</div>
->>>>>>> e0fe28cb89b7518d8ea1499e3c9e274f3c6ebdd8
 	</div>
 
 </nav>

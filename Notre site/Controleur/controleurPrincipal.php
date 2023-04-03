@@ -15,9 +15,6 @@ function controleurPrincipal(string $action) : string {
     $lesActions["portTraitement"] = "CTRcrudPort/crudPortTraitement.php";
     $lesActions["connexion"] = "connexion.php";
     $lesActions["deconnexion"] = "CTRdeconnexion.php";
-    $lesActions["connexion"] = "CTRconnexion.php";
-    $lesActions["déconnexion"] = "CTRdéconnexion.php";
-
 
     if (array_key_exists ( $action , $lesActions )){
         return $lesActions[$action];
