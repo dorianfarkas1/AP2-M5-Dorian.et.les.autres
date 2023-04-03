@@ -15,11 +15,15 @@
 			<a class="nav-link" href="index.php?action=afficheSecteur">Destinations</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="index.php?action=liaison">Liaisons</a>
+			<a class="nav-link" href="index.php?action=liaison">Liaison</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="index.php?action=traversée">Traversées</a>
+			<a class="nav-link" href="index.php?action=traversee">Traversee</a>
 		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="index.php?action=tarifs">Tarifs</a>
+		</li>
+
 
 
 		<li class="nav-item dropdown">
@@ -31,7 +35,7 @@
 				<a class="dropdown-item" href="index.php?action=modifieBateau">Modifier les bateaux</a>
 			</li>
 			<li>
-				<a class="dropdown-item" href="index.php?action=modifiePort" >Modifier les ports</a>
+				<a class="dropdown-item " href="index.php?action=modifiePort" >Modifier les ports</a>
 			</li>
 		</ul>
 		</li>
@@ -40,9 +44,6 @@
 		</li>
 		<li class="nav-item">
 			<a class="nav-link disabled" href="index.php?action=deconnexion" tabindex="-1" aria-disabled="true">deconnexion</a>
-		</li>
-		<li class="nav-item">
-			<a class="nav-link" href="index.php?action=tarif">Les tarifs</a>
 		</li>
 	</ul>
 	</div>

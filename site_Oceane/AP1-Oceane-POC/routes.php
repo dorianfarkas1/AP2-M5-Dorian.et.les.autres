@@ -19,29 +19,11 @@
 				$keywords = "accueil compagnie Océane";
 				$description = "page d'accueil de la Compagnie Océane";
 				break;
-			case ("traversée"):
-				$affiche = "trave.php";
-				$title = "Compagnie Océane - Traversées";
-				$keywords = "traversées compagnie Océane";
-				$description = "page des traversées de la Compagnie Océane";
-				break;
-			case ("liaison"):
-				$affiche = "liaison.php";
-				$title = "Compagnie Océane - Liaisons";
-				$keywords = "liaison compagnie Océane";
-				$description = "page des liaisons de la Compagnie Océane";
-				break;
 			case ("afficheBateau"):
 				$affiche = "visuBateaux.php";
 				$title = "Compagnie Océane - Liste des bateaux";
 				$keywords = "bateaux compagnie Océane";
 				$description = "Affichage de la liste des bateaux de la Compagnie Océane";
-				break;
-			case ("tarif"):
-				$affiche = "tarifs.php";
-				$title = "Compagnie Océane - Tarifs";
-				$keywords = "prix compagnie Océane";
-				$description = "Affichage des tarifs de la Compagnie Océane";
 				break;
 			case ("affichePort"):
 				$affiche = "visuPorts.php";
@@ -55,22 +37,40 @@
 				$keywords = "destinations compagnie Océane";
 				$description = "Affichage des destinations des traversées de la Compagnie Océane";
 				break;
+		    case ("liaison"):
+			    $affiche = "liaison.php";
+			    $title = "Liaison_ports";
+			    $keywords = "port";
+			    $description = "Affiche la liaison entre les ports";
+			    break;	
+		    case ("traversee"):
+			    $affiche = "traversee.php";
+			    $title = "Traversée_navires";
+			    $keywords = "Traversée de la compagnie";
+			    $description = "Affiche les traversée assurée par la compagnie";
+			    break;
+			case ("tarifs"):
+			    $affiche = "tarifs.php";
+			    $title = "Tarifs_billets";
+			    $keywords = "billets";
+			    $description = "Afficher le tarif des billets";
+			    break;
 
 			
 
-			case ("modifieBateau"):
+				case ("modifieBateau"):
 				$affiche = "crudBateau.php";
 				break;
 			case ("bateauTraitement"):
 				$affiche = "crudBateau/crudBateauTraitement.php";
-				break;
-				
-			case ("modifiePort"):
+				break;	
+
+				case ("modifiePort"):
 				$affiche = "crudPort.php";
 				break;
 			case ("portTraitement"):
 				$affiche = "crudPort/crudPortTraitement.php";
-				break;
+				break;	
 				
 			default:
 				$affiche = "lostinspace.php";

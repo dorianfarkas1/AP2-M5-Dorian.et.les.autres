@@ -1,10 +1,30 @@
 <?php
 include_once "bd.inc.php";
 
+function getNiveauPMR() : array {
+    $resultat = array();
+
+    try {
+        $cnx = connexionPDO();
+        $req = $cnx->prepare("SELECT * from niveau_accessibilite");
+        $req->execute();
+
+        $ligne = $req->fetch(PDO::FETCH_ASSOC);
+        while ($ligne) {
+            $resultat[] = $ligne;
+            $ligne = $req->fetch(PDO::FETCH_ASSOC);
+        }
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return $resultat;
+}
+
 function getBateauById(int $id) : array {
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("select * from bateau where id=:id");
+        $req = $cnx->prepare("SELECT * from bateau where id=:id");
         $req->bindValue(':id', $id, PDO::PARAM_INT);
 
         $req->execute();
@@ -22,7 +42,7 @@ function getBateau() : array {
 
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("select * from bateau");
+        $req = $cnx->prepare("SELECT * from bateau");
         $req->execute();
 
         $ligne = $req->fetch(PDO::FETCH_ASSOC);
@@ -42,7 +62,7 @@ function getBateauByNom(string $nom) : array {
 
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("select * from bateau where nom like :nom");
+        $req = $cnx->prepare("SELECT * from bateau where nom like :nom");
         $req->bindValue(':nom', "%".$nom."%", PDO::PARAM_STR);
         $req->execute();
 
@@ -63,7 +83,7 @@ function getBateauByNiveauPMR(string $niveauPMR) : array {
 
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("select * from bateau b join niveau_accessibilite n on b.niveauPMR = n.idNiveau where niveauPMR = :niveauPMR");
+        $req = $cnx->prepare("SELECT * from bateau b join niveau_accessibilite n on b.niveauPMR = n.idNiveau where niveauPMR = :niveauPMR ORDER BY b.nom");
         $req->bindValue(':niveauPMR', "%".$niveauPMR."%", PDO::PARAM_STR);
         $req->execute();
 
@@ -85,7 +105,9 @@ if ($includes[0] == __FILE__ ) {
     // prog principal de test
     header('Content-Type:text/plain');
 
-
+    echo "getNiveauPMR() : \n";
+    print_r(getNiveauPMR());
+    
     echo "getBateau() : \n";
     print_r(getBateau());
 

@@ -1,9 +1,4 @@
-﻿
-	
-<h1 class="page-header text-center">Liste des gares maritimes</h1>
-
-
-<p>Découvrez les gares d'embarquements de nos traversées.</p><br>
+﻿<p>Découvrez les gares d'embarquements de nos traversées.</p><br>
 <div class="row row-cols-1 row-cols-md-3 g-4">
 <?php
 	foreach ($lesPorts as $unPort){
@@ -15,11 +10,18 @@
 					<h5 class="card-title"><?= $unPort['nom'] ?></h5>
 					<p class="card-text"><?= $unPort['description'] ?>
 					<p class="card-text"><small class="text-muted">Adresse : <?= $unPort['adresse'] ?></small></p>
-					<?php if ($unPort['camera'] != NULL) {?>
-							<p class="card-text"><small class="text-muted"><a href="<?= $unPort['camera'] ?>" target="_blank">Voir la caméra</a> </small></p>
-					<?php } ?>
-					</div>
+					
+				</div>
+				<?php
+				if ( $unPort['camera'] != NULL) {
+					?>
+				   <p class="card-text"><small class="text-muted"><a href="<?= $unPort['camera'] ?>" target="_blank">Voir la caméra</a> </small></p>
+				   <?php
+				}
+				?>
 			</div>
 		</div>
-	<?php } ?>
+	<?php
+	}
+?>
 </div>

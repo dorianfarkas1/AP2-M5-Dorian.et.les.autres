@@ -3,11 +3,16 @@
 function controleurPrincipal(string $action) : string {
     $lesActions = array();
     $lesActions["defaut"] = "CTRpresentation.php";
-    $lesActions["afficheBateau"] = "CTRvisuBateaux.php";
+    $lesActions["afficheBateau"] = "CTRvisuBateau.php";
     $lesActions["affichePort"] = "CTRvisuPorts.php";
     $lesActions["afficheSecteur"] = "CTRvisuSecteurs.php";
+<<<<<<< HEAD
     $lesActions["liaison"] = "CTRliaison.php";
     $lesActions["afficheTraversee"] = "CTRtrave.php";
+=======
+    $lesActions["afficheLiaison"] = "CTRliaison.php";
+    $lesActions["afficheTraversee"] = "CTRtraversee.php";
+>>>>>>> a1743691a3043cf5cf8e40c385f15e4d58ee1340
     $lesActions["afficheTarif"] = "CTRtarifs.php";
     $lesActions["modifieBateau"] = "CTRcrudBateau.php";
     $lesActions["bateauTraitement"] = "CTRcrudBateau/crudBateauTraitement.php";
