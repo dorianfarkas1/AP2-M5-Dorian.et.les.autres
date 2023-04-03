@@ -21,13 +21,15 @@ function getLiaison() : array {
     return $resultat;
 }
 
-function getTraverseeById(int $code) : array {
+function getTraverseeByIdANDByDate(int $code, string $date) : array {
     $resultat = array();
 
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("SELECT * FROM traversee t JOIN liaison l ON t.codeLiaison = l.code JOIN bateau b ON t.idBateau = b.id WHERE l.code = :code");
+        $req = $cnx->prepare("SELECT * FROM traversee t JOIN liaison l ON t.codeLiaison = l.code JOIN bateau b ON t.idBateau = b.id WHERE l.code = :code AND date = :date");
         $req->bindValue(':code', $code, PDO::PARAM_INT);
+        $req->bindValue(':date', $date, PDO::PARAM_STR);
+
         $req->execute();
 
         $ligne = $req->fetch(PDO::FETCH_ASSOC);
@@ -52,8 +54,8 @@ if ($includes[0] == __FILE__ ) {
     echo "getLiaison() : \n";
     print_r(getLiaison());
 
-    echo "getTraverseeById(code) : \n";
-    print_r(getTraverseeById(11));
+    echo "getTraverseeByIdANDByDate(code) : \n";
+    print_r(getTraverseeByIdANDByDate(11, "2022-09-01"));
 
 }
 

@@ -1,4 +1,4 @@
-﻿<div class="container-fluid">
+<div class="container-fluid">
 	<a class="navbar-brand" href="index.php?">Accueil</a>
 	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	<span class="navbar-toggler-icon"></span>
@@ -25,18 +25,33 @@
 		</li>
 
 
-		<li class="nav-item dropdown">
-		<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-			partie CRUD
-		</a>
-		<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-			<li>
-				<a class="dropdown-item" href="index.php?action=modifieBateau">Modifier les bateaux</a>
+			<li class="nav-item dropdown">
+			<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+				partie CRUD
+			</a>
+			<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+				<li>
+					<a class="dropdown-item" href="index.php?action=modifieBateau">Modifier les bateaux</a>
+				</li>
+				<li>
+					<a class="dropdown-item" href="index.php?action=modifiePort" >Modifier les ports</a>
+				</li>
+			</ul>
 			</li>
+<<<<<<< HEAD
 			<li>
 				<a class="dropdown-item" href="index.php?action=modifiePort">Modifier les ports</a>
+=======
+			<li class="nav-item">
+				<a class="nav-link disabled" href="index.php?action=connexion" tabindex="-1" aria-disabled="true">connexion</a>
+>>>>>>> e0fe28cb89b7518d8ea1499e3c9e274f3c6ebdd8
 			</li>
+			<li class="nav-item">
+				<a class="nav-link disabled" href="index.php?action=deconnexion" tabindex="-1" aria-disabled="true">deconnexion</a>
+			</li>
+			
 		</ul>
+<<<<<<< HEAD
 		</li>
 		<li class="nav-item">
 			<a class="nav-link" href="index.php?action=connexion" tabindex="-1">connexion</a>
@@ -46,5 +61,10 @@
 		</li>
 		
 	</ul>
+=======
+		</div>
+>>>>>>> e0fe28cb89b7518d8ea1499e3c9e274f3c6ebdd8
 	</div>
-</div>
+
+</nav>
+<div class="container">
