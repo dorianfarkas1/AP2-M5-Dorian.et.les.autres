@@ -14,8 +14,6 @@
 	<link rel="icon" href="skin/favicon_anime.gif" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<meta name="keywords" content="<?php echo $keywords; ?>" />
-	<meta name="description" content="<?php echo $description; ?>" />
 	<meta name="robots" content="index,follow,all" />
 	<title><?php echo $title; ?></title>
 	

@@ -19,13 +19,24 @@
 	<div>
 
         <label for="date">Choix d'une date :</label>
+		<?php
 
+	$date = date("Y-m-d");// date par défaut aujourd'hui
+
+	if (isset($_POST['date'])) {
+
+	$date = $_POST['date']; // si on a sélectionné une date précédemment, on remplace la date du jour par celle-ci
+
+}
+
+?>
         <input type="date" id="date" name="date" value="<?= $date ?>">
 
     </div>
 	    <input type="submit" value="Afficher les traversées" title="Afficher les traversées" />
 </form>
-
+<?php
+if ((isset($_POST['route'])) && ($_POST['route'] != "")){ ?>
 	<div class="row">
 		<table id="myTable" class="table table-bordered table-striped">
 			<thead>
@@ -51,5 +62,11 @@
 			</tbody>
 		</table>
 	</div>
-
-	<h1> Veuillez sélectionner une période et une date! </h1>
+	<?php 
+	} 
+else {
+	?>
+	    <h1>Veuillez selectionner une liaison !</h1>
+	<?php
+    }
+?>
