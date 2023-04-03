@@ -23,7 +23,6 @@ function getLiaison() : array {
 
 function getTraverseeByIdANDByDate(int $code, string $date) : array {
     $resultat = array();
-
     try {
         $cnx = connexionPDO();
         $req = $cnx->prepare("SELECT * FROM traversee t JOIN liaison l ON t.codeLiaison = l.code JOIN bateau b ON t.idBateau = b.id WHERE l.code = :code AND date = :date");
