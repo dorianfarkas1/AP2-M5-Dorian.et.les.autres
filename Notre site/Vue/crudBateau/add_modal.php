@@ -6,7 +6,7 @@
             <h5 class="modal-title">Ajouter un nouveau bateau</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form method="POST" action="?action=bateauTraitement" enctype="multipart/form-data">
+        <form method="POST" action="?action=modifieBateau" enctype="multipart/form-data">
             <div class="modal-body">
                 <div class="row form-group">
 					<div class="col-sm-2">

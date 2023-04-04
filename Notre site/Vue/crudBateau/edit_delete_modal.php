@@ -6,7 +6,7 @@
             <h5 class="modal-title">Modifier un bateau</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form method="POST" action="?action=bateauTraitement" enctype="multipart/form-data">
+        <form method="POST" action="?action=modifieBateau" enctype="multipart/form-data">
             <div class="modal-body">
                 <div class="row form-group">
 					<input type="hidden" class="form-control" name="id" value="<?php echo $row['id']; ?>">
@@ -64,7 +64,7 @@
 				<p class="text-center">Etes-vous sure de vouloir supprimer le bateau <?php echo $row['nom']; ?></p>
             </div>
             <div class="modal-footer">
-				<form method="POST" action="?action=bateauTraitement">
+				<form method="POST" action="?action=modifieBateau">
 					<input type="hidden" class="form-control" name="id" value="<?php echo $row['id']; ?>">
                     <input type="hidden" class="form-control" name="old_photo" value="<?php echo $row['photo']; ?>">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
