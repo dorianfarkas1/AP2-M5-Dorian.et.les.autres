@@ -7,10 +7,10 @@ include_once "$racine/Modele/bd.bateau.inc.php";
 // recuperation des donnees GET, POST et SESSION
 if(isset ($_POST['add']))
 {
-    $nom = $_POST['nom'];
-    $req = $connexion->prepare('INSERT INTO bateau (nom) VALUES (:nom)');
-    $req->bindParam(':nom', $nom, PDO::PARAM_STR);
-    $resultat = $req->execute();
+    $nom = htmlentities($_POST['nom']);
+    // + si autres paramètres
+    $resultat = ajouterBateau($nom);
+
     if($resultat)
     {
         $_SESSION["success"] = 'Bateau ajouté';
@@ -19,7 +19,6 @@ if(isset ($_POST['add']))
     {
         $_SESSION["error"] = 'Problème lors de l\'ajout du bateau';
     }
-    header('location: index.php?action=modifieBateau');
 }
 // appel des fonctions permettant de recuperer les donnees utiles a l'affichage 
 $lesBateaux = getBateau();

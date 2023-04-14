@@ -36,14 +36,6 @@
 				<th>Identifiant</th>
 				<th>Nom</th>
 				<th>Photo</th>
-				<th>Description</th>
-				<th>Longueur</th>
-				<th>Largeur</th>
-				<th>Vitesse</th>
-				<th>Niveau PMR</th>
-				<th>Secteur</th>
-				<th>Nombres passagers</th>
-				<th>Nombres véhicules</th>
 				<th></th>
 			</thead>
 			<tbody>
@@ -54,14 +46,6 @@
 							<td><?= $row['id'] ?></td>
 							<td><?= $row['nom'] ?></td>
 							<td><img height='100px' src='images/bateaux/<?= $row['photo'] ?>'></td>
-							<td><?= $row['description'] ?></td>
-							<td><?= $row['longueur'] ?></td>
-							<td><?= $row['largeur'] ?></td>
-							<td><?= $row['vitesse_croisiere'] ?></td>
-							<td><?= $row['niveauPMR'] ?></td>
-							<td><?= $row['capaciteMax'] ?></td>
-							<td><?= $row['capaciteMax'] ?></td>
-							<td><?= $row['capaciteMax'] ?></td>
 							<td>
 								<button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#edit_<?= $row['id'] ?>">
 									<i class="bi bi-pencil-square"></i> Modifier
