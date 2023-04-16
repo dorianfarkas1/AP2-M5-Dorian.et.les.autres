@@ -1,4 +1,4 @@
-<h1 class="page-header text-center">CRUD Bateaux</h1>
+<h1 class="page-header text-center"><?= $title ?></h1>
 	<div class="row">
 		<div class="row">
 		<?php

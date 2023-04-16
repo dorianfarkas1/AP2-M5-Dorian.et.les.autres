@@ -73,6 +73,40 @@ function ajouterBateau($nom) : array {
     return $resultat;
 }
 
+function modifierBateau($id, $nom, $photoName) : array {
+    $resultat = false;
+
+    try {
+        $cnx = connexionPDO();
+        $req = $cnx->prepare('UPDATE bateau SET nom = :nom, photo = :photo WHERE id = :id');
+        $req->bindParam(':nom', $nom, PDO::PARAM_STR);
+        $req->bindParam(':id', $id, PDO::PARAM_INT);
+        $req->bindParam(':photo', $photoName, PDO::PARAM_STR);
+        $resultat = $req->execute();
+
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return $resultat;
+}
+
+function supprimerBateau($id) : array {
+    $resultat = false;
+
+    try {
+        $cnx = connexionPDO();
+        $req = $cnx->prepare('DELETE FROM bateau WHERE id = :id ');
+        $req->bindParam(':id', $id, PDO::PARAM_INT);
+        $resultat = $req->execute();
+
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return $resultat;
+}
+
 function getBateauByNom(string $nom) : array {
     $resultat = array();
 
@@ -126,6 +160,12 @@ if ($includes[0] == __FILE__ ) {
     
     echo "getBateau() : \n";
     print_r(getBateau());
+
+    echo "ajouterBateau(nom) : \n";
+    print_r(ajouterBateau("test"));
+
+    echo "supprimerBateau(id) : \n";
+    print_r(supprimerBateau(7));
 
     echo "getBateauById(id) : \n";
     print_r(getBateauById(8));
