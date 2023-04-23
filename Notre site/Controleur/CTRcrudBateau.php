@@ -13,6 +13,6 @@ $lesBateaux = getBateau();
 $title = "CRUD des Bateaux";
 include "$racine/Vue/haut_page.php";
 include "$racine/Vue/menu.php";
-include "$racine/Vue/vueCRUDBateau.php";
+include "$racine/Vue/vueCrudbateau.php";
 include "$racine/Vue/pied_page.php";
 ?>
