@@ -1,6 +1,4 @@
-
-
-<h1 class="page-header text-center">CRUD Bateaux</h1>
+<h1 class="page-header text-center"><?= $title ?></h1>
 	<div class="row">
 		<div class="row">
 		<?php
@@ -35,33 +33,19 @@
 	<div class="row">
 		<table id="myTable" class="table table-bordered table-striped">
 			<thead>
-				<th>ID</th>
-				<th>nom</th>
-				<th>photo</th>
-				<th>Longueur</th>
-				<th>Largeur</th>
-				<th>Vitesse</th>
-				
-				<th>Action</th>
+				<th>Identifiant</th>
+				<th>Nom</th>
+				<th>Photo</th>
+				<th></th>
 			</thead>
 			<tbody>
 				<?php
-					
-					include_once('BDD/connectBdd.php');
-					$SQL = "SELECT * FROM bateau";
-					$stmt = $connexion->prepare($SQL);
-					$stmt->execute(array()); // on passe dans le tableaux les paramètres si il y en a à fournir (aucun ici)
-					$lesBateaux = $stmt->fetchAll();
 					foreach ($lesBateaux as $row){
 						?>
 						<tr>
 							<td><?= $row['id'] ?></td>
 							<td><?= $row['nom'] ?></td>
 							<td><img height='100px' src='images/bateaux/<?= $row['photo'] ?>'></td>
-							<td><?= $row['longueur'] ?></td>
-							<td><?= $row['largeur'] ?></td>
-							<td><?= $row['vitesse_croisiere'] ?></td>
-							
 							<td>
 								<button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#edit_<?= $row['id'] ?>">
 									<i class="bi bi-pencil-square"></i> Modifier
