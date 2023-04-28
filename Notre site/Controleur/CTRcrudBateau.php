@@ -86,7 +86,7 @@ if(isset($_POST['edit'])){
 		/* on recrée les affectations de secteur de ce bateau */
 
 		foreach ($secteurs as $idSecteur=>$value){
-		$resultat += getBateauByIdBateauAndIdSecteur($id, $idSecteur); // ajout du resultat booléen de réussite de cette requête.
+		$resultat += getBateauSecteur($id, $idSecteur); // ajout du resultat booléen de réussite de cette requête.
 		}
 
 		/* on suprime les anciennes affectations de contenance */
