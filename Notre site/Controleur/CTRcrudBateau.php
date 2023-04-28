@@ -76,16 +76,8 @@ if(isset($_POST['edit'])){
 			$photoName = $_FILES['photo']['name']; // on ecrase la valeur
 			move_uploaded_file($tmpName, './images/bateaux/'.$photoName);
 		}
-		$req = $connexion->prepare('UPDATE bateau SET nom = :nom, photo = :photo, description = :description, longueur = :longueur, largeur = :largeur, vitesse_croisiere = :vitesse_croisiere, niveauPMR = :niveauPMR WHERE id = :id');
-		$req->bindParam(':nom', $nom, PDO::PARAM_STR);
-		$req->bindParam(':id', $id, PDO::PARAM_INT);
-		$req->bindParam(':photo', $photoName, PDO::PARAM_INT);
-		$req->bindParam(':description', $description, PDO::PARAM_STR);
-		$req->bindParam(':longueur', $longueur, PDO::PARAM_STR);
-		$req->bindParam(':largeur', $largeur, PDO::PARAM_STR);
-		$req->bindParam(':vitesse_croisiere', $vitesse, PDO::PARAM_STR);
-		$req->bindParam(':niveauPMR', $PMR, PDO::PARAM_INT);
-		$resultat = $req->execute();
+		
+		$resultat = modifierBateau( $nom, $id, $photo, $description, $longueur, $largeur, $vitesse_croisiere, $niveauPMR);
 
 		$req2 = $connexion->prepare('DELETE FROM bateau_secteur WHERE idBateau = :idBateau');
 		$req2->bindParam(':idBateau', $id, PDO::PARAM_INT);
@@ -93,11 +85,8 @@ if(isset($_POST['edit'])){
 
 		/* on recrée les affectations de secteur de ce bateau */
 
-		foreach ($secteurs as $key=>$value){
-			$req3 = $connexion->prepare('INSERT INTO bateau_secteur (idBateau, idSecteur) VALUES (:idBateau, :idSecteur)');
-			$req3->bindParam(':idBateau', $id, PDO::PARAM_INT);
-			$req3->bindParam(':idSecteur', $key, PDO::PARAM_INT);
-			$resultat += $req3->execute(); // ajout du resultat booléen de réussite de cette requête.
+		foreach ($secteurs as $idSecteur=>$value){
+		$resultat += getBateauByIdBateauAndIdSecteur($id, $idSecteur); // ajout du resultat booléen de réussite de cette requête.
 		}
 
 		/* on suprime les anciennes affectations de contenance */
@@ -108,13 +97,9 @@ if(isset($_POST['edit'])){
 
 		/* on recrée les affectations de secteur de ce bateau */
 
-		foreach ($categories as $key=>$value){
-			$req5 = $connexion->prepare('INSERT INTO contenance_bateau (idBateau, lettreCategorie, capaciteMax) VALUES (:idBateau, :lettreCategorie, :capaciteMax)');
-			$req5->bindParam(':idBateau', $id, PDO::PARAM_INT);
-			$req5->bindParam(':lettreCategorie', $key, PDO::PARAM_STR);
-			$req5->bindParam(':capaciteMax', $value, PDO::PARAM_INT);
-			$resultat += $req5->execute(); // ajout du resultat booléen de réussite de cette requête.
-		}
+		foreach ($categories as $lettreC=>$capaciteM){				
+		$resultat += getContenanceBateau($idB, $lettreC, $capaciteM); // ajout du resultat booléen de réussite de cette requête.
+	  	}
 
         $connexion->commit(); // fin de transaction
 
