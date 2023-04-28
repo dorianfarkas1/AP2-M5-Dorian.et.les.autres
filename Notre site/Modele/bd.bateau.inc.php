@@ -151,12 +151,6 @@ if ($includes[0] == __FILE__ ) {
     echo "getBateau() : \n";
     print_r(getBateau());
 
-    echo "ajouterBateau(nom) : \n";
-    print_r(ajouterBateau("test"));
-
-    echo "supprimerBateau(id) : \n";
-    print_r(supprimerBateau(7));
-
     echo "getBateauById(id) : \n";
     print_r(getBateauById(8));
 
