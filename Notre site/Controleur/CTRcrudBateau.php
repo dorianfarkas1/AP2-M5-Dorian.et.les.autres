@@ -41,12 +41,8 @@ if(isset($_POST['add'])){
 		
 	}
 
-	foreach ($categories as $key=>$value){
-		$req3 = $connexion->prepare('INSERT INTO contenance_bateau (idBateau, lettreCategorie, capaciteMax) VALUES (:idBateau, :lettreCategorie, :capaciteMax)');				
-		$req3->bindParam(':idBateau', $newId, PDO::PARAM_INT);
-		$req3->bindParam(':lettreCategorie', $key, PDO::PARAM_STR);				
-		$req3->bindParam(':capaciteMax', $value, PDO::PARAM_INT);				
-		$resultat += $req3->execute(); // ajout du resultat booléen de réussite de cette requête.
+	foreach ($categories as $lettreC=>$capaciteM){				
+		$resultat += getContenanceBateau($idB, $lettreC, $capaciteM); // ajout du resultat booléen de réussite de cette requête.
 	}
 
 	$connexion->commit(); // fin de transaction

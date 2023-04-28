@@ -171,7 +171,23 @@ function ajouterBateauSansPhoto($id, $nom, $description, $longueur, $largeur, $v
         die();
     }
     return $resultat;
-        }
+}
+
+function getContenanceBateau($idB, $lettreC, $capaciteM) : bool {
+    $resultat = false;
+try {
+    $cnx = connexionPDO();
+    $req = $cnx->prepare('INSERT INTO contenance_bateau (idBateau, lettreCategorie, capaciteMax) VALUES (:idBateau, :lettreCategorie, :capaciteMax)');
+    $req->bindParam(':idBateau', $idB, PDO::PARAM_INT);
+	$req->bindParam(':lettreCategorie', $lettreC, PDO::PARAM_STR);				
+	$req->bindParam(':capaciteMax', $capaciteM, PDO::PARAM_INT);
+    $resultat = $req->execute();
+} catch (PDOException $e) {
+print "Erreur !: " . $e->getMessage();
+die();
+}
+return $resultat;
+}
 
 $includes = get_included_files();
 // test si le premier include est la page appelée, permet dexecuter le fichier en local pour tester les fonctions
