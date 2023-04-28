@@ -237,6 +237,21 @@ die();
 }
 return $resultat;
 }
+
+function SupprimerBateau($id) : bool {
+    $resultat = false;
+try {
+        $cnx = connexionPDO();
+        $req = $cnx->prepare('DELETE FROM bateau WHERE id = :id ');
+        $req->bindParam(':id', $id, PDO::PARAM_INT);
+        $resultat = $req->execute();
+} catch (PDOException $e) {
+print "Erreur !: " . $e->getMessage();
+die();
+}
+return $resultat;
+}
+
 $includes = get_included_files();
 // test si le premier include est la page appelée, permet dexecuter le fichier en local pour tester les fonctions
 if ($includes[0] == __FILE__ ) {

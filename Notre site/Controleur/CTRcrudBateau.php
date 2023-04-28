@@ -122,11 +122,9 @@ if(isset($_POST['edit'])){
 		$resultat = SupprimerBateauContenance($id);
 
 		$resultat += SupprimerBateauSecteur($id);
+		
 		// suppression du bateau
-
-		$req = $connexion->prepare('DELETE FROM bateau WHERE id = :id ');
-		$req->bindParam(':id', $id, PDO::PARAM_INT);
-		$resultat += $req->execute();
+		$resultat += SupprimerBateau($id);
 		
         $connexion->commit(); // fin de transaction
 		
@@ -136,7 +134,6 @@ if(isset($_POST['edit'])){
 		else{
 			$_SESSION['error'] = 'Problème lors de la suppression du bateau';
 		}
-		header('location: index.php?action=modifieBateau');
 	}
 // appel des fonctions permettant de recuperer les donnees utiles a l'affichage 
 $lesBateaux = getBateau();
