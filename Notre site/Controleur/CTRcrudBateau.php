@@ -37,7 +37,7 @@ if(isset($_POST['add'])){
 	
 	foreach ($secteurs as $idSecteur=>$value){
 		
-		$resultat += getBateauByIdBateauAndIdSecteur($id, $idSecteur); // ajout du resultat booléen de réussite de cette requête.
+		$resultat += getBateauSecteur($id, $idSecteur); // ajout du resultat booléen de réussite de cette requête.
 	}
 
 	foreach ($categories as $lettreC=>$capaciteM){				

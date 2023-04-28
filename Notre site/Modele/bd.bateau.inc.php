@@ -158,7 +158,7 @@ function ajouterBateauSansPhoto($id, $nom, $description, $longueur, $largeur, $v
     return $resultat;
 }
 
- function getBateauByIdBateauAndIdSecteur($id, $idSecteur) : bool {
+ function getBateauSecteur($id, $idSecteur) : bool {
             $resultat = false;
     try {
             $cnx = connexionPDO();
