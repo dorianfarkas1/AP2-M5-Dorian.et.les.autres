@@ -32,26 +32,12 @@ if(isset($_POST['add'])){
 			$resultat = ajouteBateauAvecPhoto($newId, $nom, $photoName, $description, $longueur, $largeur, $vitesse, $PMR);
 	}  
 	else {
-		$req = $connexion->prepare('INSERT INTO bateau (id, nom, description, longueur, largeur, vitesse_croisiere, niveauPMR) VALUES (:id, :nom, :description, :longueur, :largeur, :vitesse_croisiere, :niveauPMR)');
-		$req->bindParam(':id', $newId, PDO::PARAM_INT);
-		$req->bindParam(':nom', $nom, PDO::PARAM_STR);
-		$req->bindParam(':description', $description, PDO::PARAM_STR);
-		$req->bindParam(':longueur', $longueur, PDO::PARAM_STR);
-		$req->bindParam(':largeur', $largeur, PDO::PARAM_STR);
-		$req->bindParam(':vitesse_croisiere', $vitesse, PDO::PARAM_STR);
-		$req->bindParam(':niveauPMR', $PMR, PDO::PARAM_INT);
-		$resultat = $req->execute();
+		$resultat = ajouterBateauSansPhoto($newId, $nom, $description, $longueur, $largeur, $vitesse, $PMR);
 	}
 	
-
-
-
-	foreach ($secteurs as $key=>$value){
-
-		$req2 = $connexion->prepare('INSERT INTO bateau_secteur (idBateau, idSecteur) VALUES (:idBateau, :idSecteur)');
-		$req2->bindParam(':idBateau', $newId, PDO::PARAM_INT);
-		$req2->bindParam(':idSecteur', $key, PDO::PARAM_INT);			
-		$resultat += $req2->execute(); // ajout du resultat booléen de réussite de cette requête.
+	foreach ($secteurs as $idSecteur=>$value){
+		
+		$resultat += getBateauByIdBateauAndIdSecteur($id, $idSecteur); // ajout du resultat booléen de réussite de cette requête.
 		
 	}
 

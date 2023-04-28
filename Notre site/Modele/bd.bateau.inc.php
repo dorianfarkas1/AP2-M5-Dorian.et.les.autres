@@ -158,7 +158,20 @@ function ajouterBateauSansPhoto($id, $nom, $description, $longueur, $largeur, $v
     return $resultat;
 }
 
-
+ function getBateauByIdBateauAndIdSecteur($id, $idSecteur) : bool {
+            $resultat = false;
+    try {
+            $cnx = connexionPDO();
+            $req = $cnx->prepare('INSERT INTO bateau_secteur (idBateau, idSecteur) VALUES (:idBateau, :idSecteur)');
+            $req->bindParam(':idBateau', $id, PDO::PARAM_INT);
+		    $req->bindParam(':idSecteur', $idSecteur, PDO::PARAM_INT);
+            $resultat = $req->execute();
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return $resultat;
+        }
 
 $includes = get_included_files();
 // test si le premier include est la page appelée, permet dexecuter le fichier en local pour tester les fonctions
