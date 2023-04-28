@@ -64,7 +64,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
             <div class="modal-body">
-				<p class="text-center">Etes-vous sure de vouloir supprimer le bateau <?php echo $row['nom']; ?></p>
+				<p class="text-center">Etes-vous sure de vouloir supprimer le bateau ? <?php echo $row['nom']; ?></p>
             </div>
             <div class="modal-footer">
 				<form method="POST" action="?action=CTRcrudBateau">
