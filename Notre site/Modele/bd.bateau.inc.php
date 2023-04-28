@@ -210,6 +210,33 @@ function modifierBateau( $nom, $id, $photo, $description, $longueur, $largeur, $
     return $resultat;
 }
 
+function SupprimerBateauSecteur($id) : bool {
+    $resultat = false;
+try {
+    $cnx = connexionPDO();
+    $req = $cnx->prepare('DELETE FROM bateau_secteur WHERE idBateau = :idBateau');
+    $req->bindParam(':idBateau', $id, PDO::PARAM_INT);
+    $resultat = $req->execute();
+} catch (PDOException $e) {
+print "Erreur !: " . $e->getMessage();
+die();
+}
+return $resultat;
+}
+
+function SupprimerBateauContenance($id) : bool {
+    $resultat = false;
+try {
+    $cnx = connexionPDO();
+    $req = $cnx->prepare('DELETE FROM contenance_bateau WHERE idBateau = :idBateau');
+    $req->bindParam(':idBateau', $id, PDO::PARAM_INT);
+    $resultat = $req->execute();
+} catch (PDOException $e) {
+print "Erreur !: " . $e->getMessage();
+die();
+}
+return $resultat;
+}
 $includes = get_included_files();
 // test si le premier include est la page appelée, permet dexecuter le fichier en local pour tester les fonctions
 if ($includes[0] == __FILE__ ) {
