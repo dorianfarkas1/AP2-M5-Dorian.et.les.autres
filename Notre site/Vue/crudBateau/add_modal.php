@@ -90,32 +90,14 @@
                     <fieldset class="form-control">
 
                         <?php
-
-                                $SQL = "SELECT * FROM secteur";
-                                $stmt2 = $connexion->prepare($SQL);
-                                $stmt2->execute();
-                                $lesSecteurs = $stmt2->fetchAll(PDO::FETCH_ASSOC);
                                 
-                                $req = $connexion->prepare('SELECT idSecteur FROM bateau_secteur WHERE idBAteau = :id');
-                                $req->bindParam(':id', $row['id'], PDO::PARAM_INT);
-                                $req->execute();
-                                $lesSecteursDuBateau = $req->fetchAll(PDO::FETCH_ASSOC); // le tableau $lesSecteursActuels contient les id des différents secteurs actuellement cochés pour le bateau concerné
-                             
-                                /* on prépare un tableau d'un seul niveau contenant les id des secteurs actuellement cochés */
-                                    $listeSecteurs = array();
-                                    foreach ($lesSecteursDuBateau as $UnSecteurDuBateau) {
-                                        array_push($listeSecteurs, $UnSecteurDuBateau['idSecteur']);
-                                    }
                             foreach ($lesSecteurs as $unSecteur) 
                             {
-                                $checked = "";
-                                if (in_array($unSecteur['id'], $listeSecteurs)){
-                                $checked = "checked";
-                                }
+                                
                         ?>
 
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="secteurs[<?= $unSecteur["id"] ?>]"<?= $checked ?>>
+                                <input class="form-check-input" type="checkbox" name="secteurs[<?= $unSecteur["id"] ?>]">
                                 <label class="form-check-label" for="secteurs[<?= $unSecteur["id"] ?>]"><?= $unSecteur["nom"] ?></label>
                             </div>
 
