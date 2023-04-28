@@ -79,9 +79,8 @@ if(isset($_POST['edit'])){
 		
 		$resultat = modifierBateau( $nom, $id, $photo, $description, $longueur, $largeur, $vitesse_croisiere, $niveauPMR);
 
-		$req2 = $connexion->prepare('DELETE FROM bateau_secteur WHERE idBateau = :idBateau');
-		$req2->bindParam(':idBateau', $id, PDO::PARAM_INT);
-		$resultat += $req2->execute(); // ajout du resultat booléen de réussite de cette requête.
+		/* on suprime les anciennes affectations de contenance */
+		$resultat += SupprimerBateauSecteur($id); // ajout du resultat booléen de réussite de cette requête.
 
 		/* on recrée les affectations de secteur de ce bateau */
 
@@ -91,9 +90,7 @@ if(isset($_POST['edit'])){
 
 		/* on suprime les anciennes affectations de contenance */
 
-		$req4 = $connexion->prepare('DELETE FROM contenance_bateau WHERE idBateau = :idBateau');
-		$req4->bindParam(':idBateau', $id, PDO::PARAM_INT);
-		$resultat += $req4->execute(); // ajout du resultat booléen de réussite de cette requête.
+		$resultat += SupprimerBateauContenance($id); // ajout du resultat booléen de réussite de cette requête.
 
 		/* on recrée les affectations de secteur de ce bateau */
 
@@ -109,7 +106,6 @@ if(isset($_POST['edit'])){
 		else{
 			$_SESSION['error'] = 'Problème lors de la modification du bateau';
 		}
-		header('location: index.php?action=modifieBateau');
 	}
 // appel des fonctions permettant de recuperer les donnees utiles a l'affichage 
 $lesBateaux = getBateau();
