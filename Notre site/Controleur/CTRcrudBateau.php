@@ -107,6 +107,37 @@ if(isset($_POST['edit'])){
 			$_SESSION['error'] = 'Problème lors de la modification du bateau';
 		}
 	}
+
+	if(isset($_POST['supr'])){
+		$resultat = 0 ; // initialisation du booléen de réussite des requetes
+    	$connexion->beginTransaction(); // debut de transaction
+
+		$id = $_POST['id'];
+
+		$photoName = $_POST['old_photo'];
+		if ($photoName != ""){
+			unlink('./images/bateaux/' .$photoName);
+		}
+
+		$resultat = SupprimerBateauContenance($id);
+
+		$resultat += SupprimerBateauSecteur($id);
+		// suppression du bateau
+
+		$req = $connexion->prepare('DELETE FROM bateau WHERE id = :id ');
+		$req->bindParam(':id', $id, PDO::PARAM_INT);
+		$resultat += $req->execute();
+		
+        $connexion->commit(); // fin de transaction
+		
+		if($resultat){
+			$_SESSION['success'] = 'Bateau supprimé';
+		}		
+		else{
+			$_SESSION['error'] = 'Problème lors de la suppression du bateau';
+		}
+		header('location: index.php?action=modifieBateau');
+	}
 // appel des fonctions permettant de recuperer les donnees utiles a l'affichage 
 $lesBateaux = getBateau();
 $lesSecteurs = getSecteurs();
