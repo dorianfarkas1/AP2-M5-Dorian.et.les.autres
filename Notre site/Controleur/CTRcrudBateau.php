@@ -1,5 +1,11 @@
 <?php
 
+if ( $_SERVER["SCRIPT_FILENAME"] == __FILE__ ){
+    $racine="..";
+}
+include_once "$racine/Modele/bd.bateau.inc.php";
+include_once "$racine/Modele/bd.secteur.inc.php";
+
 if(isset($_POST['add'])){
 	$resultat = 0 ; // initialisation du booléen de réussite des requetes
 	$connexion->beginTransaction(); // debut de transaction
@@ -19,28 +25,25 @@ if(isset($_POST['add'])){
 		move_uploaded_file ($tmpName, './images/bateaux/'.$photoName);
 	}
 
-	$SQL = "SELECT max(id) FROM bateau";
-	$stmt = $connexion->prepare($SQL);
-	$stmt->execute();
-	$lastId = $stmt->fetch();
-	$newId = (int)$lastId[0] +1; // on lit la case du tableau de résultat
+	$newId = getIdMax() +1;
 
 
 	if(isset($_FILES['photo'])){
-		$req = $connexion->prepare('INSERT INTO bateau (id, nom, photo, description, longueur, largeur, vitesse_croisiere, niveauPMR) VALUES (:id, :nom, :photo, :description, :longueur, :largeur, :vitesse_croisiere, :niveauPMR)');
-		$req->bindParam(':photo', $photoName, PDO::PARAM_STR);
+			$resultat = ajouteBateauAvecPhoto($newId, $nom, $photoName, $description, $longueur, $largeur, $vitesse, $PMR);
 	}  
 	else {
-		$req = $connexion->prepare('INSERT INTO bateau (id, nom, description, longueur, largeur, vitesse_croisiere, niveauPMR) VALUES (:id, :nom, :description, :longueur, :largeur, :vitesse_croisiere, :niveauPMR)');;
+		$req = $connexion->prepare('INSERT INTO bateau (id, nom, description, longueur, largeur, vitesse_croisiere, niveauPMR) VALUES (:id, :nom, :description, :longueur, :largeur, :vitesse_croisiere, :niveauPMR)');
+		$req->bindParam(':id', $newId, PDO::PARAM_INT);
+		$req->bindParam(':nom', $nom, PDO::PARAM_STR);
+		$req->bindParam(':description', $description, PDO::PARAM_STR);
+		$req->bindParam(':longueur', $longueur, PDO::PARAM_STR);
+		$req->bindParam(':largeur', $largeur, PDO::PARAM_STR);
+		$req->bindParam(':vitesse_croisiere', $vitesse, PDO::PARAM_STR);
+		$req->bindParam(':niveauPMR', $PMR, PDO::PARAM_INT);
+		$resultat = $req->execute();
 	}
-	$req->bindParam(':id', $newId, PDO::PARAM_INT);
-	$req->bindParam(':nom', $nom, PDO::PARAM_STR);
-	$req->bindParam(':description', $description, PDO::PARAM_STR);
-	$req->bindParam(':longueur', $longueur, PDO::PARAM_STR);
-	$req->bindParam(':largeur', $largeur, PDO::PARAM_STR);
-	$req->bindParam(':vitesse_croisiere', $vitesse, PDO::PARAM_STR);
-	$req->bindParam(':niveauPMR', $PMR, PDO::PARAM_INT);
-	$resultat = $req->execute();
+	
+
 
 
 	foreach ($secteurs as $key=>$value){
@@ -68,7 +71,6 @@ if(isset($_POST['add'])){
 	else{
 		$_SESSION["error"] = 'Problème lors de l\'ajout du bateau';
 	}
-	header('location: index.php?action=modifieBateau');
 }
 // appel des fonctions permettant de recuperer les donnees utiles a l'affichage 
 $lesBateaux = getBateau();
