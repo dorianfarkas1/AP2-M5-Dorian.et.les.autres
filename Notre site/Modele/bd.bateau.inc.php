@@ -138,6 +138,27 @@ function getIdMax() : int {
     return $resultat;
 }
 
+function ajouterBateauSansPhoto($id, $nom, $description, $longueur, $largeur, $vitesse_croisiere, $niveauPMR) : bool {
+    $resultat = false;
+    try {
+            $cnx = connexionPDO();
+            $req = $cnx->prepare('INSERT INTO bateau (id, nom, description, longueur, largeur, vitesse_croisiere, niveauPMR) VALUES (:id, :nom, :photo, :description, :longueur, :largeur, :vitesse_croisiere, :niveauPMR)');
+            $req->bindParam(':id', $id, PDO::PARAM_INT);
+            $req->bindParam(':nom', $nom, PDO::PARAM_STR);
+            $req->bindParam(':description', $description, PDO::PARAM_STR);
+            $req->bindParam(':longueur', $longueur, PDO::PARAM_STR);
+            $req->bindParam(':largeur', $largeur, PDO::PARAM_STR);
+            $req->bindParam(':vitesse_croisiere', $vitesse_croisiere, PDO::PARAM_STR);
+            $req->bindParam(':niveauPMR', $niveauPMR, PDO::PARAM_INT);
+            $resultat = $req->execute();
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return $resultat;
+}
+
+
 
 $includes = get_included_files();
 // test si le premier include est la page appelée, permet dexecuter le fichier en local pour tester les fonctions
