@@ -35,8 +35,13 @@
 		<table id="myTable" class="table table-bordered table-striped">
 			<thead>
 				<th>ID</th>
-				<th>Nom</th>
-				<th>Photo</th>
+				<th>nom</th>
+				<th>photo</th>
+				<th>Longueur</th>
+				<th>Largeur</th>
+				<th>Vitesse</th>
+				
+				<th>Action</th>
 			</thead>
 			<tbody>
 				<?php
@@ -52,6 +57,10 @@
 							<td><?= $row['id'] ?></td>
 							<td><?= $row['nom'] ?></td>
 							<td><img height='100px' src='images/bateaux/<?= $row['photo'] ?>'></td>
+							<td><?= $row['longueur'] ?></td>
+							<td><?= $row['largeur'] ?></td>
+							<td><?= $row['vitesse_croisiere'] ?></td>
+							
 							<td>
 								<button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#edit_<?= $row['id'] ?>">
 									<i class="bi bi-pencil-square"></i> Modifier
