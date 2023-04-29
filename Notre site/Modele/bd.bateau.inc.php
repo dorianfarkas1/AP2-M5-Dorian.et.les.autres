@@ -100,6 +100,22 @@ function getBateauByNiveauPMR(string $niveauPMR) : array {
     return $resultat;
 }
 
+function getSecteurBateau(int $idB) : array {
+    try {
+        $cnx = connexionPDO();
+        $req = $cnx->prepare('SELECT idSecteur FROM bateau_secteur WHERE idBAteau = :id');
+        $req->bindParam(':id', $idB, PDO::PARAM_INT);
+
+        $req->execute();
+
+        $resultat = $req->fetch(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return $resultat;
+}
+
 
 function ajouteBateauAvecPhoto($id, $nom, $photo, $description, $longueur, $largeur, $vitesse_croisiere, $niveauPMR) : bool {
     $resultat = false;

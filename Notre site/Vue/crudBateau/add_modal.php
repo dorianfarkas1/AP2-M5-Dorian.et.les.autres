@@ -65,9 +65,8 @@
                         <select name="PMR" class="form-control" required> 
                             <option value="">--- Choisissez un niveau de PMR ---</option>
                                 <?php 
-                                        $stmt1 = $connexion->prepare('SELECT * FROM niveau_accessibilite'); 
-                                        $stmt1->execute(array()); 
-                                        $lesNiveauPMRs = $stmt1->fetchAll(PDO::FETCH_ASSOC);
+                                       
+                                        $lesNiveauPMRs = getNiveauPMR();
                                     foreach($lesNiveauPMRs as $unNiveauPMR) 
                                     {
                                         $selected = "";
@@ -90,7 +89,9 @@
                     <fieldset class="form-control">
 
                         <?php
-                                
+                                $lesSecteurs =  getSecteurs();
+                                $lesSecteursDuBateau =  getSecteurBateau(int $idB);
+
                             foreach ($lesSecteurs as $unSecteur) 
                             {
                                 
