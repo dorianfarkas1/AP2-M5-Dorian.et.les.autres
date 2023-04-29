@@ -1,7 +1,4 @@
-<?php
-	include_once('BDD/connectBdd.php'); // cette page a besoin d'inclure le code qui crée l'objet PDO $connexion qui permet d'interroger la BDD
-?>
-	
+
 <h1 class="page-header text-center"><?php $title ?></h1>
 	<div class="row">
 		<div class="row">
