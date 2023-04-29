@@ -3,7 +3,6 @@
 if ( $_SERVER["SCRIPT_FILENAME"] == __FILE__ ){
     $racine="..";
 }
-include_once "$racine/Modele/bd.bateau.inc.php";
 include_once "$racine/Modele/bd.port.inc.php";
 
 	if(isset($_POST['add'])){
@@ -27,7 +26,6 @@ include_once "$racine/Modele/bd.port.inc.php";
 		   $resultat = ajoutePortSansPhoto( $nom_court, $nom, $description, $adresse, $camera);
 
     }
-
 
 		if($resultat){
 			$_SESSION["success"] = 'Port ajouté';
