@@ -37,16 +37,11 @@
 				<th>Nom</th>
 				<th>Photo</th>
 				<th>Description</th>
-				<th></th>
+				<th>Action</th>
 			</thead>
 			<tbody>
 				<?php
 					
-					include_once('BDD/connectBdd.php');
-					$SQL = "SELECT * FROM bateau";
-					$stmt = $connexion->prepare($SQL);
-					$stmt->execute(array()); // on passe dans le tableaux les paramètres si il y en a à fournir (aucun ici)
-					$lesBateaux = $stmt->fetchAll();
 					foreach ($lesBateaux as $row){
 						?>
 						<tr>
