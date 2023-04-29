@@ -73,17 +73,16 @@ include_once "$racine/Modele/bd.port.inc.php";
 		}
 	
 		$resultat = SupprimerPort($id) ;
-		
+
 		if($resultat){
 			$_SESSION['success'] = 'Port supprimé';
 		}		
 		else{
 			$_SESSION['error'] = 'Problème lors de la suppression du port';
 		}
-		header('location: index.php?action=modifiePort');
 	}
 // appel des fonctions permettant de recuperer les donnees utiles a l'affichage 
-$lesBateaux = getBateau();
+$lesPorts = getPorts();
 
 
 // appel du script de vue qui permet de gerer l'affichage des donnees
