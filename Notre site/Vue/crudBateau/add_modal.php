@@ -90,7 +90,7 @@
 
                         <?php
                                 $lesSecteurs =  getSecteurs();
-                                $lesSecteursDuBateau =  getSecteurBateau(int $idB);
+                                
 
                             foreach ($lesSecteurs as $unSecteur) 
                             {
