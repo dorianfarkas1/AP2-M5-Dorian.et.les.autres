@@ -21,7 +21,7 @@ include_once "$racine/Modele/bd.port.inc.php";
 		
     if(isset($_FILES['photo'])){
 
-           $resultat = ajoutePortAvecPhoto( $photo, $nom_court, $nom, $description, $adresse, $camera);
+           $resultat = ajoutePortAvecPhoto( $photoName, $nom_court, $nom, $description, $adresse, $camera);
 
     } else {
 		   $resultat = ajoutePortSansPhoto( $nom_court, $nom, $description, $adresse, $camera);
@@ -53,15 +53,8 @@ include_once "$racine/Modele/bd.port.inc.php";
 			$photoName = $_FILES['photo']['name']; // on ecrase la valeur
 			move_uploaded_file($tmpName, './images/ports/'.$photoName);
 		}
-		$req = $connexion->prepare('UPDATE port SET nom = :nom, description = :description, adresse = :adresse, photo = :photo, camera = :camera WHERE nom_court = :nom_court');
-		
-        $req->bindParam(':nom_court', $nom_court, PDO::PARAM_STR);
-        $req->bindParam(':nom', $nom, PDO::PARAM_STR);
-        $req->bindParam(':description', $description, PDO::PARAM_STR);
-        $req->bindParam(':adresse', $adresse, PDO::PARAM_STR);
-		$req->bindParam(':photo', $photoName, PDO::PARAM_STR);
-        $req->bindParam(':camera', $camera, PDO::PARAM_STR);
-		$resultat = $req->execute();
+
+		$resultat = modifierPort( $nom_court, $nom, $description, $adresse, $photoName, $camera);
 
 		if($resultat){
 			$_SESSION['success'] = 'Port modifié';
@@ -69,7 +62,6 @@ include_once "$racine/Modele/bd.port.inc.php";
 		else{
 			$_SESSION['error'] = 'Problème lors de la modification du Port';
 		}
-		header('location: index.php?action=modifiePort');
 	}
 	
 	if(isset($_POST['supr'])){
@@ -79,9 +71,9 @@ include_once "$racine/Modele/bd.port.inc.php";
 		if ($photoName != ""){
 			unlink('./images/ports/' .$photoName);
 		}
-		$req = $connexion->prepare('DELETE FROM port WHERE nom_court = :id ');
-		$req->bindParam(':id', $id, PDO::PARAM_STR);
-		$resultat = $req->execute();
+	
+		$resultat = SupprimerPort($id) ;
+		
 		if($resultat){
 			$_SESSION['success'] = 'Port supprimé';
 		}		

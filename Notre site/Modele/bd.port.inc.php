@@ -100,6 +100,38 @@ function ajoutePortSansPhoto( $nom_court, $nom, $description, $adresse, $camera)
     return $resultat;
 }
 
+function modifierPort( $nom_court, $nom, $description, $adresse, $photo, $camera): bool {
+    $resultat = false;
+    try {
+            $cnx = connexionPDO();
+            $req = $cnx->prepare('UPDATE port SET nom = :nom, description = :description, adresse = :adresse, photo = :photo, camera = :camera WHERE nom_court = :nom_court');
+            $req->bindParam(':nom_court', $nom_court, PDO::PARAM_STR);
+            $req->bindParam(':nom', $nom, PDO::PARAM_STR);
+            $req->bindParam(':description', $description, PDO::PARAM_STR);
+            $req->bindParam(':adresse', $adresse, PDO::PARAM_STR);
+		    $req->bindParam(':photo', $photo, PDO::PARAM_STR);
+            $req->bindParam(':camera', $camera, PDO::PARAM_STR);
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return $resultat;
+}
+
+function SupprimerPort($id) : bool {
+    $resultat = false;
+try {
+    $cnx = connexionPDO();
+    $req = $cnx->prepare('DELETE FROM port WHERE nom_court = :id ');
+    $req->bindParam(':id', $id, PDO::PARAM_STR);;
+    $resultat = $req->execute();
+} catch (PDOException $e) {
+print "Erreur !: " . $e->getMessage();
+die();
+}
+return $resultat;
+}
+
 $includes = get_included_files();
 // test si le premier include est la page appelée, permet dexecuter le fichier en local pour tester les fonctions
 if ($includes[0] == __FILE__ ) {
