@@ -35,7 +35,6 @@ include_once "$racine/Modele/bd.port.inc.php";
 		else{
 			$_SESSION["error"] = 'Problème lors de l\'ajout du port';
 		}
-		header('location: index.php?action=modifiePort');
 	}
 	
 	if(isset($_POST['edit'])){
