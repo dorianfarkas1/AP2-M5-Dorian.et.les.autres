@@ -24,8 +24,7 @@ include_once "$racine/Modele/bd.port.inc.php";
            $resultat = ajoutePortAvecPhoto( $photo, $nom_court, $nom, $description, $adresse, $camera);
 
     } else {
-
-            $req = $connexion->prepare('INSERT INTO port (nom_court, nom, description, adresse, camera) VALUES (:id, :nom, :description, :adresse, :camera)');;
+		   $resultat = ajoutePortSansPhoto( $nom_court, $nom, $description, $adresse, $camera);
 
     }
 
