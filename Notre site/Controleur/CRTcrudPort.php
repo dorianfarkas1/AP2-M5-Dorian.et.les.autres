@@ -87,6 +87,6 @@ $lesPorts = getPorts();
 $title = "CRUD des Ports";
 include "$racine/Vue/haut_page.php";
 include "$racine/Vue/menu.php";
-include "$racine/Vue/vueCrudportphp";
+include "$racine/Vue/vueCrudport.php";
 include "$racine/Vue/pied_page.php";
 ?>
