@@ -11,7 +11,7 @@
             <div class="modal-body">
                 <div class="row form-group">
 					<div class="col-sm-2">
-						<label class="control-label modal-label">Nom_ct:</label>
+						<label class="control-label modal-label">Nom court:</label>
 					</div>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" name="nom_court" placeholder="nom_court..." required>
@@ -20,7 +20,7 @@
 
                 <div class="row form-group">
 					<div class="col-sm-2">
-						<label class="control-label modal-label">Nom:</label>
+						<label class="control-label modal-label">Nom :</label>
 					</div>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" name="nom" required>
@@ -29,7 +29,7 @@
 
                 <div class="row form-group">
 					<div class="col-sm-2">
-						<label class="control-label modal-label">Dscpt°:</label>
+						<label class="control-label modal-label">Description :</label>
 					</div>
 					<div class="col-sm-10">
                         <textarea name="description" class="form-control" required cols="33" rows="5" placeholder="description du port..."></textarea>
@@ -38,7 +38,7 @@
 
                 <div class="row form-group">
 					<div class="col-sm-2">
-						<label class="control-label modal-label">Adresse:</label>
+						<label class="control-label modal-label">Adresse :</label>
 					</div>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" name="adresse" required>
@@ -46,7 +46,7 @@
 				</div>
                 <div class="row form-group">
 					<div class="col-sm-2">
-						<label class="control-label modal-label">Photo:</label>
+						<label class="control-label modal-label">Photo :</label>
 					</div>
 					<div class="col-sm-10">
 						<input type="file" class="form-control" name="photo" >
@@ -55,7 +55,7 @@
 
                 <div class="row form-group">
 					<div class="col-sm-2">
-						<label class="control-label modal-label">Caméra:</label>
+						<label class="control-label modal-label">Caméra :</label>
 					</div>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" name="camera" >
