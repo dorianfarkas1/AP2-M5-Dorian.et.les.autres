@@ -16,9 +16,6 @@ if ((isset($_POST['route'])) && ($_POST['route'] != "")){
 
 // appel du script de vue qui permet de gerer l'affichage des donnees
 $title = "Affichage des Traversee";
-$keywords ="";
-$description="";
-
 include "$racine/Vue/haut_page.php";
 include "$racine/Vue/menu.php";
 include "$racine/Vue/traversee.php";

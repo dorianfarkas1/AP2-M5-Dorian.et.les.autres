@@ -1,4 +1,4 @@
-<h1 class="page-header text-center">Les tarifs</h1>
+<h1 class="page-header text-center">Affichage des Tarifs</h1>
 
 <form method="post" action="index.php?action=afficheTarif">
     <div>

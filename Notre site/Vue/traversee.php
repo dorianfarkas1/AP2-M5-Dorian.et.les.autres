@@ -1,4 +1,5 @@
 
+<h1 class="page-header text-center"><?php $title ?></h1>
 
 <form method="post" action="index.php?action=afficheTraversee">
     <div>
