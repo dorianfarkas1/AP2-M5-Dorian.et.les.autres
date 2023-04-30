@@ -10,7 +10,7 @@
             <div class="modal-body">
                 <div class="row form-group">
 					<div class="col-sm-2">
-						<label class="control-label modal-label">Nom:</label>
+						<label class="control-label modal-label">Nom :</label>
 					</div>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" name="nom" required>
@@ -19,7 +19,7 @@
 
                 <div class="row form-group">
 					<div class="col-sm-2">
-						<label class="control-label modal-label">Photo:</label>
+						<label class="control-label modal-label">Photo :</label>
 					</div>
 					<div class="col-sm-10">
 						<input type="file" class="form-control" name="photo" >
@@ -27,39 +27,39 @@
 				</div>
                 <div class="row form-group">
 					<div class="col-sm-2">
-						<label class="control-label modal-label">Dscpt°:</label>
+						<label class="control-label modal-label">Description :</label>
 					</div>
 					<div class="col-sm-10">
-                    <textarea class="form-control" name="description" required><?= $row['description'] ?>></textarea>
+                    <textarea class="form-control" name="description" required></textarea>
 					</div>
 				</div>
                 <div class="row form-group">
 					<div class="col-sm-2">
-						<label class="control-label modal-label">Longueur:</label>
+						<label class="control-label modal-label">Longueur :</label>
 					</div>
 					<div class="col-sm-10">
-                    <input type="number" step="0.1" class="form-control" name="longueur" min="0" value="<?= $row['longueur']?>" required>
+                    <input type="number" step="0.1" class="form-control" name="longueur" min="0" value="" required>
 					</div>
 				</div>
                 <div class="row form-group">
 					<div class="col-sm-2">
-						<label class="control-label modal-label">Largeur:</label>
+						<label class="control-label modal-label">Largeur :</label>
 					</div>
 					<div class="col-sm-10">
-                    <input type="number" step="0.1" class="form-control" name="largeur" min="0" value="<?= $row['largeur']?>" required>
+                    <input type="number" step="0.1" class="form-control" name="largeur" min="0" value="" required>
 					</div>
 				</div>
                 <div class="row form-group">
 					<div class="col-sm-2">
-						<label class="control-label modal-label">Vitesse_C:</label>
+						<label class="control-label modal-label">Vitesse :</label>
 					</div>
 					<div class="col-sm-10">
-                    <input type="number" class="form-control" step="1" min="0" name="vitesse" value="<?= $row['vitesse_croisiere']?>"  required>
+                    <input type="number" class="form-control" step="1" min="0" name="vitesse" value=""  required>
 					</div>
 				</div>
                 <div class="row form-group">
 					<div class="col-sm-2">
-						<label class="control-label modal-label">NivPMR:</label>
+						<label class="control-label modal-label">Niveau PMR :</label>
 					</div>
 					<div class="col-sm-10">
                         <select name="PMR" class="form-control" required> 
@@ -75,7 +75,7 @@
                                         $selected = "selected";
                                         }
                                      ?> 
-                                    <option value="<?= $unNiveauPMR["idNiveau"] ?>" <?= $selected ?>><?= ucfirst($unNiveauPMR["libelle"]) ?></option>
+                                    <option value=""><?= ucfirst($unNiveauPMR["libelle"]) ?></option>
                                     
                               <?php } ?> 
                         </select>
@@ -83,7 +83,7 @@
 				</div>
                 <div class="row form-group">
 					<div class="col-sm-2">
-						<label class="control-label modal-label">Secteur:</label>
+						<label class="control-label modal-label">Secteur :</label>
 					</div>
 					<div class="col-sm-10">
                     <fieldset class="form-control">

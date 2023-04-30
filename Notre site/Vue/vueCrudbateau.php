@@ -1,4 +1,3 @@
-
 <h1 class="page-header text-center"><?php $title ?></h1>
 	<div class="row">
 		<div class="row">
