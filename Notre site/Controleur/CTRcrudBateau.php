@@ -77,7 +77,7 @@ if(isset($_POST['edit'])){
 			move_uploaded_file($tmpName, './images/bateaux/'.$photoName);
 		}
 		
-		$resultat = modifierBateau( $nom, $id, $photo, $description, $longueur, $largeur, $vitesse, $PMR);
+		$resultat = modifierBateau( $nom, $id, $photoName, $description, $longueur, $largeur, $vitesse, $PMR);
 
 		/* on suprime les anciennes affectations de contenance */
 		$resultat += SupprimerBateauSecteur($id); // ajout du resultat booléen de réussite de cette requête.

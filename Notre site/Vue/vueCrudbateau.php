@@ -76,6 +76,10 @@
 
 <?php include('crudBateau/add_modal.php') ?>
 
+<script src=""></script>
+<script></script>
+<script></script>
+<script></script>
 
 <!-- generate datatable on our table -->
 <script>
