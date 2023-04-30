@@ -38,6 +38,12 @@
 				<li>
 					<a class="dropdown-item" href="index.php?action=modifiePort" >Modifier les ports</a>
 				</li>
+				<li>
+					<a class="dropdown-item" href="index.php?action=modifieTrajet" >Modifier les trajets</a>
+				</li>
+				<li>
+					<a class="dropdown-item" href="index.php?action=affecterBateau" >Affecter bateaux aux trajets</a>
+				</li>
 			</ul>
 
 			<li class="nav-item">

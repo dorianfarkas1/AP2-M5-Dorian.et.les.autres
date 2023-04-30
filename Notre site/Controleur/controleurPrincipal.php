@@ -13,6 +13,8 @@ function controleurPrincipal(string $action) : string {
     $lesActions["bateauTraitement"] = "CTRcrudBateau/crudBateauTraitement.php";
     $lesActions["modifiePort"] = "CTRcrudPort.php";
     $lesActions["portTraitement"] = "CTRcrudPort/crudPortTraitement.php";
+    $lesActions["modifieTrajet"] = "CTRtrajets.php";
+    $lesActions["affecterBateau"] = "CTRaffecteBateau.php";
     $lesActions["connexion"] = "CTRconnexion.php";
     $lesActions["deconnexion"] = "CTRdeconnexion.php";
 
