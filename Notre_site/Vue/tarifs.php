@@ -1,4 +1,4 @@
-<h1 class="page-header text-center"><?= $title ?></h1>
+<h2 class="page-header text-center"><?= $title ?></h2>
 
 <form method="post" action="index.php?action=afficheTarif">
     <div>
