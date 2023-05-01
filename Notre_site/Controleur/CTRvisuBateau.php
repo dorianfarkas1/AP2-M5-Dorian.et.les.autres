@@ -17,8 +17,6 @@ else{
 
 // appel du script de vue qui permet de gerer l'affichage des donnees
 $titre = "Affichage des Bateaux";
-$keywords ="";
-$description="";
 
 include "$racine/Vue/haut_page.php";
 include "$racine/Vue/menu.php";
