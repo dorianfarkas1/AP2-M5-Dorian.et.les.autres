@@ -69,13 +69,9 @@
                                         $lesNiveauPMRs = getNiveauPMR();
                                     foreach($lesNiveauPMRs as $unNiveauPMR) 
                                     {
-                                        $selected = "";
-
-                                        if ($unNiveauPMR['idNiveau'] == $row['niveauPMR']){
-                                        $selected = "selected";
-                                        }
+                                     
                                      ?> 
-                                    <option value="<?= $unNiveauPMR["idNiveau"] ?>" <?= $selected ?>><?= ucfirst($unNiveauPMR["libelle"]) ?></option>
+                                    <option value="<?= $unNiveauPMR["idNiveau"] ?>" ><?= ucfirst($unNiveauPMR["libelle"]) ?></option>
                                     
                               <?php } ?> 
                         </select>
@@ -85,18 +81,16 @@
 					<div class="col-sm-2">
 						<label class="control-label modal-label">Secteur:</label>
 					</div>
-					<div class="col-sm-10">
+					
+                <div class="col-sm-10">
                     <fieldset class="form-control">
 
-                        <?php
-                                $lesSecteurs =  getSecteurs();
+                            <?php
                                 
+                                $lesSecteurs =  getSecteurs();
 
                             foreach ($lesSecteurs as $unSecteur) 
-                            {
-                                
-                        ?>
-
+                            { ?>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="secteurs[<?= $unSecteur["id"] ?>]">
                                 <label class="form-check-label" for="secteurs[<?= $unSecteur["id"] ?>]"><?= $unSecteur["nom"] ?></label>
@@ -105,27 +99,19 @@
                         <?php } ?>
 
                     </fieldset>
-					</div>
-
-                    <?php
-
-                        $SQL = 'SELECT * FROM categorie';    
-                        $stmt3 = $connexion->prepare('SELECT * FROM categorie');
-                        $stmt3->execute(array());
-                        $lesCategories = $stmt3->fetchAll(PDO::FETCH_ASSOC);
-
-                        ?>
-                        <div class="form-group">
-                        <?php
-
-                        foreach ($lesCategories as $uneCategorie) { ?>
-
-                        <label for="categories[<?= $uneCategorie["idCategorie"] ?>]">Nombre de <?= $uneCategorie["libelleCategorie"] ?> :</label>
-                        <input type="number" step="1" min="0" class="form-control" name="categories[<?= $uneCategorie["idCategorie"] ?>]"  required>
-
-                        <?php } ?>
 				</div>
-            </div>
+
+                        <div class="form-group">
+                            <?php
+
+                                foreach ($lesCategories as $uneCategorie) { ?>
+
+                            <label for="categories[<?= $uneCategorie["idCategorie"] ?>]">Nombre de <?= $uneCategorie["libelleCategorie"] ?> :</label>
+                            <input type="number" step="1" min="0" class="form-control" name="categories[<?= $uneCategorie["idCategorie"] ?>]"  required>
+
+                            <?php } ?>
+				        </div>
+                    </div>
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
