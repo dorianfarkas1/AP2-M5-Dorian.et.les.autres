@@ -30,7 +30,7 @@
 						<label class="control-label modal-label">Dscpt°:</label>
 					</div>
 					<div class="col-sm-10">
-                    <textarea class="form-control" name="description" required><?= $row['description'] ?>></textarea>
+                    <textarea class="form-control" name="description" required></textarea>
 					</div>
 				</div>
                 <div class="row form-group">
