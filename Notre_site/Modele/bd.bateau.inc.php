@@ -154,7 +154,7 @@ function getIdMax() : int {
     return $resultat;
 }
 
-function ajouterBateauSansPhoto($id, $nom, $description, $longueur, $largeur, $vitesse_croisiere, $niveauPMR) : bool {
+function ajouterBateauSansPhoto($id, $nom, $description, $longueur, $largeur, $vitesse, $PMR) : bool {
     $resultat = false;
     try {
             $cnx = connexionPDO();
@@ -164,8 +164,8 @@ function ajouterBateauSansPhoto($id, $nom, $description, $longueur, $largeur, $v
             $req->bindParam(':description', $description, PDO::PARAM_STR);
             $req->bindParam(':longueur', $longueur, PDO::PARAM_STR);
             $req->bindParam(':largeur', $largeur, PDO::PARAM_STR);
-            $req->bindParam(':vitesse_croisiere', $vitesse_croisiere, PDO::PARAM_STR);
-            $req->bindParam(':niveauPMR', $niveauPMR, PDO::PARAM_INT);
+            $req->bindParam(':vitesse_croisiere', $vitesse, PDO::PARAM_STR);
+            $req->bindParam(':niveauPMR', $PMR, PDO::PARAM_INT);
             $resultat = $req->execute();
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage();

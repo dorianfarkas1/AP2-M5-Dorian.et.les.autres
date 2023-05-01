@@ -43,6 +43,7 @@ if(isset($_POST['add'])){
 
 	foreach ($categories as $lettreC=>$capaciteM){				
 		$resultat += getContenanceBateau($idB, $lettreC, $capaciteM); // ajout du resultat booléen de réussite de cette requête.
+
 	}
 
 	$connexion->commit(); // fin de transaction
