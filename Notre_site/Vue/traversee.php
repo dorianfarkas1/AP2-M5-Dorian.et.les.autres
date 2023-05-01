@@ -67,7 +67,7 @@ if (isset($lesTraversees)){ ?>
 	} 
 else {
 	?>
-	    <h1>Veuillez selectionner une liaison !</h1>
+	    <h3>Veuillez selectionner une liaison !</h3>
 	<?php
     }
 ?>
