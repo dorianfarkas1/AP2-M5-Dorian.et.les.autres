@@ -1,7 +1,7 @@
 <?php
 include_once "bd.inc.php";
 
-function getCategorie() : array {
+function getCategories() : array {
     $resultat = array();
 
     try {

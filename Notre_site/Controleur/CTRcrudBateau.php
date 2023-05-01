@@ -137,9 +137,9 @@ if(isset($_POST['edit'])){
 		}
 	}
 // appel des fonctions permettant de recuperer les donnees utiles a l'affichage 
-$lesBateaux = getBateau();
+$lesBateaux = getBateaux();
 $lesSecteurs = getSecteurs();
-$lesCategories = getCategorie();
+$lesCategories = getCategories();
 
 // appel du script de vue qui permet de gerer l'affichage des donnees
 $title = "CRUD des Bateaux";

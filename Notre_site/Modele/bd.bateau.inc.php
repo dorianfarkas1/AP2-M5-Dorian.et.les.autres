@@ -37,7 +37,7 @@ function getBateauById(int $id) : array {
     return $resultat;
 }
 
-function getBateau() : array {
+function getBateaux() : array {
     $resultat = array();
 
     try {

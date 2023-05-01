@@ -11,7 +11,7 @@ if ((isset($_POST['niveauPMR'])) && ($_POST['niveauPMR'] != "")) {
     $lesBateaux = getBateauByNiveauPMR($_POST['niveauPMR']);
 }
 else{
-    $lesBateaux = getBateau();
+    $lesBateaux = getBateaux();
 }
 
 
