@@ -17,10 +17,7 @@ else {
     $lesLiaisons = getLiaison();
 }
 	
-$titre = "Affichage des Liaisons";
-$keywords ="";
-$description="";
-
+$title = "Affichage des Liaisons";
 include "$racine/Vue/haut_page.php";
 include "$racine/Vue/menu.php";
 include "$racine/Vue/liaison.php";

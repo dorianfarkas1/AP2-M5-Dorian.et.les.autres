@@ -9,9 +9,7 @@ $lesDestinations = getSecteurs();
 
 
 // appel du script de vue qui permet de gerer l'affichage des donnees
-$titre = "Affichage des Secteurs";
-$keywords ="";
-$description="";
+$title = "Affichage des Secteurs";
 include "$racine/Vue/haut_page.php";
 include "$racine/Vue/menu.php";
 include "$racine/vue/visuSecteurs.php";

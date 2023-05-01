@@ -19,10 +19,7 @@ else
 }
 
 // appel du script de vue qui permet de gerer l'affichage des donnees
-$titre = "Affichage des Tarifs";
-$keywords ="";
-$description="";
-
+$title = "Affichage des Tarifs";
 include "$racine/Vue/haut_page.php";
 include "$racine/Vue/menu.php";
 include "$racine/vue/tarifs.php";

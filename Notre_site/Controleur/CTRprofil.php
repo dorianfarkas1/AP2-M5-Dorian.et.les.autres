@@ -18,9 +18,7 @@ if (isLoggedOn()){
     include "$racine/Vue/pied_page.php";
 }
 else{
-    $titre = "Mon profil";
-    $keywords ="";
-    $description="";
+    $title = "Mon profil";
     include "$racine/Vue/menu.php";
     include "$racine/Vue/pied_page.php";
 }
