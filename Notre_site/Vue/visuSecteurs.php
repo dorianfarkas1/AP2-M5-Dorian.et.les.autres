@@ -1,6 +1,6 @@
 ﻿
 	
-<h1 class="page-header text-center">Liste des destinations</h1>
+<h1 class="page-header text-center"><?= $title ?></h1>
 
 
 

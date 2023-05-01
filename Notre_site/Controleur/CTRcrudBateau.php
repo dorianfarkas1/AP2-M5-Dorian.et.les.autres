@@ -5,6 +5,7 @@ if ( $_SERVER["SCRIPT_FILENAME"] == __FILE__ ){
 }
 include_once "$racine/Modele/bd.bateau.inc.php";
 include_once "$racine/Modele/bd.secteur.inc.php";
+include_once "$racine/Modele/bd.categorie.inc.php";
 
 if(isset($_POST['add'])){
 	$resultat = 0 ; // initialisation du booléen de réussite des requetes
@@ -138,6 +139,7 @@ if(isset($_POST['edit'])){
 // appel des fonctions permettant de recuperer les donnees utiles a l'affichage 
 $lesBateaux = getBateau();
 $lesSecteurs = getSecteurs();
+$lesCategories = getCategorie();
 
 // appel du script de vue qui permet de gerer l'affichage des donnees
 $title = "CRUD des Bateaux";
