@@ -7,7 +7,7 @@
             <h5 class="modal-title">Modifier un bateau</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form method="POST" action="?action=CTRcrudPort">
+        <form method="POST" action="?action=modifiePort">
             <div class="modal-body">
                 <div class="row form-group">
 					<input type="hidden" class="form-control" name="id" value="<?php echo $row['nom_court']; ?>">
@@ -93,7 +93,7 @@
 				<p class="text-center">Etes-vous sure de vouloir supprimer le port <?php echo $row['nom']; ?></p>
             </div>
             <div class="modal-footer">
-				<form method="POST" action="?action=CTRcrudPort">
+				<form method="POST" action="?action=modifiePort">
 					<input type="hidden" class="form-control" name="id" value="<?php echo $row['nom_court']; ?>">
                     <input type="hidden" name="old_photo" class="form-control" value="<?php echo $row['photo']; ?>">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
