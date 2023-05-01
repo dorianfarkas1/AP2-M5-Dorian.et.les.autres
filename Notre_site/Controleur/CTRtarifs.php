@@ -13,10 +13,7 @@ if ((isset($_POST['id'])) && ($_POST['id'] != "")){
     $lesTarifs = getTarifsByPeriode($idPeriode);
     
 }
-else
-{
 
-}
 
 // appel du script de vue qui permet de gerer l'affichage des donnees
 $title = "Affichage des Tarifs";

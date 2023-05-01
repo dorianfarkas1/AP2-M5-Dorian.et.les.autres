@@ -46,7 +46,7 @@
 	</div>
 <?php } 
 else { ?>
-	<h1> Veuillez selectionner la période ! </h1>
+	<h3> Veuillez selectionner la période ! </h3>
 <?php }?>
 
 
