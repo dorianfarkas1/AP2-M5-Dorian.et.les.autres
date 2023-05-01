@@ -20,10 +20,10 @@ include_once "$racine/Modele/bd.port.inc.php";
 		
     if(isset($_FILES['photo'])){
 
-           $resultat = ajoutePortAvecPhoto( $photoName, $nom_court, $nom, $description, $adresse, $camera);
+           $resultat = ajoutePortAvecPhoto(  $nomCourt, $nom, $description, $adresse, $photoName, $camera);
 
     } else {
-		   $resultat = ajoutePortSansPhoto( $nom_court, $nom, $description, $adresse, $camera);
+		   $resultat = ajoutePortSansPhoto( $nomCourt, $nom, $description, $adresse, $camera);
 
     }
 
@@ -52,7 +52,7 @@ include_once "$racine/Modele/bd.port.inc.php";
 			move_uploaded_file($tmpName, './images/ports/'.$photoName);
 		}
 
-		$resultat = modifierPort( $nom_court, $nom, $description, $adresse, $photoName, $camera);
+		$resultat = modifierPort( $nomCourt, $nom, $description, $adresse, $photoName, $camera);
 
 		if($resultat){
 			$_SESSION['success'] = 'Port modifié';

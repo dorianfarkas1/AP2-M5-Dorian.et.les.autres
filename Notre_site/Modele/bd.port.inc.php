@@ -63,12 +63,12 @@ function getRestosByAdresse(string $adresse) : array {
     return $resultat;
 }
 
-function ajoutePortAvecPhoto( $nom_court, $nom, $description, $adresse, $photo, $camera) : bool {
+function ajoutePortAvecPhoto( $nomCourt, $nom, $description, $adresse, $photo, $camera) : bool {
     $resultat = false;
     try {
             $cnx = connexionPDO();
             $req = $cnx->prepare('INSERT INTO port (nom_court, nom, description, adresse, photo, camera) VALUES (:id, :nom, :description, :adresse, :photo, :camera)');
-            $req->bindParam(':id', $nom_court, PDO::PARAM_STR);
+            $req->bindParam(':id', $nomCourt, PDO::PARAM_STR);
             $req->bindParam(':nom', $nom, PDO::PARAM_STR);
             $req->bindParam(':description', $description, PDO::PARAM_STR);
             $req->bindParam(':adresse', $adresse, PDO::PARAM_STR);
@@ -82,12 +82,12 @@ function ajoutePortAvecPhoto( $nom_court, $nom, $description, $adresse, $photo, 
     return $resultat;
 }
 
-function ajoutePortSansPhoto( $nom_court, $nom, $description, $adresse, $camera) : bool {
+function ajoutePortSansPhoto( $nomCourt, $nom, $description, $adresse, $camera) : bool {
     $resultat = false;
     try {
             $cnx = connexionPDO();
             $req = $cnx->prepare('INSERT INTO port (nom_court, nom, description, adresse, camera) VALUES (:id, :nom, :description, :adresse, :camera)');
-            $req->bindParam(':id', $nom_court, PDO::PARAM_STR);
+            $req->bindParam(':id', $nomCourt, PDO::PARAM_STR);
             $req->bindParam(':nom', $nom, PDO::PARAM_STR);
             $req->bindParam(':description', $description, PDO::PARAM_STR);
             $req->bindParam(':adresse', $adresse, PDO::PARAM_STR);
@@ -100,12 +100,12 @@ function ajoutePortSansPhoto( $nom_court, $nom, $description, $adresse, $camera)
     return $resultat;
 }
 
-function modifierPort( $nom_court, $nom, $description, $adresse, $photo, $camera): bool {
+function modifierPort( $nomCourt, $nom, $description, $adresse, $photo, $camera): bool {
     $resultat = false;
     try {
             $cnx = connexionPDO();
             $req = $cnx->prepare('UPDATE port SET nom = :nom, description = :description, adresse = :adresse, photo = :photo, camera = :camera WHERE nom_court = :nom_court');
-            $req->bindParam(':nom_court', $nom_court, PDO::PARAM_STR);
+            $req->bindParam(':nom_court', $nomCourt, PDO::PARAM_STR);
             $req->bindParam(':nom', $nom, PDO::PARAM_STR);
             $req->bindParam(':description', $description, PDO::PARAM_STR);
             $req->bindParam(':adresse', $adresse, PDO::PARAM_STR);
