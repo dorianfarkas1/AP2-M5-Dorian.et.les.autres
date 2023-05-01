@@ -1,8 +1,5 @@
 ﻿
-	
-<h1 class="page-header text-center"><?= $title ?></h1>
-
-
+<h2 class="page-header text-center"><?= $title ?></h2>
 
 <p>Découvrez nos destinations insulaires.</p><br>
 <div class="row row-cols-1 row-cols-md-1 g-4">

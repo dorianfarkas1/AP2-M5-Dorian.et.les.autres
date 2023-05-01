@@ -1,5 +1,5 @@
 
-<h1 class="page-header text-center"><?= $title ?></h1>
+<h2 class="page-header text-center"><?= $title ?></h2>
 <div class="row">
 		<div class="row">
 		<?php
