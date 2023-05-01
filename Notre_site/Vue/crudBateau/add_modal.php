@@ -65,8 +65,7 @@
                         <select name="PMR" class="form-control" required> 
                             <option value="">--- Choisissez un niveau de PMR ---</option>
                                 <?php 
-                                       
-                                        $lesNiveauPMRs = getNiveauPMR();
+
                                     foreach($lesNiveauPMRs as $unNiveauPMR) 
                                     {
                                      
@@ -86,8 +85,6 @@
                     <fieldset class="form-control">
 
                             <?php
-                                
-                                $lesSecteurs =  getSecteurs();
 
                             foreach ($lesSecteurs as $unSecteur) 
                             { ?>
