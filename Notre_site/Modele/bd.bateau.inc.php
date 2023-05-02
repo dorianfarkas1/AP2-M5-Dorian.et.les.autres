@@ -37,12 +37,32 @@ function getBateauById(int $id) : array {
     return $resultat;
 }
 
+function getlesBateaux() : array {
+    $resultat = array();
+
+    try {
+        $cnx = connexionPDO();
+        $req = $cnx->prepare("SELECT * from bateau");
+        $req->execute();
+
+        $ligne = $req->fetch(PDO::FETCH_ASSOC);
+        while ($ligne) {
+            $resultat[] = $ligne;
+            $ligne = $req->fetch(PDO::FETCH_ASSOC);
+        }
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return $resultat;
+}
+
 function getBateaux() : array {
     $resultat = array();
 
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("SELECT * from bateau ");
+        $req = $cnx->prepare("SELECT * from bateau natural join niveau_accessibilite");
         $req->execute();
 
         $ligne = $req->fetch(PDO::FETCH_ASSOC);

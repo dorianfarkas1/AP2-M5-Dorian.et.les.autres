@@ -8,8 +8,6 @@ include_once "$racine/Modele/bd.secteur.inc.php";
 include_once "$racine/Modele/bd.categorie.inc.php";
 
 if(isset($_POST['add'])){
-	$resultat = 0 ; // initialisation du booléen de réussite des requetes
-	$connexion->beginTransaction(); // debut de transaction
 
 	$nom = $_POST['nom'];
 	$description = $_POST['description'];
@@ -35,18 +33,6 @@ if(isset($_POST['add'])){
 	else {
 		$resultat = ajouterBateauSansPhoto($newId, $nom, $description, $longueur, $largeur, $vitesse, $PMR);
 	}
-	
-	foreach ($secteurs as $key=>$value){
-		
-		$resultat += getBateauSecteur($id, $key); // ajout du resultat booléen de réussite de cette requête.
-	}
-
-	foreach ($categories as $key=>$value){				
-		$resultat += getContenanceBateau($idB, $key, $value); // ajout du resultat booléen de réussite de cette requête.
-
-	}
-
-	$connexion->commit(); // fin de transaction
 
 	if($resultat){
 		$_SESSION["success"] = 'Bateau ajouté';
@@ -138,7 +124,7 @@ if(isset($_POST['edit'])){
 		}
 	}
 // appel des fonctions permettant de recuperer les donnees utiles a l'affichage 
-$lesBateaux = getBateaux();
+$lesBateaux = getlesBateaux();
 $lesSecteurs = getSecteurs();
 $lesNiveauPMRs = getNiveauPMR();
 $lesCategories = getCategories();
