@@ -21,6 +21,45 @@ function getLiaison() : array {
     return $resultat;
 }
 
+function getTraversee() : array {
+    $resultat = array();
+    try {
+        $cnx = connexionPDO();
+        $req = $cnx->prepare("SELECT * FROM traversee");
+        $req->execute();
+
+        $ligne = $req->fetch(PDO::FETCH_ASSOC);
+        while ($ligne) {
+            $resultat[] = $ligne;
+            $ligne = $req->fetch(PDO::FETCH_ASSOC);
+        }
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return $resultat;
+}
+
+function ajouterLiaison($num, $date, $heure, $nom) : array {
+    $resultat = false;
+
+    try {
+        $cnx = connexionPDO();
+        $req = $cnx->prepare("INSERT INTO traversee (num, date, heure, nom) VALUES (:num, :date, :heure, :nom)");
+        $req->execute();
+
+        $ligne = $req->fetch(PDO::FETCH_ASSOC);
+        while ($ligne) {
+            $resultat[] = $ligne;
+            $ligne = $req->fetch(PDO::FETCH_ASSOC);
+        }
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return $resultat;
+}
+
 function getTraverseeByIdANDByDate(int $code, string $date) : array {
     $resultat = array();
     try {

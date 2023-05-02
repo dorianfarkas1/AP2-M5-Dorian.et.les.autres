@@ -42,65 +42,6 @@
                     <input type="number" step="0.1" class="form-control" name="nom" required>
 					</div>
 				</div>
-                <div class="row form-group">
-					<div class="col-sm-2">
-						<label class="control-label modal-label">Vitesse :</label>
-					</div>
-					<div class="col-sm-10">
-                        <input type="number" class="form-control" step="1" min="0" name="vitesse"  required>
-					</div>
-				</div>
-                <div class="row form-group">
-					<div class="col-sm-2">
-						<label class="control-label modal-label">NivPMR:</label>
-					</div>
-					<div class="col-sm-10">
-                        <select name="PMR" class="form-control" required> 
-                            <option value="">--- Choisissez un niveau de PMR ---</option>
-                                <?php 
-
-                                    foreach($lesNiveauPMRs as $unNiveauPMR) 
-                                    {
-                                ?> 
-                                    <option value="<?= $unNiveauPMR["idNiveau"] ?>" ><?= ucfirst($unNiveauPMR["libelle"]) ?></option>
-                                    
-                                <?php } ?> 
-                        </select>
-					</div>
-				</div>
-                <div class="row form-group">
-					<div class="col-sm-2">
-						<label class="control-label modal-label">Secteur:</label>
-					</div>
-					
-                    <div class="col-sm-10">
-                        <fieldset class="form-control">
-
-                            <?php
-
-                                foreach ($lesSecteurs as $unSecteur){ 
-                            ?>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="secteurs[<?= $unSecteur["id"] ?>]">
-                                    <label class="form-check-label" for="secteurs[<?= $unSecteur["id"] ?>]"><?= $unSecteur["nom"] ?></label>
-                                </div>
-
-                            <?php } ?>
-
-                        </fieldset>
-				    </div>
-
-                        <div class="form-group">
-                            <?php
-
-                                foreach ($lesCategories as $uneCategorie) { ?>
-
-                                <label for="categories[<?= $uneCategorie["idCategorie"] ?>]">Nombre de <?= $uneCategorie["libelleCategorie"] ?> :</label>
-                                <input type="number" step="1" min="0" class="form-control" name="categories[<?= $uneCategorie["idCategorie"] ?>]"  required>
-
-                            <?php } ?>
-				        </div>
-                </div>
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">

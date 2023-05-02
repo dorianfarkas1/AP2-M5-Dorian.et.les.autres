@@ -3,13 +3,13 @@
     <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title">Modifier un bateau</h5>
+            <h5 class="modal-title">Modifier un trajet</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form method="POST" action="?action=modifieBateau">
+        <form method="POST" action="?action=modifieTrajet">
             <div class="modal-body">
                 <div class="row form-group">
-					<input type="hidden" class="form-control" name="id" value="<?php echo $row['id']; ?>">
+					<input type="hidden" class="form-control" name="num" value="<?php echo $row['num']; ?>">
 
 					<div class="row form-group">
 						<div class="col-sm-2">
@@ -56,7 +56,7 @@
 
 
 <!-- Delete -->
-<div class="modal" tabindex="-1" id="delete_<?php echo $row['id']; ?>">
+<div class="modal" tabindex="-1" id="delete_<?php echo $row['num']; ?>">
     <div class="modal-dialog">
         <div class="modal-content">
         <div class="modal-header">
@@ -64,12 +64,11 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
             <div class="modal-body">
-				<p class="text-center">Etes-vous sure de vouloir supprimer le bateau ? <?php echo $row['nom']; ?></p>
+				<p class="text-center">Etes-vous sure de vouloir supprimer le trajet ? <?php echo $row['num']; ?></p>
             </div>
             <div class="modal-footer">
-				<form method="POST" action="?action=modifieBateau">
-					<input type="hidden" class="form-control" name="id" value="<?php echo $row['id']; ?>">
-                    <input type="hidden" name="old_photo" class="form-control" value="<?php echo $row['photo']; ?>">
+				<form method="POST" action="?action=modifieTrajet">
+					<input type="hidden" class="form-control" name="num" value="<?php echo $row['num']; ?>">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
 						<i class="bi bi-x-circle"></i> Annuler
 					</button>
