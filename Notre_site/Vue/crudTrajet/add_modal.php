@@ -10,7 +10,7 @@
             <div class="modal-body">
                 <div class="row form-group">
 					<div class="col-sm-2">
-						<label class="control-label modal-label">Numéro de traversée :</label>
+						<label class="control-label modal-label">Num_trajet :</label>
 					</div>
 					<div class="col-sm-10">
 						<input type="text" class="form-control" name="num" required>
@@ -20,7 +20,7 @@
                 
                 <div class="row form-group">
 					<div class="col-sm-2">
-						<label class="control-label modal-label">Date de départ :</label>
+						<label class="control-label modal-label">Date_départ :</label>
 					</div>
 					<div class="col-sm-10">
 						<input type="file" class="form-control" name="date" >
@@ -28,7 +28,7 @@
 				</div>
                 <div class="row form-group">
 					<div class="col-sm-2">
-						<label class="control-label modal-label">Heure de départ:</label>
+						<label class="control-label modal-label">Heure_départ:</label>
 					</div>
 					<div class="col-sm-10">
                     <textarea class="form-control" name="heure" required></textarea>
@@ -36,7 +36,7 @@
 				</div>
                 <div class="row form-group">
 					<div class="col-sm-2">
-						<label class="control-label modal-label">Nom du navire:</label>
+						<label class="control-label modal-label">ID_navire:</label>
 					</div>
 					<div class="col-sm-10">
                     <input type="number" step="0.1" class="form-control" name="nom" required>
