@@ -36,13 +36,13 @@ if(isset($_POST['add'])){
 		$resultat = ajouterBateauSansPhoto($newId, $nom, $description, $longueur, $largeur, $vitesse, $PMR);
 	}
 	
-	foreach ($secteurs as $idSecteur=>$value){
+	foreach ($secteurs as $key=>$value){
 		
-		$resultat += getBateauSecteur($id, $idSecteur); // ajout du resultat booléen de réussite de cette requête.
+		$resultat += getBateauSecteur($id, $key); // ajout du resultat booléen de réussite de cette requête.
 	}
 
-	foreach ($categories as $lettreC=>$capaciteM){				
-		$resultat += getContenanceBateau($idB, $lettreC, $capaciteM); // ajout du resultat booléen de réussite de cette requête.
+	foreach ($categories as $key=>$capacivalueteM){				
+		$resultat += getContenanceBateau($idB, $key, $value); // ajout du resultat booléen de réussite de cette requête.
 
 	}
 

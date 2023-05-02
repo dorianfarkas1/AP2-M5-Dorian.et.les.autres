@@ -174,13 +174,13 @@ function ajouterBateauSansPhoto($id, $nom, $description, $longueur, $largeur, $v
     return $resultat;
 }
 
- function getBateauSecteur($id, $idSecteur) : bool {
+ function getBateauSecteur($id, $key) : bool {
             $resultat = false;
     try {
             $cnx = connexionPDO();
             $req = $cnx->prepare('INSERT INTO bateau_secteur (idBateau, idSecteur) VALUES (:idBateau, :idSecteur)');
             $req->bindParam(':idBateau', $id, PDO::PARAM_INT);
-		    $req->bindParam(':idSecteur', $idSecteur, PDO::PARAM_INT);
+		    $req->bindParam(':idSecteur', $key, PDO::PARAM_INT);
             $resultat = $req->execute();
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage();
@@ -189,14 +189,14 @@ function ajouterBateauSansPhoto($id, $nom, $description, $longueur, $largeur, $v
     return $resultat;
 }
 
-function getContenanceBateau($idB, $lettreC, $capaciteM) : bool {
+function getContenanceBateau($idB, $key, $value) : bool {
     $resultat = false;
 try {
     $cnx = connexionPDO();
     $req = $cnx->prepare('INSERT INTO contenance_bateau (idBateau, lettreCategorie, capaciteMax) VALUES (:idBateau, :lettreCategorie, :capaciteMax)');
     $req->bindParam(':idBateau', $idB, PDO::PARAM_INT);
-	$req->bindParam(':lettreCategorie', $lettreC, PDO::PARAM_STR);				
-	$req->bindParam(':capaciteMax', $capaciteM, PDO::PARAM_INT);
+	$req->bindParam(':lettreCategorie', $key, PDO::PARAM_STR);				
+	$req->bindParam(':capaciteMax', $value, PDO::PARAM_INT);
     $resultat = $req->execute();
 } catch (PDOException $e) {
 print "Erreur !: " . $e->getMessage();
@@ -278,7 +278,7 @@ if ($includes[0] == __FILE__ ) {
     print_r(getNiveauPMR());
     
     echo "getBateau() : \n";
-    print_r(getBateau());
+    print_r(getBateaux());
 
     echo "getBateauById(id) : \n";
     print_r(getBateauById(8));
