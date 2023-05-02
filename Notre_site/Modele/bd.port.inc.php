@@ -128,7 +128,6 @@ if ($includes[0] == __FILE__ ) {
     echo "getPortsByNomC(nomC) : \n";
     print_r(getPortsByNomC("Le Palais"));
 
-    echo "getRestosByAdresse(adresse) : \n";
-    print_r(getRestosByAdresse("Quai Bonnelle 56360 Le Palais"));
+    
 }
 ?>
