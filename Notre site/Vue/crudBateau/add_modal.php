@@ -139,7 +139,7 @@
                         <?php } ?>
 				</div>
             </div>
-
+            
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                 <i class="bi bi-x-circle"></i> Annuler
