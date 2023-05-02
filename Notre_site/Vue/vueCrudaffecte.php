@@ -1,67 +1,27 @@
-<h2 class="page-header text-center"><?= $title ?></h2>
-	<div class="row">
-		<div class="row">
-		<?php
-			if(isset($_SESSION['error'])){
-				?>
-				<div class="alert alert-danger alert-dismissible fade show" role="alert">
-					<?= $_SESSION['error'] ?>
-					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-				</div>
-				<?php
-				unset($_SESSION['error']);
-			}
-			if(isset($_SESSION['success'])){
-				?>
-				<div class="alert alert-success alert-dismissible fade show" role="alert">
-					<?= $_SESSION['success'] ?>
-					<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-				</div>
-				<?php
-				unset($_SESSION['success']);
-			}
-		?>
-		</div>
-
-		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addnew">
-			Ajouter
-		</button>
-		<div class="height10">
-		</div>
-	</div>	
-		
+<h2 class="page-header text-center"><?= $title ?></h2>	
 	<div class="row">
 		<table id="myTable" class="table table-bordered table-striped">
 			<thead>
-				<th>ID</th>
-				<th>nom</th>
-				<th>photo</th>
-				<th>Longueur</th>
-				<th>Largeur</th>
-				<th>Vitesse</th>
+				<th>Numéro de traversée </th>
+				<th>Date de Départ</th>
+				<th>Heure de départ </th>
+				<th>Nom du navire</th>
 				
 				<th>Action</th>
 			</thead>
 			<tbody>
 				<?php
-					
-		
-					foreach ($lesBateaux as $row){
+					foreach ($lesTraversees as $uneTraversee){
 						?>
-						<tr>
-							<td><?= $row['id'] ?></td>
-							<td><?= $row['nom'] ?></td>
-							<td><img height='100px' src='images/bateaux/<?= $row['photo'] ?>'></td>
-							<td><?= $row['longueur'] ?></td>
-							<td><?= $row['largeur'] ?></td>
-							<td><?= $row['vitesse_croisiere'] ?></td>
-							
+							<tr>
+								<td><?= $uneTraversee['num'] ?></td>
+								<td><?= $uneTraversee['date'] ?></td>
+								<td><?= $uneTraversee['heure'] ?></td>
+								<td><?= $uneTraversee['nom'] ?></td>
+							</tr>						 
 							<td>
 								<button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#edit_<?= $row['id'] ?>">
-									<i class="bi bi-pencil-square"></i> Modifier
-								</button>
-								<button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#delete_<?= $row['id'] ?>">
-									<i class="bi bi-trash3"></i> Supprimer
+									<i class="bi bi-pencil-square"></i> Affecter
 								</button>
 							</td>
 						</tr>

@@ -40,6 +40,25 @@ function getTraversee() : array {
     return $resultat;
 }
 
+function getTraverseeBateau() : array {
+    $resultat = array();
+    try {
+        $cnx = connexionPDO();
+        $req = $cnx->prepare("SELECT * FROM traversee join bateau on traversee.idBateau = bateau.id");
+        $req->execute();
+
+        $ligne = $req->fetch(PDO::FETCH_ASSOC);
+        while ($ligne) {
+            $resultat[] = $ligne;
+            $ligne = $req->fetch(PDO::FETCH_ASSOC);
+        }
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return $resultat;
+}
+
 function ajouterLiaison($num, $date, $heure, $nom) : array {
     $resultat = false;
 
