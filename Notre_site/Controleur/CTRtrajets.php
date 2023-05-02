@@ -9,7 +9,7 @@ if(isset($_POST['add']))
     $num = $_POST['num'];
     $date = $_POST['date'];
     $heure = $_POST['heure'];
-    $nom = $_POST['nom'];
+    $nom = $_POST['idBateau'];
 
     $resultat = ajouterLiaison($nom, $date, $heure, $nom);
 
