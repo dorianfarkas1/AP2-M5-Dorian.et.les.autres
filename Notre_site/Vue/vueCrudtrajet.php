@@ -36,7 +36,7 @@
 				<th>Numéro de traversée</th>
 				<th>Date de départ</th>
 				<th>Heure de départ</th>
-				<th>Nom du navire</th>
+				<th>ID Bateau</th>
 				<th>Action</th>
 			</thead>
 			<tbody>
@@ -68,10 +68,7 @@
 
 <?php include('crudTrajet/add_modal.php') ?>
 
-<script src=""></script>
-<script></script>
-<script></script>
-<script></script>
+
 
 <!-- generate datatable on our table -->
 <script>
