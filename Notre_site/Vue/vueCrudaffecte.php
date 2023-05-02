@@ -10,29 +10,26 @@
 			</thead>
 			<tbody>
 				<?php
-					foreach ($lesTraversees as $uneTraversee){
+					foreach ($lesTraversees as $row){
 						?>
 							<tr>
-								<td><?= $uneTraversee['num'] ?></td>
-								<td><?= $uneTraversee['date'] ?></td>
-								<td><?= $uneTraversee['heure'] ?></td>
-								<td><?= $uneTraversee['nom'] ?></td>						 
+								<td><?= $row['num'] ?></td>
+								<td><?= $row['date'] ?></td>
+								<td><?= $row['heure'] ?></td>
+								<td><?= $row['nom'] ?></td>						 
 							<td>
-								<button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#edit_<?= $row['id'] ?>">
+								<button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#edit_<?= str_replace(" ", "_", $row['num']); ?>">
 									<i class="bi bi-pencil-square"></i> Affecter
 								</button>
 							</td>
 						</tr>
 						<?php
-						include('crudBateau/edit_delete_modal.php');
+						include('crudAffecte/edit_modal.php');
 					}
 				?>
 			</tbody>
 		</table>
 	</div>
-
-<?php include('crudBateau/add_modal.php') ?>
-
 <script src=""></script>
 <script></script>
 <script></script>

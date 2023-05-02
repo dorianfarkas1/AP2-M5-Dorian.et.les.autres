@@ -244,6 +244,22 @@ function modifierBateau( $nom, $id, $longueur, $largeur, $vitesse_croisiere, $ni
     return $resultat;
 }
 
+function affecterBateau($idBateau, $idTraversee) : bool {
+    $resultat = false;
+    try {
+        $cnx = connexionPDO();
+        $req = $cnx->prepare('UPDATE traversee SET idBateau = :idBateau WHERE num = :idTraversee');
+        $req->bindParam(':idBateau', $idBateau, PDO::PARAM_STR);
+        $req->bindParam(':idTraversee', $idTraversee, PDO::PARAM_INT);
+        $resultat = $req->execute();
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return $resultat;
+}
+
+
 function SupprimerBateauSecteur($id) : bool {
     $resultat = false;
 try {

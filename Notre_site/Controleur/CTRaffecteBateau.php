@@ -7,18 +7,12 @@ include_once "$racine/Modele/bd.bateau.inc.php";
 include_once "$racine/Modele/bd.traversee.inc.php";
 
 $lesTraversees = getTraverseeBateau();
+$lesBateaux = getlesBateaux();
 
-if(isset($_POST['edit'])){
-    $id = $_POST['id'];
-    $nom = $_POST['nom'];
-    $longueur = $_POST['longueur'];
-    $largeur = $_POST['largeur'];
-    $vitesse = $_POST['vitesse'];
-    $PMR = $_POST['PMR'];
-    $secteurs = $_POST['secteurs'];
-    $categories = $_POST['categories'];
-    
-    $resultat = modifierBateau( $nom, $id, $longueur, $largeur, $vitesse, $PMR);
+if(isset($_POST['bateau'])){
+    $idBateau = $_POST['bateau'];
+    $num = $_POST['trav'];
+    $resultat = affecterBateau($idBateau, $num);
 
     if($resultat){
         $_SESSION['success'] = 'Bateau affecté';
