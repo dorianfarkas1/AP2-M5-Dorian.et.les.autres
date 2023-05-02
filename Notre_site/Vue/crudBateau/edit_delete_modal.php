@@ -19,26 +19,82 @@
 							<input type="text" class="form-control" name="nom" value="<?php echo $row['nom']; ?>">
 						</div>
 					</div>
-
-                    <?php if ($row['photo']!=""){
-                    ?>
-                        <div class="row form-group">
-                            <div class="col-sm-10">
-                            <img height='100px' src='images/bateaux/<?= $row['photo'] ?>'>
-                            </div>
-                        </div>
-                    <?php
-                    }
-                    ?> 
-                    <input type="hidden" name="old_photo" class="form-control" value="<?php echo $row['photo']; ?>">
-                    <div class="row form-group">
-						<div class="col-sm-2">
-							<label class="control-label modal-label">Photo:</label>
-						</div>
-						<div class="col-sm-10">
-							<input type="file" class="form-control" name="photo" >
-						</div>
+				</div>
+                <div class="row form-group">
+					<div class="col-sm-2">
+						<label class="control-label modal-label">Longueur:</label>
 					</div>
+					<div class="col-sm-10">
+                    <input type="number" step="0.1" class="form-control" name="longueur" min="0"  value="<?php echo $row['longueur']; ?>" required>
+					</div>
+				</div>
+                <div class="row form-group">
+					<div class="col-sm-2">
+						<label class="control-label modal-label">Largeur:</label>
+					</div>
+					<div class="col-sm-10">
+                    <input type="number" step="0.1" class="form-control" name="largeur" min="0"  value="<?php echo $row['largeur']; ?>" required>
+					</div>
+				</div>
+                <div class="row form-group">
+					<div class="col-sm-2">
+						<label class="control-label modal-label">Vitesse :</label>
+					</div>
+					<div class="col-sm-10">
+                        <input type="number" class="form-control" step="1" min="0" name="vitesse" value="<?php echo $row['vitesse_croisiere']; ?>" required>
+					</div>
+				</div>
+                <div class="row form-group">
+					<div class="col-sm-2">
+						<label class="control-label modal-label">NivPMR:</label>
+					</div>
+					<div class="col-sm-10">
+                        <select name="PMR" class="form-control" required> 
+                            <option value="">--- Choisissez un niveau de PMR ---</option>
+                                <?php 
+
+                                    foreach($lesNiveauPMRs as $unNiveauPMR) 
+                                    {
+                                ?> 
+                                    <option value="<?= $unNiveauPMR["idNiveau"] ?>" ><?= ucfirst($unNiveauPMR["libelle"]) ?></option>
+                                    
+                                <?php } ?> 
+                        </select>
+					</div>
+				</div>
+                <div class="row form-group">
+					<div class="col-sm-2">
+						<label class="control-label modal-label">Secteur:</label>
+					</div>
+					
+                    <div class="col-sm-10">
+                        <fieldset class="form-control">
+
+                            <?php
+
+                                foreach ($lesSecteurs as $unSecteur){ 
+                            ?>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="secteurs[<?= $unSecteur["id"] ?>]">
+                                    <label class="form-check-label" for="secteurs[<?= $unSecteur["id"] ?>]"><?= $unSecteur["nom"] ?></label>
+                                </div>
+
+                            <?php } ?>
+
+                        </fieldset>
+				    </div>
+
+                        <div class="form-group">
+                            <?php
+
+                                foreach ($lesCategories as $uneCategorie) { ?>
+
+                                <label for="categories[<?= $uneCategorie["idCategorie"] ?>]">Nombre de <?= $uneCategorie["libelleCategorie"] ?> :</label>
+                                <input type="number" step="1" min="0" class="form-control" name="categories[<?= $uneCategorie["idCategorie"] ?>]"  required>
+
+                            <?php } ?>
+				        </div>
+
 				</div>
             </div>
             <div class="modal-footer">

@@ -52,12 +52,8 @@ if(isset($_POST['add'])){
 }
 
 if(isset($_POST['edit'])){
-		$resultat = 0 ; // initialisation du booléen de réussite des requetes
-    	$connexion->beginTransaction(); // debut de transaction
-
 		$id = $_POST['id'];
 		$nom = $_POST['nom'];
-		$description = $_POST['description'];
      	$longueur = $_POST['longueur'];
 		$largeur = $_POST['largeur'];
 		$vitesse = $_POST['vitesse'];
@@ -65,37 +61,7 @@ if(isset($_POST['edit'])){
 		$secteurs = $_POST['secteurs'];
 		$categories = $_POST['categories'];
 		
-		if(isset($_FILES['photo']) && $_FILES['photo']['name'] != ""){
-			if ($photoName != ""){
-				unlink('./images/bateaux/'.$photoName);
-			}
-			$tmpName = $_FILES['photo']['tmp_name'];
-			$photoName = $_FILES['photo']['name']; // on ecrase la valeur
-			move_uploaded_file($tmpName, './images/bateaux/'.$photoName);
-		}
-		
-		$resultat = modifierBateau( $nom, $id, $photoName, $description, $longueur, $largeur, $vitesse, $PMR);
-
-		/* on suprime les anciennes affectations de contenance */
-		$resultat += SupprimerBateauSecteur($id); // ajout du resultat booléen de réussite de cette requête.
-
-		/* on recrée les affectations de secteur de ce bateau */
-
-		foreach ($secteurs as $idSecteur=>$value){
-		$resultat += getBateauSecteur($id, $idSecteur); // ajout du resultat booléen de réussite de cette requête.
-		}
-
-		/* on suprime les anciennes affectations de contenance */
-
-		$resultat += SupprimerBateauContenance($id); // ajout du resultat booléen de réussite de cette requête.
-
-		/* on recrée les affectations de secteur de ce bateau */
-
-		foreach ($categories as $lettreC=>$capaciteM){				
-		$resultat += getContenanceBateau($idB, $lettreC, $capaciteM); // ajout du resultat booléen de réussite de cette requête.
-	  	}
-
-        $connexion->commit(); // fin de transaction
+		$resultat = modifierBateau( $nom, $id, $longueur, $largeur, $vitesse, $PMR);
 
 		if($resultat){
 			$_SESSION['success'] = 'Bateau modifié';
@@ -115,25 +81,15 @@ if(isset($_POST['edit'])){
 	}
 
 	if(isset($_POST['supr'])){
-		$resultat = 0 ; // initialisation du booléen de réussite des requetes
-    	$connexion->beginTransaction(); // debut de transaction
 
 		$id = $_POST['id'];
-
 		$photoName = $_POST['old_photo'];
 		if ($photoName != ""){
 			unlink('./images/bateaux/' .$photoName);
 		}
 
-		$resultat = SupprimerBateauContenance($id);
+		$resultat = SupprimerBateau($id) ;
 
-		$resultat += SupprimerBateauSecteur($id);
-		
-		// suppression du bateau
-		$resultat += SupprimerBateau($id);
-		
-        $connexion->commit(); // fin de transaction
-		
 		if($resultat){
 			$_SESSION['success'] = 'Bateau supprimé';
 		}		
