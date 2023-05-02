@@ -9,6 +9,6 @@ if ( $_SERVER["SCRIPT_FILENAME"] == __FILE__ ){
 $title = "Affecter Bateau";
 include "$racine/Vue/haut_page.php";
 include "$racine/Vue/menu.php";
-include "$racine/Vue/";
+include "$racine/Vue/vueCrudaffecte.php";
 include "$racine/Vue/pied_page.php";
 ?>
