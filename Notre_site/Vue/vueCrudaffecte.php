@@ -6,7 +6,6 @@
 				<th>Date de Départ</th>
 				<th>Heure de départ </th>
 				<th>Nom du navire</th>
-				
 				<th>Action</th>
 			</thead>
 			<tbody>
@@ -17,8 +16,7 @@
 								<td><?= $uneTraversee['num'] ?></td>
 								<td><?= $uneTraversee['date'] ?></td>
 								<td><?= $uneTraversee['heure'] ?></td>
-								<td><?= $uneTraversee['nom'] ?></td>
-							</tr>						 
+								<td><?= $uneTraversee['nom'] ?></td>						 
 							<td>
 								<button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#edit_<?= $row['id'] ?>">
 									<i class="bi bi-pencil-square"></i> Affecter
