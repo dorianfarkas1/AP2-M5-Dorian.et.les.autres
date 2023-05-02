@@ -11,6 +11,12 @@ if(isset($_POST['add'])){
     $nom = $_POST['nom'];
 
     $resultat = ajouterLiaison($nom, $date, $heure, $nom);
+
+    if($resultat){
+        $_SESSION['success'] = 'Trajet supprimé';
+    }		
+    else{
+        $_SESSION['error'] = 'Problème lors de la suppression du trajet';
 }
 
 $lesTrajets = getTraversee();
