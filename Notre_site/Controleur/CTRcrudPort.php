@@ -6,6 +6,7 @@ if ( $_SERVER["SCRIPT_FILENAME"] == __FILE__ ){
 include_once "$racine/Modele/bd.port.inc.php";
 
 	if(isset($_POST['add'])){
+    	
 		$nomCourt = $_POST['nom_court'];
         $nom = $_POST['nom'];
         $description = $_POST['description'];
@@ -18,14 +19,14 @@ include_once "$racine/Modele/bd.port.inc.php";
             move_uploaded_file ($tmpName, './images/ports/'.$photoName);
 		}
 		
-    if(isset($_FILES['photo'])){
+		if(isset($_FILES['photo'])){
 
-           $resultat = ajoutePortAvecPhoto(  $nomCourt, $nom, $description, $adresse, $photoName, $camera);
+			$resultat = ajoutePortAvecPhoto(  $nomCourt, $nom, $description, $adresse, $photoName, $camera);
 
-    } else {
-		   $resultat = ajoutePortSansPhoto( $nomCourt, $nom, $description, $adresse, $camera);
+		} else {
+			$resultat = ajoutePortSansPhoto( $nomCourt, $nom, $description, $adresse, $camera);
 
-    }
+		}
 
 		if($resultat){
 			$_SESSION["success"] = 'Port ajouté';
@@ -36,14 +37,14 @@ include_once "$racine/Modele/bd.port.inc.php";
 	}
 	
 	if(isset($_POST['edit'])){
-		$nomCourt = $_POST['id'];
+		$nomCourt = $_POST['nom_court'];
         $nom = $_POST['nom'];
         $description = $_POST['description'];
         $adresse = $_POST['adresse'];
         $camera = $_POST['camera'];
         $photoName = $_POST['old_photo'];
 		
-		if(isset($_FILES['photo']) && $_FILES['photo']['name'] != ""){
+		if(isset($_FILES['photo'])){
 			if ($photoName != ""){
 				unlink('./images/ports/'.$photoName);
 			}
@@ -52,7 +53,7 @@ include_once "$racine/Modele/bd.port.inc.php";
 			move_uploaded_file($tmpName, './images/ports/'.$photoName);
 		}
 
-		$resultat = modifierPort( $nomCourt, $nom, $description, $adresse, $photoName, $camera);
+		$resultat = modifierPort($nomCourt, $nom, $description, $adresse, $photoName, $camera);
 
 		if($resultat){
 			$_SESSION['success'] = 'Port modifié';

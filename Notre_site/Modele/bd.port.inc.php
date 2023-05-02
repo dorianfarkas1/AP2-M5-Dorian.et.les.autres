@@ -64,7 +64,6 @@ function getRestosByAdresse(string $adresse) : array {
 }
 
 function ajoutePortAvecPhoto( $nomCourt, $nom, $description, $adresse, $photo, $camera) : bool {
-    $resultat = false;
     try {
             $cnx = connexionPDO();
             $req = $cnx->prepare('INSERT INTO port (nom_court, nom, description, adresse, photo, camera) VALUES (:id, :nom, :description, :adresse, :photo, :camera)');
@@ -72,7 +71,7 @@ function ajoutePortAvecPhoto( $nomCourt, $nom, $description, $adresse, $photo, $
             $req->bindParam(':nom', $nom, PDO::PARAM_STR);
             $req->bindParam(':description', $description, PDO::PARAM_STR);
             $req->bindParam(':adresse', $adresse, PDO::PARAM_STR);
-              $req->bindParam(':photo', $photo, PDO::PARAM_STR);
+            $req->bindParam(':photo', $photo, PDO::PARAM_STR);
             $req->bindParam(':camera', $camera, PDO::PARAM_STR);
             $resultat = $req->execute();
     } catch (PDOException $e) {
@@ -83,7 +82,6 @@ function ajoutePortAvecPhoto( $nomCourt, $nom, $description, $adresse, $photo, $
 }
 
 function ajoutePortSansPhoto( $nomCourt, $nom, $description, $adresse, $camera) : bool {
-    $resultat = false;
     try {
             $cnx = connexionPDO();
             $req = $cnx->prepare('INSERT INTO port (nom_court, nom, description, adresse, camera) VALUES (:id, :nom, :description, :adresse, :camera)');
@@ -93,6 +91,7 @@ function ajoutePortSansPhoto( $nomCourt, $nom, $description, $adresse, $camera) 
             $req->bindParam(':adresse', $adresse, PDO::PARAM_STR);
             $req->bindParam(':camera', $camera, PDO::PARAM_STR);
             $resultat = $req->execute();
+
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage();
         die();
@@ -100,17 +99,18 @@ function ajoutePortSansPhoto( $nomCourt, $nom, $description, $adresse, $camera) 
     return $resultat;
 }
 
-function modifierPort( $nomCourt, $nom, $description, $adresse, $photo, $camera): bool {
-    $resultat = false;
+function modifierPort($nomCourt, $nom, $description, $adresse, $photo, $camera): bool {
     try {
-            $cnx = connexionPDO();
-            $req = $cnx->prepare('UPDATE port SET nom = :nom, description = :description, adresse = :adresse, photo = :photo, camera = :camera WHERE nom_court = :nom_court');
-            $req->bindParam(':nom_court', $nomCourt, PDO::PARAM_STR);
-            $req->bindParam(':nom', $nom, PDO::PARAM_STR);
-            $req->bindParam(':description', $description, PDO::PARAM_STR);
-            $req->bindParam(':adresse', $adresse, PDO::PARAM_STR);
-		    $req->bindParam(':photo', $photo, PDO::PARAM_STR);
-            $req->bindParam(':camera', $camera, PDO::PARAM_STR);
+        $cnx = connexionPDO();
+        $req = $cnx->prepare('UPDATE port SET nom = :nom, description = :description, adresse = :adresse, photo = :photo, camera = :camera WHERE nom_court = :nom_court');
+        $req->bindParam(':nom_court', $nomCourt, PDO::PARAM_STR);
+        $req->bindParam(':nom', $nom, PDO::PARAM_STR);
+        $req->bindParam(':description', $description, PDO::PARAM_STR);
+        $req->bindParam(':adresse', $adresse, PDO::PARAM_STR);
+		$req->bindParam(':photo', $photo, PDO::PARAM_STR);
+        $req->bindParam(':camera', $camera, PDO::PARAM_STR);
+        $resultat = $req->execute();
+
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage();
         die();
