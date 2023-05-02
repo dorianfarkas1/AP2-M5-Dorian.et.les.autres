@@ -17,6 +17,7 @@
 					</div>
 				</div>
 
+                
                 <div class="row form-group">
 					<div class="col-sm-2">
 						<label class="control-label modal-label">Photo:</label>
