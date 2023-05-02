@@ -1,6 +1,6 @@
 ﻿
 	
-<h1 class="page-header text-center">Nos Navires</h1>
+<h2 class="page-header text-center"><?= $title ?></h2>
 <p>Bienvenue à bord ! Découvrez notre flotte et les caractéristiques de nos différents ferries.</p><br>
 
 <form method="post" action="index.php?action=afficheBateau">

@@ -1,4 +1,6 @@
-﻿<p>Découvrez les gares d'embarquements de nos traversées.</p><br>
+﻿
+<h2 class="page-header text-center"><?= $title ?></h2>
+<p>Découvrez les gares d'embarquements de nos traversées.</p><br>
 <div class="row row-cols-1 row-cols-md-3 g-4">
 <?php
 	foreach ($lesPorts as $unPort){

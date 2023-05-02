@@ -10,9 +10,9 @@ function controleurPrincipal(string $action) : string {
     $lesActions["afficheTraversee"] = "CTRtraversee.php";
     $lesActions["afficheTarif"] = "CTRtarifs.php";
     $lesActions["modifieBateau"] = "CTRcrudBateau.php";
-    $lesActions["bateauTraitement"] = "CTRcrudBateau/crudBateauTraitement.php";
+   // $lesActions["bateauTraitement"] = "CTRcrudBateau/crudBateauTraitement.php";
     $lesActions["modifiePort"] = "CTRcrudPort.php";
-    $lesActions["portTraitement"] = "CTRcrudPort/crudPortTraitement.php";
+    //$lesActions["portTraitement"] = "CTRcrudPort/crudPortTraitement.php";
     $lesActions["modifieTrajet"] = "CTRtrajets.php";
     $lesActions["affecterBateau"] = "CTRaffecteBateau.php";
     $lesActions["connexion"] = "CTRconnexion.php";

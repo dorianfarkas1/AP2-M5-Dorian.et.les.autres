@@ -1,5 +1,5 @@
 
-<h1 class="page-header text-center"><?php $title ?></h1>
+<h2 class="page-header text-center"><?= $title ?></h2>
 
 <form method="post" action="index.php?action=afficheTraversee">
     <div>
@@ -67,7 +67,7 @@ if (isset($lesTraversees)){ ?>
 	} 
 else {
 	?>
-	    <h1>Veuillez selectionner une liaison !</h1>
+	    <h3>Veuillez selectionner une liaison !</h3>
 	<?php
     }
 ?>

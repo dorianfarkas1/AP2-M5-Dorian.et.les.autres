@@ -1,4 +1,4 @@
-<h1 class="page-header text-center">Affichage des Tarifs</h1>
+<h2 class="page-header text-center"><?= $title ?></h2>
 
 <form method="post" action="index.php?action=afficheTarif">
     <div>
@@ -46,7 +46,7 @@
 	</div>
 <?php } 
 else { ?>
-	<h1> Veuillez selectionner la période ! </h1>
+	<h3> Veuillez selectionner la période ! </h3>
 <?php }?>
 
 

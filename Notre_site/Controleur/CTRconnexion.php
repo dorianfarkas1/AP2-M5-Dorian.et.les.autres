@@ -7,9 +7,7 @@ include_once "$racine/Modele/authentification.inc.php";
 // recuperation des donnees GET, POST, et SESSION
 if (!isset($_POST["mailU"]) || !isset($_POST["mdpU"])){
     // on affiche le formulaire de connexion
-    $titre = "Authentification";
-    $keywords ="";
-    $description="";
+    $title = "Authentification";
     include "$racine/vue/haut_page.php";
     include "$racine/Vue/menu.php";
     include "$racine/vue/Authentification.php";
@@ -25,9 +23,7 @@ else
         include "$racine/Controleur/CTRprofil.php";
     } else {
         // on affiche le formulaire de connexion
-        $titre = "Authentification";
-        $keywords ="";
-        $description="";
+        $title = "Authentification";
         include "$racine/vue/haut_page.html.php";
         include "$racine/Vue/menu.php";
         include "$racine/vue/Authentification.php";

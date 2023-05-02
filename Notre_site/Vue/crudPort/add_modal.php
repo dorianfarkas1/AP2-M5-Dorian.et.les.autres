@@ -7,7 +7,7 @@
             <h5 class="modal-title">Ajouter un nouveau port</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form method="POST" action="?action=CTRcrudPort" enctype = "multipart/form-data">
+        <form method="POST" action="?action=modifiePort" enctype = "multipart/form-data">
             <div class="modal-body">
                 <div class="row form-group">
 					<div class="col-sm-2">
