@@ -42,7 +42,7 @@ function getBateaux() : array {
 
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("SELECT * from bateau ");
+        $req = $cnx->prepare("SELECT * from bateau natural join niveau_accessibilite");
         $req->execute();
 
         $ligne = $req->fetch(PDO::FETCH_ASSOC);

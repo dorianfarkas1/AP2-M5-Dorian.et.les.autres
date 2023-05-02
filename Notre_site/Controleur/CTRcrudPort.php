@@ -34,10 +34,19 @@ include_once "$racine/Modele/bd.port.inc.php";
 		else{
 			$_SESSION["error"] = 'Problème lors de l\'ajout du port';
 		}
+		if (isset($_SESSION['success'])) {
+			echo '<div class="alert alert-success">' . $_SESSION['success'] . '</div>';
+			unset($_SESSION['success']);
+		}
+		
+		if (isset($_SESSION['error'])) {
+			echo '<div class="alert alert-danger">' . $_SESSION['error'] . '</div>';
+			unset($_SESSION['error']);
+		}
 	}
 	
 	if(isset($_POST['edit'])){
-		$nomCourt = $_POST['nom_court'];
+		$nomCourt = $_POST['id'];
         $nom = $_POST['nom'];
         $description = $_POST['description'];
         $adresse = $_POST['adresse'];
@@ -61,6 +70,15 @@ include_once "$racine/Modele/bd.port.inc.php";
 		else{
 			$_SESSION['error'] = 'Problème lors de la modification du Port';
 		}
+		if (isset($_SESSION['success'])) {
+			echo '<div class="alert alert-success">' . $_SESSION['success'] . '</div>';
+			unset($_SESSION['success']);
+		}
+		
+		if (isset($_SESSION['error'])) {
+			echo '<div class="alert alert-danger">' . $_SESSION['error'] . '</div>';
+			unset($_SESSION['error']);
+		}
 	}
 	
 	if(isset($_POST['supr'])){
@@ -78,6 +96,15 @@ include_once "$racine/Modele/bd.port.inc.php";
 		}		
 		else{
 			$_SESSION['error'] = 'Problème lors de la suppression du port';
+		}
+		if (isset($_SESSION['success'])) {
+			echo '<div class="alert alert-success">' . $_SESSION['success'] . '</div>';
+			unset($_SESSION['success']);
+		}
+		
+		if (isset($_SESSION['error'])) {
+			echo '<div class="alert alert-danger">' . $_SESSION['error'] . '</div>';
+			unset($_SESSION['error']);
 		}
 	}
 // appel des fonctions permettant de recuperer les donnees utiles a l'affichage 

@@ -85,15 +85,14 @@ function modifierPort($nomCourt, $nom, $description, $adresse, $photo, $camera):
         $resultat = false;
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare('UPDATE port SET nom = :nom, description = :description, adresse = :adresse, photo = :photo, camera = :camera WHERE nom_court = :nom_court');
-        $req->bindParam(':nom_court', $nomCourt, PDO::PARAM_STR);
+        $req = $cnx->prepare('UPDATE port SET nom = :nom, description = :description, adresse = :adresse, photo = :photo, camera = :camera WHERE nom_court = :id');
+        $req->bindParam(':id', $nomCourt, PDO::PARAM_STR);
         $req->bindParam(':nom', $nom, PDO::PARAM_STR);
         $req->bindParam(':description', $description, PDO::PARAM_STR);
         $req->bindParam(':adresse', $adresse, PDO::PARAM_STR);
 		$req->bindParam(':photo', $photo, PDO::PARAM_STR);
         $req->bindParam(':camera', $camera, PDO::PARAM_STR);
         $resultat = $req->execute();
-
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage();
         die();

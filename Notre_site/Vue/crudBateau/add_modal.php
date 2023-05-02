@@ -27,7 +27,7 @@
 				</div>
                 <div class="row form-group">
 					<div class="col-sm-2">
-						<label class="control-label modal-label">Dscpt°:</label>
+						<label class="control-label modal-label">Description:</label>
 					</div>
 					<div class="col-sm-10">
                     <textarea class="form-control" name="description" required></textarea>
@@ -51,7 +51,7 @@
 				</div>
                 <div class="row form-group">
 					<div class="col-sm-2">
-						<label class="control-label modal-label">Vitesse_C:</label>
+						<label class="control-label modal-label">Vitesse :</label>
 					</div>
 					<div class="col-sm-10">
                         <input type="number" class="form-control" step="1" min="0" name="vitesse"  required>
