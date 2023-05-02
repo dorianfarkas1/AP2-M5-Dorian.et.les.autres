@@ -62,7 +62,7 @@ function getBateaux() : array {
 
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("SELECT * from bateau natural join niveau_accessibilite");
+        $req = $cnx->prepare("SELECT * from bateau join niveau_accessibilite on bateau.niveauPMR = idNiveau");
         $req->execute();
 
         $ligne = $req->fetch(PDO::FETCH_ASSOC);
@@ -225,15 +225,13 @@ die();
 return $resultat;
 }
 
-function modifierBateau( $nom, $id, $photo, $description, $longueur, $largeur, $vitesse_croisiere, $niveauPMR) : bool {
+function modifierBateau( $nom, $id, $longueur, $largeur, $vitesse_croisiere, $niveauPMR) : bool {
     $resultat = false;
     try {
             $cnx = connexionPDO();
-            $req = $cnx->prepare('UPDATE bateau SET nom = :nom, photo = :photo, description = :description, longueur = :longueur, largeur = :largeur, vitesse_croisiere = :vitesse_croisiere, niveauPMR = :niveauPMR WHERE id = :id');
+            $req = $cnx->prepare('UPDATE bateau SET nom = :nom, longueur = :longueur, largeur = :largeur, vitesse_croisiere = :vitesse_croisiere, niveauPMR = :niveauPMR WHERE id = :id');
             $req->bindParam(':nom', $nom, PDO::PARAM_STR);
 		    $req->bindParam(':id', $id, PDO::PARAM_INT);
-		    $req->bindParam(':photo', $photo, PDO::PARAM_INT);
-		    $req->bindParam(':description', $description, PDO::PARAM_STR);
 		    $req->bindParam(':longueur', $longueur, PDO::PARAM_STR);
 		    $req->bindParam(':largeur', $largeur, PDO::PARAM_STR);
 		    $req->bindParam(':vitesse_croisiere', $vitesse_croisiere, PDO::PARAM_STR);
