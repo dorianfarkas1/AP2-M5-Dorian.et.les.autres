@@ -42,26 +42,6 @@ function getPortsByNomC(string $nomC) : array {
     return $resultat;
 }
 
-function getRestosByAdresse(string $adresse) : array {
-    $resultat = array();
-
-    try {
-        $cnx = connexionPDO();
-        $req = $cnx->prepare("select * from resto where adresse like :adresse");
-        $req->bindValue(':adresse', "%".$adresse."%", PDO::PARAM_STR);
-        $req->execute();
-
-        $ligne = $req->fetch(PDO::FETCH_ASSOC);
-        while ($ligne) {
-            $resultat[] = $ligne;
-            $ligne = $req->fetch(PDO::FETCH_ASSOC);
-        }
-    } catch (PDOException $e) {
-        print "Erreur !: " . $e->getMessage();
-        die();
-    }
-    return $resultat;
-}
 
 function ajoutePortAvecPhoto( $nomCourt, $nom, $description, $adresse, $photo, $camera) : bool {
             $resultat = false;
