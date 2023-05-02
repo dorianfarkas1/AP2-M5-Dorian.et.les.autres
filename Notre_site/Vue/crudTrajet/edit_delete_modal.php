@@ -9,36 +9,17 @@
         <form method="POST" action="?action=modifieTrajet">
             <div class="modal-body">
                 <div class="row form-group">
-					<input type="hidden" class="form-control" name="num" value="<?php echo $row['num']; ?>">
+					<input type="hidden" class="form-control" name="num" >
 
 					<div class="row form-group">
 						<div class="col-sm-2">
 							<label class="control-label modal-label">Nom:</label>
 						</div>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" name="nom" value="<?php echo $row['nom']; ?>">
+							<input type="text" class="form-control" name="nom" >
 						</div>
 					</div>
 
-                    <?php if ($row['photo']!=""){
-                    ?>
-                        <div class="row form-group">
-                            <div class="col-sm-10">
-                            <img height='100px' src='images/bateaux/<?= $row['photo'] ?>'>
-                            </div>
-                        </div>
-                    <?php
-                    }
-                    ?> 
-                    <input type="hidden" name="old_photo" class="form-control" value="<?php echo $row['photo']; ?>">
-                    <div class="row form-group">
-						<div class="col-sm-2">
-							<label class="control-label modal-label">Photo:</label>
-						</div>
-						<div class="col-sm-10">
-							<input type="file" class="form-control" name="photo" >
-						</div>
-					</div>
 				</div>
             </div>
             <div class="modal-footer">
