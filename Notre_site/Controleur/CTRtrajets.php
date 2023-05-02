@@ -4,7 +4,8 @@ if ( $_SERVER["SCRIPT_FILENAME"] == __FILE__ ){
     $racine="..";
 }
 include_once "$racine/Modele/bd.traversee.inc.php";
-if(isset($_POST['add'])){
+if(isset($_POST['add']))
+{
     $num = $_POST['num'];
     $date = $_POST['date'];
     $heure = $_POST['heure'];
@@ -17,6 +18,7 @@ if(isset($_POST['add'])){
     }		
     else{
         $_SESSION['error'] = 'Problème lors de la suppression du trajet';
+    }
 }
 
 $lesTrajets = getTraversee();
