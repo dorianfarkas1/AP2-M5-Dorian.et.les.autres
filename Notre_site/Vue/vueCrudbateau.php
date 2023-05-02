@@ -1,4 +1,3 @@
-
 <h2 class="page-header text-center"><?= $title ?></h2>
 	<div class="row">
 		<div class="row">

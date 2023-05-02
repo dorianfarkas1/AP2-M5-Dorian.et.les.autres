@@ -40,6 +40,15 @@ if(isset($_POST['add'])){
 	else{
 		$_SESSION["error"] = 'Problème lors de l\'ajout du bateau';
 	}
+	if (isset($_SESSION['success'])) {
+		echo '<div class="alert alert-success">' . $_SESSION['success'] . '</div>';
+		unset($_SESSION['success']);
+	}
+	
+	if (isset($_SESSION['error'])) {
+		echo '<div class="alert alert-danger">' . $_SESSION['error'] . '</div>';
+		unset($_SESSION['error']);
+	}
 }
 
 if(isset($_POST['edit'])){
@@ -94,6 +103,15 @@ if(isset($_POST['edit'])){
 		else{
 			$_SESSION['error'] = 'Problème lors de la modification du bateau';
 		}
+		if (isset($_SESSION['success'])) {
+			echo '<div class="alert alert-success">' . $_SESSION['success'] . '</div>';
+			unset($_SESSION['success']);
+		}
+		
+		if (isset($_SESSION['error'])) {
+			echo '<div class="alert alert-danger">' . $_SESSION['error'] . '</div>';
+			unset($_SESSION['error']);
+		}
 	}
 
 	if(isset($_POST['supr'])){
@@ -121,6 +139,15 @@ if(isset($_POST['edit'])){
 		}		
 		else{
 			$_SESSION['error'] = 'Problème lors de la suppression du bateau';
+		}
+		if (isset($_SESSION['success'])) {
+			echo '<div class="alert alert-success">' . $_SESSION['success'] . '</div>';
+			unset($_SESSION['success']);
+		}
+		
+		if (isset($_SESSION['error'])) {
+			echo '<div class="alert alert-danger">' . $_SESSION['error'] . '</div>';
+			unset($_SESSION['error']);
 		}
 	}
 // appel des fonctions permettant de recuperer les donnees utiles a l'affichage 
