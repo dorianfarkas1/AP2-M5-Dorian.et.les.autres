@@ -64,6 +64,7 @@ function getRestosByAdresse(string $adresse) : array {
 }
 
 function ajoutePortAvecPhoto( $nomCourt, $nom, $description, $adresse, $photo, $camera) : bool {
+            $resultat = false;
     try {
             $cnx = connexionPDO();
             $req = $cnx->prepare('INSERT INTO port (nom_court, nom, description, adresse, photo, camera) VALUES (:id, :nom, :description, :adresse, :photo, :camera)');
@@ -82,6 +83,7 @@ function ajoutePortAvecPhoto( $nomCourt, $nom, $description, $adresse, $photo, $
 }
 
 function ajoutePortSansPhoto( $nomCourt, $nom, $description, $adresse, $camera) : bool {
+        $resultat = false;
     try {
             $cnx = connexionPDO();
             $req = $cnx->prepare('INSERT INTO port (nom_court, nom, description, adresse, camera) VALUES (:id, :nom, :description, :adresse, :camera)');
@@ -100,6 +102,7 @@ function ajoutePortSansPhoto( $nomCourt, $nom, $description, $adresse, $camera) 
 }
 
 function modifierPort($nomCourt, $nom, $description, $adresse, $photo, $camera): bool {
+        $resultat = false;
     try {
         $cnx = connexionPDO();
         $req = $cnx->prepare('UPDATE port SET nom = :nom, description = :description, adresse = :adresse, photo = :photo, camera = :camera WHERE nom_court = :nom_court');
