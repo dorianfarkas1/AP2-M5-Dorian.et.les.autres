@@ -124,7 +124,7 @@ if(isset($_POST['edit'])){
 		}
 	}
 // appel des fonctions permettant de recuperer les donnees utiles a l'affichage 
-$lesBateaux = getBateaux();
+$lesBateaux = getlesBateaux();
 $lesSecteurs = getSecteurs();
 $lesNiveauPMRs = getNiveauPMR();
 $lesCategories = getCategories();
