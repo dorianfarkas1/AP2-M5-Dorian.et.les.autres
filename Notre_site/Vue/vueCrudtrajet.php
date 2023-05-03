@@ -46,7 +46,7 @@
 						<tr>
 							<td><?= $row['num'] ?></td>
 							<td><?= $row['date'] ?></td>
-							<td><?= $row['heure'] ?>'></td>
+							<td><?= $row['heure'] ?></td>
 							<td><?= $row['idBateau'] ?></td>
 							
 							<td>

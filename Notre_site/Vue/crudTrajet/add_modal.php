@@ -23,7 +23,7 @@
 						<label class="control-label modal-label">Date:</label>
 					</div>
 					<div class="col-sm-10">
-						<input type="file" class="form-control" name="date" >
+						<input type="text" class="form-control" name="date" >
 					</div>
 				</div>
                 <div class="row form-group">
@@ -31,7 +31,7 @@
 						<label class="control-label modal-label">Heure:</label>
 					</div>
 					<div class="col-sm-10">
-					<input type="file" class="form-control" name="heure" >
+					<input type="text" class="form-control" name="heure" >
 					</div>
 				</div>
 				<div class="row form-group">
