@@ -11,7 +11,7 @@ if(isset($_POST['add']))
     $heure = $_POST['heure'];
     $nom = $_POST['idBateau'];
 
-    $resultat = ajouterLiaison($nom, $date, $heure, $nom);
+    $resultat = ajouterTraversee($num, $date, $heure, $nom);
 
     if($resultat){
         $_SESSION['success'] = 'Trajet supprimé';

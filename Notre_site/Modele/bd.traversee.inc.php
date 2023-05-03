@@ -59,7 +59,7 @@ function getTraverseeBateau() : array {
     return $resultat;
 }
 
-function ajouterLiaison($num, $date, $heure, $nom) : bool {
+function ajouterTraversee($num, $date, $heure, $nom) : bool {
     $resultat = false;
 
     try {
