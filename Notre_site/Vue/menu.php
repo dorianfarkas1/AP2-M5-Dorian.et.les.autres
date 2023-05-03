@@ -44,6 +44,9 @@
 				<li>
 					<a class="dropdown-item" href="index.php?action=affecterBateau" >Affecter bateaux aux trajets</a>
 				</li>
+				<li>
+					<a class="dropdown-item" href="index.php?action=modifieUtil" >Modifier les utilisateurs</a>
+				</li>
 			</ul>
 
 			<li class="nav-item">

@@ -39,7 +39,55 @@ function getUtilisateurByMailU(string $mailU) : array {
     return $resultat;
 }
 
+function ajouteUtil( $mailU, $mdp, $pseudo, $droit) : bool {
+    $resultat = false;
+try {
+    $cnx = connexionPDO();
+    $req = $cnx->prepare('INSERT INTO utilisateur (mailU, mdpU, pseudoU, Droits) VALUES (:mailU, :mdp, :pseudo, :droit)');
+    $req->bindParam(':mailU', $mailU, PDO::PARAM_STR);
+    $req->bindParam(':mdp', $mdp, PDO::PARAM_STR);
+    $req->bindParam(':pseudo', $pseudo, PDO::PARAM_STR);
+    $req->bindParam(':droit', $droit, PDO::PARAM_STR);
+    $resultat = $req->execute();
 
+} catch (PDOException $e) {
+print "Erreur !: " . $e->getMessage();
+die();
+}
+return $resultat;
+}
+
+function modifieUtil( $mailU, $mdp, $pseudo, $droit) : bool {
+    $resultat = false;
+try {
+    $cnx = connexionPDO();
+    $req = $cnx->prepare('UPDATE utilisateur SET mdpU = :mdp, pseudoU = :pseudo, Droits = :droit WHERE mailU = :mailU');
+    $req->bindParam(':mailU', $mailU, PDO::PARAM_STR);
+    $req->bindParam(':mdp', $mdp, PDO::PARAM_STR);
+    $req->bindParam(':pseudo', $pseudo, PDO::PARAM_STR);
+    $req->bindParam(':droit', $droit, PDO::PARAM_STR);
+    $resultat = $req->execute();
+    
+} catch (PDOException $e) {
+print "Erreur !: " . $e->getMessage();
+die();
+}
+return $resultat;
+}
+
+function SupprimeUtil($mailU) : bool {
+    $resultat = false;
+try {
+    $cnx = connexionPDO();
+    $req = $cnx->prepare('DELETE FROM utilisateur WHERE mailU = :mailU ');
+    $req->bindParam(':mailU', $mailU, PDO::PARAM_STR);;
+    $resultat = $req->execute();
+} catch (PDOException $e) {
+print "Erreur !: " . $e->getMessage();
+die();
+}
+return $resultat;
+}
 
 $includes = get_included_files();
 // test si le premier include est la page appelée, permet dexecuter le fichier en local pour tester les fonctions
