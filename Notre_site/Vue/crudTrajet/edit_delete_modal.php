@@ -16,7 +16,7 @@
 							<label class="control-label modal-label">Date:</label>
 						</div>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" name="nom" value="<?php echo $row['date']; ?>">
+							<input type="text" class="form-control" name="date" value="<?php echo $row['date']; ?>">
 						</div>
 					</div>
                     <div class="row form-group">
@@ -24,7 +24,7 @@
 							<label class="control-label modal-label">Heure:</label>
 						</div>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" name="nom" value="<?php echo $row['heure']; ?>">
+							<input type="text" class="form-control" name="heure" value="<?php echo $row['heure']; ?>">
 						</div>
 					</div>
                     <div class="row form-group">
@@ -32,7 +32,7 @@
 						<label class="control-label modal-label">Liaison:</label>
 					</div>
 					<div class="col-sm-10">
-                    <input type="number" step="0.1" class="form-control" name="longueur" min="0"  value="<?php echo $row['codeLiaison']; ?>" required>
+                    <input type="number" step="0.1" class="form-control" name="liaison" min="0"  value="<?php echo $row['codeLiaison']; ?>" required>
 					</div>
 				</div>
                 <div class="row form-group">
@@ -40,7 +40,7 @@
 						<label class="control-label modal-label">Bateau:</label>
 					</div>
 					<div class="col-sm-10">
-                    <input type="number" step="0.1" class="form-control" name="longueur" min="0"  value="<?php echo $row['idBateau']; ?>" required>
+                    <input type="number" step="0.1" class="form-control" name="bateau" min="0"  value="<?php echo $row['idBateau']; ?>" required>
 					</div>
 				</div>
 
