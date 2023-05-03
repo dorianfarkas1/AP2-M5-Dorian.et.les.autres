@@ -54,7 +54,8 @@ if(isset($_POST['supr'])){
 		
 }
 
-$lesTrajets = getTraversees();
+$lesTrajets = getTraversees(); 
+
 
 // appel du script de vue qui permet de gerer l'affichage des donnees
 $title = "Affichage des Trajets";

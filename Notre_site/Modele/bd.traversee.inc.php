@@ -65,10 +65,10 @@ function ajouterTraversee($num, $date, $heure, $idLiaison, $idBateau) : bool {
     try {
         $cnx = connexionPDO();
         $req = $cnx->prepare("INSERT INTO traversee (num, date, heure, codeLiaison, idBateau) VALUES (:num, :date, :heure, :codeLiaison, :idBateau)");
-        $req->bindParam(':num', $num, PDO::PARAM_INT);
+        $req->bindParam(':num', $num, PDO::PARAM_STR);
         $req->bindParam(':date', $date, PDO::PARAM_STR);
         $req->bindParam(':heure', $heure, PDO::PARAM_STR);
-        $req->bindParam(':idLiaison', $idLiaison, PDO::PARAM_INT);
+        $req->bindParam(':codeLiaison', $idLiaison, PDO::PARAM_STR);
         $req->bindParam(':idBateau', $idBateau, PDO::PARAM_STR);
         $resultat = $req->execute();
 
@@ -107,11 +107,11 @@ function modifierTrajet($num, $date, $heure, $idLiaison, $idBateau): bool {
     try {
         $cnx = connexionPDO();
         $req = $cnx->prepare('UPDATE traversee SET num = :num, date=:date, heure =:heure, codeLiaison =:idLiaison, idBateau =:idBateau WHERE num =:num');
-        $req->bindParam(':num', $num, PDO::PARAM_INT);
+        $req->bindParam(':num', $num, PDO::PARAM_STR);
         $req->bindParam(':date', $date, PDO::PARAM_STR);
         $req->bindParam(':heure', $heure, PDO::PARAM_STR);
-        $req->bindParam(':idLiaison', $idLiaison, PDO::PARAM_INT);
-        $req->bindParam(':idBateau', $idBateau, PDO::PARAM_INT);
+        $req->bindParam(':idLiaison', $idLiaison, PDO::PARAM_STR);
+        $req->bindParam(':idBateau', $idBateau, PDO::PARAM_STR);
         $resultat = $req->execute();
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage();
@@ -125,7 +125,7 @@ function SupprimerTrajet($num) : bool {
 try {
     $cnx = connexionPDO();
     $req = $cnx->prepare('DELETE FROM traversee WHERE num =:num');
-    $req->bindParam(':num', $num, PDO::PARAM_INT);;
+    $req->bindParam(':num', $num, PDO::PARAM_STR);;
     $resultat = $req->execute();
 } catch (PDOException $e) {
 print "Erreur !: " . $e->getMessage();
