@@ -9,12 +9,13 @@ if(isset($_POST['add']))
     $num = $_POST['num'];
     $date = $_POST['date'];
     $heure = $_POST['heure'];
-    $nom = $_POST['idBateau'];
+    $idLiaison = $_POST['codeLiaison'];
+    $idBateau = $_POST['idBateau'];
 
-    $resultat = ajouterTraversee($num, $date, $heure, $nom);
+    $resultat = ajouterTraversee($num, $date, $heure, $idLiaison, $idBateau);
 
     if($resultat){
-        $_SESSION['success'] = 'Trajet supprimé';
+        $_SESSION['success'] = 'Trajet ajoutée';
     }		
     else{
         $_SESSION['error'] = 'Problème lors de la suppression du trajet';

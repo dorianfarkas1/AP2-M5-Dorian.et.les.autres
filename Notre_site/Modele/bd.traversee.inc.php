@@ -59,12 +59,17 @@ function getTraverseeBateau() : array {
     return $resultat;
 }
 
-function ajouterTraversee($num, $date, $heure, $nom) : bool {
+function ajouterTraversee($num, $date, $heure, $idLiaison, $idBateau) : bool {
     $resultat = false;
 
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("INSERT INTO traversee (num, date, heure, nom) VALUES (:num, :date, :heure, :nom)");
+        $req = $cnx->prepare("INSERT INTO traversee (num, date, heure, codeLiaison, idBateau) VALUES (:num, :date, :heure, :codeLiaison, :idBateau)");
+        $req->bindParam(':num', $num, PDO::PARAM_STR);
+        $req->bindParam(':date', $date, PDO::PARAM_STR);
+        $req->bindParam(':heure', $heure, PDO::PARAM_STR);
+        $req->bindParam(':idLiaison', $idLiaison, PDO::PARAM_STR);
+        $req->bindParam(':idBateau', $idBateau, PDO::PARAM_STR);
         $req->execute();
 
         $ligne = $req->fetch(PDO::FETCH_ASSOC);
