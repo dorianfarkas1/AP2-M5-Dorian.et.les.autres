@@ -70,13 +70,9 @@ function ajouterTraversee($num, $date, $heure, $idLiaison, $idBateau) : bool {
         $req->bindParam(':heure', $heure, PDO::PARAM_STR);
         $req->bindParam(':idLiaison', $idLiaison, PDO::PARAM_STR);
         $req->bindParam(':idBateau', $idBateau, PDO::PARAM_STR);
-        $req->execute();
+        $resultat = $req->execute();
 
-        $ligne = $req->fetch(PDO::FETCH_ASSOC);
-        while ($ligne) {
-            $resultat[] = $ligne;
-            $ligne = $req->fetch(PDO::FETCH_ASSOC);
-        }
+        
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage();
         die();
