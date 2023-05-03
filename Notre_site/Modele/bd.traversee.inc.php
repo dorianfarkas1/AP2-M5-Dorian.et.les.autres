@@ -102,6 +102,38 @@ function getTraverseeByIdANDByDate(int $code, string $date) : array {
     return $resultat;
 }
 
+function modifierTrajet($num, $date, $heure, $idLiaison, $idBateau): bool {
+        $resultat = false;
+    try {
+        $cnx = connexionPDO();
+        $req = $cnx->prepare('UPDATE traversee SET num = :num, date=:date, heure =:heure, codeLiaison =:idLiaison, idBateau =:idBateau WHERE num =:num');
+        $req->bindParam(':num', $num, PDO::PARAM_INT);
+        $req->bindParam(':date', $date, PDO::PARAM_STR);
+        $req->bindParam(':heure', $heure, PDO::PARAM_STR);
+        $req->bindParam(':idLiaison', $idLiaison, PDO::PARAM_INT);
+        $req->bindParam(':idBateau', $idBateau, PDO::PARAM_INT);
+        $resultat = $req->execute();
+    } catch (PDOException $e) {
+        print "Erreur !: " . $e->getMessage();
+        die();
+    }
+    return $resultat;
+}
+
+function SupprimerTrajet($num) : bool {
+    $resultat = false;
+try {
+    $cnx = connexionPDO();
+    $req = $cnx->prepare('DELETE FROM traversee WHERE num =:num');
+    $req->bindParam(':num', $num, PDO::PARAM_INT);;
+    $resultat = $req->execute();
+} catch (PDOException $e) {
+print "Erreur !: " . $e->getMessage();
+die();
+}
+return $resultat;
+}
+
 $includes = get_included_files();
 // test si le premier include est la page appelée, permet dexecuter le fichier en local pour tester les fonctions
 if ($includes[0] == __FILE__ ) {

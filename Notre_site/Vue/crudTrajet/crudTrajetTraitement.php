@@ -4,99 +4,70 @@
 
 
 	if(isset($_POST['add'])){
-		$nomCourt = $_POST['nom_court'];
-        $nom = $_POST['nom'];
-        $description = $_POST['description'];
-        $adresse = $_POST['adresse'];
-        $camera = $_POST['camera'];
+		$num = $_POST['num'];
+    	$date = $_POST['date'];
+    	$heure = $_POST['heure'];
+    	$idLiaison = $_POST['codeLiaison'];
+    	$idBateau = $_POST['idBateau'];
 
-		if(($_FILES['photo'])){
-			$tmpName = $_FILES['photo']['tmp_name'];
-			$photoName = $_FILES['photo']['name'];
-            move_uploaded_file ($tmpName, './images/ports/'.$photoName);
-		}
-		
-    if(isset($_FILES['photo'])){
+        $req = $connexion->prepare("INSERT INTO traversee (num, date, heure, codeLiaison, idBateau) VALUES (:num, :date, :heure, :codeLiaison, :idBateau)");
 
-            $req = $connexion->prepare('INSERT INTO port (nom_court, nom, description, adresse, photo, camera) VALUES (:id, :nom, :description, :adresse, :photo, :camera)');
+       $req->bindParam(':num', $num, PDO::PARAM_INT);
+        $req->bindParam(':date', $date, PDO::PARAM_STR);
+        $req->bindParam(':heure', $heure, PDO::PARAM_STR);
+        $req->bindParam(':idLiaison', $idLiaison, PDO::PARAM_INT);
+        $req->bindParam(':idBateau', $idBateau, PDO::PARAM_INT);
 
-            $req->bindParam(':photo', $photoName, PDO::PARAM_STR);
-
-    } else {
-
-            $req = $connexion->prepare('INSERT INTO port (nom_court, nom, description, adresse, camera) VALUES (:id, :nom, :description, :adresse, :camera)');;
-
-    }
-
-        $req->bindParam(':id', $nom_court, PDO::PARAM_STR);
-
-        $req->bindParam(':nom', $nom, PDO::PARAM_STR);
-        $req->bindParam(':description', $description, PDO::PARAM_STR);
-        $req->bindParam(':adresse', $adresse, PDO::PARAM_STR);
-        $req->bindParam(':camera', $camera, PDO::PARAM_STR);
 
         $resultat = $req->execute();
 
 		if($resultat){
-			$_SESSION["success"] = 'Port ajouté';
+			$_SESSION["success"] = 'Trajet ajouté';
 		}
 		else{
-			$_SESSION["error"] = 'Problème lors de l\'ajout du port';
+			$_SESSION["error"] = 'Problème lors de l\'ajout du trajet';
 		}
-		header('location: index.php?action=modifiePort');
+		header('location: index.php?action=modifieTrajet');
 	}
 	
 	if(isset($_POST['edit'])){
-		$nomCourt = $_POST['id'];
-        $nom = $_POST['nom'];
-        $description = $_POST['description'];
-        $adresse = $_POST['adresse'];
-        $camera = $_POST['camera'];
-        $photoName = $_POST['old_photo'];
+		$num = $_POST['num'];
+    	$date = $_POST['date'];
+    	$heure = $_POST['heure'];
+    	$idLiaison = $_POST['codeLiaison'];
+    	$idBateau = $_POST['idBateau'];
 		
-		if(isset($_FILES['photo']) && $_FILES['photo']['name'] != ""){
-			if ($photoName != ""){
-				unlink('./images/ports/'.$photoName);
-			}
-			$tmpName = $_FILES['photo']['tmp_name'];
-			$photoName = $_FILES['photo']['name']; // on ecrase la valeur
-			move_uploaded_file($tmpName, './images/ports/'.$photoName);
-		}
-		$req = $connexion->prepare('UPDATE port SET nom = :nom, description = :description, adresse = :adresse, photo = :photo, camera = :camera WHERE nom_court = :nom_court');
 		
-        $req->bindParam(':nom_court', $nom_court, PDO::PARAM_STR);
-        $req->bindParam(':nom', $nom, PDO::PARAM_STR);
-        $req->bindParam(':description', $description, PDO::PARAM_STR);
-        $req->bindParam(':adresse', $adresse, PDO::PARAM_STR);
-		$req->bindParam(':photo', $photoName, PDO::PARAM_STR);
-        $req->bindParam(':camera', $camera, PDO::PARAM_STR);
+		$req = $connexion->prepare('UPDATE traversee SET num = :num, date=:date, heure =:heure, codeLiaison =:idLiaison, idBateau =:idBateau WHERE num =:num');
+		
+        $req->bindParam(':num', $num, PDO::PARAM_INT);
+        $req->bindParam(':date', $date, PDO::PARAM_STR);
+        $req->bindParam(':heure', $heure, PDO::PARAM_STR);
+        $req->bindParam(':idLiaison', $idLiaison, PDO::PARAM_INT);
+        $req->bindParam(':idBateau', $idBateau, PDO::PARAM_INT);
 		$resultat = $req->execute();
 
 		if($resultat){
-			$_SESSION['success'] = 'Port modifié';
+			$_SESSION['success'] = 'Trajet modifié';
 		}		
 		else{
-			$_SESSION['error'] = 'Problème lors de la modification du Port';
+			$_SESSION['error'] = 'Problème lors de la modification du Trajet';
 		}
-		header('location: index.php?action=modifiePort');
+		header('location: index.php?action=modifieTrajet');
 	}
 	
 	if(isset($_POST['supr'])){
-		$id = $_POST['id'];
+		$num = $_POST['num'];
 
-		$photoName = $_POST['old_photo'];
-		if ($photoName != ""){
-			unlink('./images/ports/' .$photoName);
-		}
-		$req = $connexion->prepare('DELETE FROM port WHERE nom_court = :id ');
-		$req->bindParam(':id', $id, PDO::PARAM_STR);
+		$req = $connexion->prepare('DELETE FROM traversee WHERE num =:num');
+		 $req->bindParam(':num', $num, PDO::PARAM_INT);
 		$resultat = $req->execute();
 		if($resultat){
-			$_SESSION['success'] = 'Port supprimé';
+			$_SESSION['success'] = 'Trajet supprimé';
 		}		
 		else{
-			$_SESSION['error'] = 'Problème lors de la suppression du port';
+			$_SESSION['error'] = 'Problème lors de la suppression du Trajet';
 		}
-		header('location: index.php?action=modifiePort');
+		header('location: index.php?action=modifieTrajet');
 	}
 ?>
