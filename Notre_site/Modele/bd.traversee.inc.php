@@ -21,7 +21,7 @@ function getLiaison() : array {
     return $resultat;
 }
 
-function getTraversee() : array {
+function getTraversees() : array {
     $resultat = array();
     try {
         $cnx = connexionPDO();
@@ -59,19 +59,20 @@ function getTraverseeBateau() : array {
     return $resultat;
 }
 
-function ajouterLiaison($num, $date, $heure, $nom) : array {
+function ajouterTraversee($num, $date, $heure, $idLiaison, $idBateau) : bool {
     $resultat = false;
 
     try {
         $cnx = connexionPDO();
-        $req = $cnx->prepare("INSERT INTO traversee (num, date, heure, nom) VALUES (:num, :date, :heure, :nom)");
-        $req->execute();
+        $req = $cnx->prepare("INSERT INTO traversee (num, date, heure, codeLiaison, idBateau) VALUES (:num, :date, :heure, :codeLiaison, :idBateau)");
+        $req->bindParam(':num', $num, PDO::PARAM_INT);
+        $req->bindParam(':date', $date, PDO::PARAM_STR);
+        $req->bindParam(':heure', $heure, PDO::PARAM_STR);
+        $req->bindParam(':idLiaison', $idLiaison, PDO::PARAM_INT);
+        $req->bindParam(':idBateau', $idBateau, PDO::PARAM_INT);
+        $resultat = $req->execute();
 
-        $ligne = $req->fetch(PDO::FETCH_ASSOC);
-        while ($ligne) {
-            $resultat[] = $ligne;
-            $ligne = $req->fetch(PDO::FETCH_ASSOC);
-        }
+        
     } catch (PDOException $e) {
         print "Erreur !: " . $e->getMessage();
         die();
