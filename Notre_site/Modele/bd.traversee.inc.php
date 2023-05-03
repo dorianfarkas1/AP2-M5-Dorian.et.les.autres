@@ -21,7 +21,7 @@ function getLiaison() : array {
     return $resultat;
 }
 
-function getTraversee() : array {
+function getTraversees() : array {
     $resultat = array();
     try {
         $cnx = connexionPDO();
@@ -65,11 +65,11 @@ function ajouterTraversee($num, $date, $heure, $idLiaison, $idBateau) : bool {
     try {
         $cnx = connexionPDO();
         $req = $cnx->prepare("INSERT INTO traversee (num, date, heure, codeLiaison, idBateau) VALUES (:num, :date, :heure, :codeLiaison, :idBateau)");
-        $req->bindParam(':num', $num, PDO::PARAM_STR);
+        $req->bindParam(':num', $num, PDO::PARAM_INT);
         $req->bindParam(':date', $date, PDO::PARAM_STR);
         $req->bindParam(':heure', $heure, PDO::PARAM_STR);
-        $req->bindParam(':idLiaison', $idLiaison, PDO::PARAM_STR);
-        $req->bindParam(':idBateau', $idBateau, PDO::PARAM_STR);
+        $req->bindParam(':idLiaison', $idLiaison, PDO::PARAM_INT);
+        $req->bindParam(':idBateau', $idBateau, PDO::PARAM_INT);
         $resultat = $req->execute();
 
         
