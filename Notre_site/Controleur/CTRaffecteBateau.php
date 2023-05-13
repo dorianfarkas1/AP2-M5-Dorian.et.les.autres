@@ -6,6 +6,7 @@ if ( $_SERVER["SCRIPT_FILENAME"] == __FILE__ ){
 include_once "$racine/Modele/bd.bateau.inc.php";
 include_once "$racine/Modele/bd.traversee.inc.php";
 
+
 $lesTraversees = getTraverseeBateau();
 $lesBateaux = getlesBateaux();
 

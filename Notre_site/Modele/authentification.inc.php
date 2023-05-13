@@ -19,7 +19,7 @@ function login(string $mailU, string $mdpU) : void {
 
 function logout() : void {
     if (!isset($_SESSION)) {
-        session_start();
+        session_destroy();
     }
     unset($_SESSION["mailU"]);
     unset($_SESSION["mdpU"]);

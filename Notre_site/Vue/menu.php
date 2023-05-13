@@ -48,14 +48,20 @@
 					<a class="dropdown-item" href="index.php?action=modifieUtil" >Modifier les utilisateurs</a>
 				</li>
 			</ul>
-
+            <?php
+			if(isLoggedOn() == false){?>
 			<li class="nav-item">
 				<a class="nav-link " href="index.php?action=connexion" tabindex="-1" >connexion</a>
 			</li>
+			<?php }
+			?>
+			<?php
+			if(isLoggedOn()){?>
 			<li class="nav-item">
 				<a class="nav-link " href="index.php?action=deconnexion" tabindex="-1" >deconnexion</a>
 			</li>
-			
+			<?php } 
+			?>
 		</ul>
 		</li>		
 	</ul>
