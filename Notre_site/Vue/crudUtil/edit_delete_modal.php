@@ -29,14 +29,6 @@
 					    </div>
 				    </div>
 
-                    <div class="row form-group">
-					    <div class="col-sm-2">
-						    <label class="control-label modal-label">Droits:</label>
-					    </div>
-					    <div class="col-sm-10">
-						    <input type="text" class="form-control" name="droit" value="<?php echo $row['Droits']; ?>" required>
-					    </div>
-				    </div>
 				</div>
             </div>
             <div class="modal-footer">
