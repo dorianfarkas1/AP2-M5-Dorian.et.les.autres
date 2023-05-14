@@ -1,6 +1,4 @@
-<?php
-	session_start(); // mécanisme utilisé pour la gestion des sessions pour les connexions
-?>
+
 <!doctype html>
 <html lang="fr">
     
