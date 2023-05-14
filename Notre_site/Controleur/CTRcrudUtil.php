@@ -11,9 +11,9 @@ if(isset($_POST['add'])){
     $mailU = $_POST['mail_U'];
     $mdp = $_POST['mdp_U'];
     $pseudo = $_POST['pseudo_U'];
-    $droit = $_POST['droit'];
+ 
 
-    $resultat = ajouteUtil($mailU, $mdp, $pseudo, $droit);
+    $resultat = ajouteUtil($mailU, $mdp, $pseudo);
 
     if($resultat){
         $_SESSION["success"] = 'Utilisateur ajouté';
@@ -36,9 +36,9 @@ if(isset($_POST['edit'])){
     $mailU = $_POST['mail_U'];
     $mdp = $_POST['Mdp_U'];
     $pseudo = $_POST['pseudo_U'];
-    $droit = $_POST['droit'];
+    
 
-    $resultat = modifieUtil($mailU, $mdp, $pseudo, $droit);
+    $resultat = modifieUtil($mailU, $mdp, $pseudo);
 
     if($resultat){
         $_SESSION['success'] = 'Utilisateur modifié';
@@ -63,7 +63,7 @@ if(isset($_POST['supr'])){
     $resultat = SupprimeUtil($mailU) ;
 
     if($resultat){
-        $_SESSION['success'] = 'Port supprimé';
+        $_SESSION['success'] = 'Utilisateur supprimé';
     }		
     else{
         $_SESSION['error'] = 'Problème lors de la suppression du port';

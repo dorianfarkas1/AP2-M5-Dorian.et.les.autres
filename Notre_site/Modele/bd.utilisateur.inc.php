@@ -39,15 +39,15 @@ function getUtilisateurByMailU(string $mailU) : array {
     return $resultat;
 }
 
-function ajouteUtil( $mailU, $mdp, $pseudo, $droit) : bool {
+function ajouteUtil( $mailU, $mdp, $pseudo) : bool {
     $resultat = false;
 try {
     $cnx = connexionPDO();
-    $req = $cnx->prepare('INSERT INTO utilisateur (mailU, mdpU, pseudoU, Droits) VALUES (:mailU, :mdp, :pseudo, :droit)');
+    $req = $cnx->prepare('INSERT INTO utilisateur (mailU, mdpU, pseudoU) VALUES (:mailU, :mdp, :pseudo)');
     $req->bindParam(':mailU', $mailU, PDO::PARAM_STR);
     $req->bindParam(':mdp', $mdp, PDO::PARAM_STR);
     $req->bindParam(':pseudo', $pseudo, PDO::PARAM_STR);
-    $req->bindParam(':droit', $droit, PDO::PARAM_STR);
+   
     $resultat = $req->execute();
 
 } catch (PDOException $e) {
@@ -57,15 +57,15 @@ die();
 return $resultat;
 }
 
-function modifieUtil( $mailU, $mdp, $pseudo, $droit) : bool {
+function modifieUtil( $mailU, $mdp, $pseudo) : bool {
     $resultat = false;
 try {
     $cnx = connexionPDO();
-    $req = $cnx->prepare('UPDATE utilisateur SET mdpU = :mdp, pseudoU = :pseudo, Droits = :droit WHERE mailU = :mailU');
+    $req = $cnx->prepare('UPDATE utilisateur SET mdpU = :mdp, pseudoU = :pseudo WHERE mailU = :mailU');
     $req->bindParam(':mailU', $mailU, PDO::PARAM_STR);
     $req->bindParam(':mdp', $mdp, PDO::PARAM_STR);
     $req->bindParam(':pseudo', $pseudo, PDO::PARAM_STR);
-    $req->bindParam(':droit', $droit, PDO::PARAM_STR);
+    
     $resultat = $req->execute();
     
 } catch (PDOException $e) {
