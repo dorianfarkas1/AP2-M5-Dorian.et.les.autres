@@ -5,8 +5,7 @@ if ( $_SERVER["SCRIPT_FILENAME"] == __FILE__ ){
 
 // appel du script de vue qui permet de gerer l'affichage des donnees
 $titre = "Acceuil du site";
-$keywords ="";
-$description="";
+
 include "$racine/Vue/haut_page.php";
 include "$racine/Vue/menu.php";
 include "$racine/vue/presentation.php";
