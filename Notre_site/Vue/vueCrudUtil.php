@@ -37,7 +37,6 @@
 				<th>Mail</th>
 				<th>Mdp</th>
 				<th>Pseudo</th>
-				<th>Droit</th>
                 <th>Action</th>
 			</thead>
 			<tbody>
@@ -49,7 +48,6 @@
 							<td><?= $row['mailU'] ?></td>
 							<td><?= $row['mdpU'] ?></td>
 							<td><?= $row['pseudoU'] ?></td>
-                            <td><?= $row['Droits'] ?></td>
 							<td>
 								<button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#edit_<?= str_replace(" ", "_", $row['pseudoU']); ?>">
 									<i class="bi bi-pencil-square"></i> Modifier
@@ -82,3 +80,4 @@ $(document).ready(function(){
 	});
 });
 </script>
+<!--$row['Droits'] 
