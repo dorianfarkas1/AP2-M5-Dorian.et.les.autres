@@ -9,9 +9,23 @@
         <form method="POST" action="?action=affecterBateau">
             <div class="modal-body">
                 <div class="row form-group">
-					<div class="col-sm-2">
-						<label class="control-label modal-label">Bateau:</label>
-					</div>
+                    <div class="row form-group">
+					    <div class="col-sm-2">
+						    <label class="control-label modal-label">Bateau:</label>
+					    </div>
+                        <div class="col-sm-10">
+                            <select name="bateau" class="form-control" required> 
+                                <option value="">--- Choisissez un bateau à affecter ---</option>
+                                    <?php 
+                                        foreach($lesBateaux as $unBateau) 
+                                        {
+                                    ?> 
+                                        <option value="<?= $unBateau["id"] ?>" ><?= ucfirst($unBateau["nom"]) ?></option>
+                                    
+                                    <?php } ?> 
+                            </select>
+					    </div>
+                    </div>
                     <div class="row form-group">
 						<div class="col-sm-2">
 							<label class="control-label modal-label">Traversée:</label>
@@ -20,18 +34,7 @@
 							<input type="text" class="form-control" name="trav" value="<?php echo $row['num']; ?>">
 						</div>
 					</div>
-					<div class="col-sm-10">
-                        <select name="bateau" class="form-control" required> 
-                            <option value="">--- Choisissez un bateau à affecter ---</option>
-                                <?php 
-                                    foreach($lesBateaux as $unBateau) 
-                                    {
-                                ?> 
-                                    <option value="<?= $unBateau["id"] ?>" ><?= ucfirst($unBateau["nom"]) ?></option>
-                                    
-                                <?php } ?> 
-                        </select>
-					</div>
+					
 				</div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
